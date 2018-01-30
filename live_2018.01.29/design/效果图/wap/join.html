@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+</head>        
+<body>
+<!--头部搜索开始  -->
+<div class="wrap">
+        <div class="y_top">
+        <div class="y_address">
+        <ul>
+        <li>淮滨</li>
+        </ul>
+        </div>
+        <!-- 搜索框 -->
+        <div class="y_search" >
+        <img src="./images/search.png" alt="">
+        <input type="text" placeholder="金龙鱼葵花玉米油" >
+        </div>
+        <div class="y_er">
+        <div class="er-pic">
+        <img src="./images/erweima.png" alt="">
+        </div>
+        <div class="er-text">邀请码</div>
+        </div>
+        </div>
+        <!-- 轮播图 -->
+<div id="lunbotu">
+  <div class="swiper-container" id="swiper-wrapper" >
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="./images/banner.png" alt="" width="100%"></div>
+      <div class="swiper-slide"><img src="./images/banner.png" alt="" width="100%"></div>
+      <div class="swiper-slide"><img src="./images/banner.png" alt="" width="100%"></div>
+      <div class="swiper-slide"><img src="./images/banner.png" alt="" width="100%"></div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+        <!-- 导航 -->
+        <div class="y_nav">
+        <div class="nav_all">
+        
+        <div class="y_huai">
+        <div class="pic"><img src="./images/aa.png" alt=""></div>
+        <div class="text">淮滨特产</div>
+        </div>
+        
+        <div class="y_huai">
+        <div class="pic"><img src="./images/bb.png" alt=""></div>
+        <div class="text">酒水饮料</div>
+        </div>
+        
+        <div class="y_huai">
+        <div class="pic"><img src="./images/cc.png" alt=""></div>
+        <div class="text">护肤彩妆</div>
+        </div>
+        
+        <div class="y_huai">
+        <div class="pic"><img src="./images/dd.png" alt=""></div>
+        <div class="text">家用电器</div>
+        </div>
+        
+        <div class="y_huai">
+        <div class="pic"><img src="./images/ee.png" alt=""></div>
+        <div class="text">干货粮油</div>
+        </div>
+        
+        </div>
+        </div>
+        <!-- 抢购中 -->
+        <div class="y_qianggou">
+        <div class="y_qianggouContent">
+        
+        <ul class="y_qianggouAll" >
+        <li class="y_qianggouC"><a href="#" class="zhong ">同城</a></li>
+        <li class="y_qianggouX"><span class="xian">|</span></li>
+        <li class="y_qianggouC"><a href="" class="zhong">乡镇</a></li>
+        <li class="y_qianggouX"> <span class="xian">|</span></li>
+        <li class="y_qianggouC"><a href="" class="zhong active">申请加入</a></li>
+        </ul>
+        </div>  
+        </div> 
+        <div class="y_change">
+        <form action="">
+        <div class="y_change-anniu">
+        <div class="y_change-int"><label for=""class="radio_label checked"><input type="radio" name="radio" value="1"checked="checked" >县城开店</label></div>
+        <div class="y_change-int"><label for=""class="radio_label"><input type="radio" name="radio" value="2">乡镇开店</label></div>
+        <div class="y_change-int"><label for=""class="radio_label"><input type="radio" name="radio" value="3" >一手货源</label></div>
+        </div>
+
+        <div class="y_chang-lx">
+        <label for="">电话</label>
+        <input type="text" name="" id="" placeholder="请输入电话">
+        </div>
+
+        <div class="y_chang-lx">
+        <label for="">验证码</label>
+        <input type="text" name="" id="" placeholder="请输入验证码">
+        <span class="y_huo">获取验证码</span>
+        </div>
+            
+        <div class="y_chang-lx">
+        <label for="">地址</label>
+        <input type="text"  placeholder="请填写你的地址">
+        </div>
+
+        <div class="y_chang-lx">
+        <label for="">留言</label>
+        <input type="text" name="" id="" placeholder="30字以内"class="y_limit">
+        </div>
+        <div class="y_tijiao">
+        <input type="submit"name="" id="">
+        </div>
+
+        </form>
+        </div>
+</div>   
+
+<!-- 底部导航 -->
+<footer class="y_foot">
+        <div class="y_foot-nav">
+        <ul>
+        <li><a href="#"><span><i class="icon iconfont">&#xe60c;</i></span><span>促销宝</span></a></li>
+        <li><a href="#"><span><i class="icon iconfont">&#xe6aa;</i></span><span>秒杀</span></a></li>
+        <li><a href="#"><span><i class="icon iconfont">&#xe62f;</i></span><span>消息</span></a></li>
+        <li><a href="#"><span><i class="icon iconfont">&#xe61d;</i></span><span>我的</span></a></li>
+        </ul>
+        </div>
+        </footer> 
+<script src="./js/jquery.min.js"></script>
+<script src="./js/index.js"></script> 
+<script src="./js/swiper.min.js"></script>
+
+<script type="text/javascript">
+	var swiper = new Swiper('.swiper-container',{
+            pagination: {
+              el: '.swiper-pagination',
+            },
+            autoplay: {
+            delay: '3000',
+            stopOnLastSlide: false,
+            disableOnInteraction: true,
+          },
+          shortSwipes:true
+        });
+</script>
+</body>
+</html>

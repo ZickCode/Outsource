@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <style type="text/css">
+    </style>
+</head>
+<body>
+	<header class="headerstyle">
+			<div class="header_left">
+				<a href="#">
+					<div id="triangle-facing-left"></div>
+					<div class="header_fanhui">返回</div>
+				</a>
+			</div>
+
+			<div class="header_center">详情</div>
+			<div class="header_right">
+				<span id="to_share"><img src="images/fengxiang.png"/></span>
+			</div>
+		</header>
+<div class="wrap">
+<!-- 轮播图 -->
+<div class="y_ding">
+ <!-- 轮播图 -->
+<div id="lunbotu">
+  <div class="swiper-container" id="swiper-wrapper" >
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="./images/banner.png" alt="" width="100%"></div>
+      <div class="swiper-slide"><img src="./images/banner.png" alt="" width="100%"></div>
+      <div class="swiper-slide"><img src="./images/banner.png" alt="" width="100%"></div>
+      <div class="swiper-slide"><img src="./images/banner.png" alt="" width="100%"></div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+        <div class="y_wei">
+        <div class="pic-one"><a href="javascript:;"onClick="javascript :history.back(-1);"><img src="./images/dao.png" alt=""></a></div>
+        <div class="pic-two"><img src="./images/share.png" alt=""></div>
+        </div>
+        <!-- 抢购 -->
+        <div class="y_robbery-all">
+        <div class="y_robbery">
+        <div class="y_robbery-Starttime">
+        <div class="y_robbery-price">
+        <span class="y_robbery-Newprice">￥38.8</span>
+        <span class="y_robbery-Oldprice">￥28.8</span>
+        </div>
+        <div class="y_robbery-score">
+        <div class="y_robbery-pic"><img src="./images/shal.png" alt=""></div>
+        <div class="y_leave">剩余66份</div>
+
+        </div>
+        </div>
+        <div class="y_robbery-Overtime">
+        <div class="y_robbery-distence">距离结束</div>  
+        <div class="y_robbery-dotimes">3:12:59'21''</div>  
+        </div>
+        </div>
+        <div class="y_robbery-content">奶酪 奶片内蒙古酸奶酪条 酸奶疙瘩小奶花奶贝尔</div>
+        <div class="y_robbery-look">浏览22222次</div>
+        </div>
+</div>
+      <!-- 店铺名称 -->
+        <div class="y_addressPhone">
+        <div class="y_addressPhone-left">
+        <div class="y_addressPhone-pic"><img src="./images/ee.png" alt=""></div>
+        <div class="y_addressPhone-content">
+        <div class="y_addressPhone-title">店铺名称</div>
+        <div class="y_addressPhone-text">信阳市浉河区 北巷16号好零食要分享</div>
+        </div>
+        </div>
+        <div class="y_addressPhone-right">
+        <div class=y_addressPhone-call><img src="./images/phone.png" alt=""></div>
+        </div>
+        </div>
+       <!-- 评价 -->
+
+       <div class="y_assess" style="padding: 0 0;">
+        <div class="y_assess-goon">
+        ---- 继续拖动， 查看图文详情 ----
+        </div>
+        <div class="y_assess-tuwen">
+        			<div class="y_assess-tuwenX"><img src="./images/cuxiaobao.png" alt=""style="width:100%;height:150px"></div>
+        		fsdfsdfsdfsd
+        </div>
+        </div>
+    </div> 
+    <footer class="y_foots">
+        <div class="y_foots-nav">
+        <ul>
+        <li><a href="#"><span>立即购买</span></a></li>
+        </ul>
+        </div>
+        </footer> 
+    <div id="mcover" style="display: none;"><img src="http://www.9pzm.com/Public/Home/picture/tishi.png"></div>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script>
+         $(function(){
+			$(document).on('click', '#to_share', function() {
+				$('#mcover').show();
+			})
+			$(document).on('click', '#mcover', function() {
+				$('#mcover').hide();
+			})
+         	$(".swiper-container").css("height",$(window).width());
+         	$(".swiper-slide img").css("height",$(window).width());
+            $(".y_wei").click(function(){
+                $(".y_wei").find(".pic-one img").history.back(-1)
+            });
+	        var swiper = new Swiper('.swiper-container',{
+	            pagination: {
+	              el: '.swiper-pagination',
+	            },
+	            autoplay: {
+	            delay: '3000',
+	            stopOnLastSlide: false,
+	            disableOnInteraction: true,
+	          },
+	          shortSwipes:true
+	        });
+         })
+ 
+         
+</script>
+</body>
+</html>

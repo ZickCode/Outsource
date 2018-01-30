@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/base.css">
+		<link rel="stylesheet" href="./css/index.css">
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('.y_threepage-nav li').click(function() {
+					$('.y_threepage-nav li').removeClass('active');
+					$(this).addClass('active');
+				})
+			})
+		</script>
+	</head>
+
+	<body>
+		<header class="headerstyle">
+			<div class="header_left">
+				<a href="#">
+					<div id="triangle-facing-left"></div>
+					<div class="header_fanhui">返回</div>
+				</a>
+			</div>
+
+			<div class="header_center">纸巾</div>
+			<div class="header_right">
+				<span><img src="images/search-1.png"/></span>
+				<span id="to_share"><img src="images/fengxiang.png"/></span>
+			</div>
+		</header>
+		<div class="y_threepage">
+			<div class="y_threepage-nav">
+				<ul>
+					<li class="active">
+						<a href="#">全部</a>
+					</li>
+					<li>
+						<a href="#">品牌</a>
+					</li>
+					<li>
+						<a href="#">纸巾</a>
+					</li>
+					<li>
+						<a href="#">抽纸</a>
+					</li>
+					<li>
+						<a href="#">抽纸</a>
+					</li>
+					<li>
+						<a href="#">抽纸</a>
+					</li>
+					<li>
+						<a href="#">抽纸</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="y_threepage-all">
+				<div class="y_threepage-content">
+
+					<div class="y_threepage-wupin">
+						<div class="y_threepage-wupinL">
+							<div class="y_threepage-pic"><img src="./images/page.png" alt=""></div>
+							<div class="y_threepage-miaoshu">纸纸纸纸纸纸纸纸纸纸纸纸纸纸纸纸纸纸</div>
+							<div class="y_threepage-price">
+								<span class="y_threepage-money">￥29.9</span>
+								<span class="y_threepage-same">找相似</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="y_threepage-wupin">
+						<div class="y_threepage-wupinL">
+							<div class="y_threepage-pic"><img src="./images/page.png" alt=""></div>
+							<div class="y_threepage-miaoshu">纸纸纸纸纸纸纸纸纸纸纸纸纸纸纸纸纸纸</div>
+							<div class="y_threepage-price">
+								<span class="y_threepage-money">￥29.9</span>
+								<span class="y_threepage-same">找相似</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="y_threepage-wupin">
+						<div class="y_threepage-wupinL">
+							<div class="y_threepage-pic"><img src="./images/page.png" alt=""></div>
+							<div class="y_threepage-miaoshu">纸纸纸纸纸纸纸纸纸纸纸纸纸纸纸纸纸纸</div>
+							<div class="y_threepage-price">
+								<span class="y_threepage-money">￥29.9</span>
+								<span class="y_threepage-same">找相似</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="y_threepage-wupin">
+						<div class="y_threepage-wupinL">
+							<div class="y_threepage-pic"><img src="./images/page.png" alt=""></div>
+							<div class="y_threepage-miaoshu">纸纸纸纸纸纸纸纸纸纸纸纸纸纸纸纸纸纸</div>
+							<div class="y_threepage-price">
+								<span class="y_threepage-money">￥29.9</span>
+								<span class="y_threepage-same">找相似</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+		<div id="mcover" style="display: none;"><img src="http://www.9pzm.com/Public/Home/picture/tishi.png"></div>
+		<script type="text/javascript">
+			$(function() {
+				$(document).on('click', '#to_share', function() {
+					$('#mcover').show();
+				})
+				$(document).on('click', '#mcover', function() {
+					$('#mcover').hide();
+				})
+			});
+		</script>
+	</body>
+
+</html>

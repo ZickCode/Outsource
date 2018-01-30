@@ -1,0 +1,599 @@
+body,dl,dd,ul,ol,h1,h2,h3,h4,h5,h6,pre,form,input,textarea,p,hr,thead,tbody,tfoot,th,td{margin:0;padding:0;}
+ul,ol{list-style:none;}
+a{text-decoration:none;}
+html{-ms-text-size-adjust:none;-webkit-text-size-adjust:none;text-size-adjust:none;}
+body{line-height:1.5; font-size:14px;}
+body,button,input,select,textarea{font-family:'helvetica neue',tahoma,'hiragino sans gb',stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,sans-serif;}
+b,strong{font-weight:bold;}
+i,em{font-style:normal;}
+table{border-collapse:collapse;border-spacing:0;}
+table th,table td{border:1px solid #ddd;padding:5px;}
+table th{font-weight:inherit;border-bottom-width:2px;border-bottom-color:#ccc;}
+img{border:0 none;width:auto\9;max-width:100%;vertical-align:top; height:auto;}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;vertical-align:baseline;}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;}
+button[disabled],input[disabled]{cursor:default;}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;}
+input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}
+input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}
+input:focus{outline:none;}
+select[size],select[multiple],select[size][multiple]{border:1px solid #AAA;padding:0;}
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block;}
+audio,canvas,video,progress{display:inline-block;}
+body{background:#fff;}
+input::-webkit-input-speech-button {display: none}
+button,input,textarea{
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.clearfix{
+    &:after{
+        content: '';
+        display: block;
+        height: 0;
+        visibility: hidden;
+        clear: both;
+    }
+}
+
+// 通用样式
+.ui-title{
+    position: relative;
+    height: 90px;
+    line-height: 90px;
+    border-bottom: 1px solid #f85858;
+    a{
+        position: absolute;
+        top: 0;
+        font-size: 28px;
+        color: #f85858;
+        &.ui-title-btn_back{
+            left: 50px;
+            &:before{
+                position: absolute;
+                top: 32px;
+                left: -30px;
+                content: '';
+                display: block;
+                width: 16px;
+                height: 30px;
+                background: url(../images/arrow-left.png) 0 0/100% 100% no-repeat;
+            }
+        }
+        &.ui-title-btn_send{
+            right: 30px;
+        }
+        &.ui-title-btn_share{
+            top: 30px;
+            right: 30px;
+            display: block;
+            width: 32px;
+            height: 32px;
+            background: url(../images/icon-share.png) 0 0/100% 100% no-repeat;
+        }
+    }
+    p.ui-title-text{
+        color: #323232;
+        font-size: 40px;
+        text-align: center;
+        padding: 0 40px;
+    }
+}
+
+//首页发布弹窗
+.dialog-send{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 80px 0 20px 0;
+    background: #f0f0f0;
+    .dialog-body{
+        ul{
+            li{
+                float: left;
+                width: 140px;
+                margin: 0 23px;
+                img{
+                    width: 100%;
+                }
+                p{
+                    color: #323232;
+                    font-size: 24px;
+                    text-align: center;
+                    line-height: 60px;
+                }
+            }
+        }
+        a.btn-close{
+            display: block;
+            width: 48px;
+            height: 48px;
+            margin: 60px auto 0;
+            background: url(../images/icon-close.png) 0 0/100% 100% no-repeat;
+        }
+    }
+}
+
+.content{
+    width: 750px;
+    height: 100%;
+    //内容发布页
+    &.edit-content{
+        .choose-send-type{
+            p{                
+                font-size: 28px;
+                color: #f85858;
+                line-height: 70px;
+                padding-left: 20px;
+            }
+            .choose-type-box{                
+                height: 55px;
+                overflow-x: scroll;
+            }
+            ul{
+                width: 1999px;
+                li{
+                    float: left;
+                    width: 132px;
+                    height: 52px;
+                    margin: 0 10px 0 20px;
+                    line-height: 52px;
+                    border-radius: 26px;
+                    border: 1px solid #b3b3b3;
+                    color: #999;
+                    font-size: 24px;
+                    text-align: center;
+                    cursor: pointer;
+                    &.on{
+                        color: #fff;
+                        background: #f85858;
+                        border: none;
+                    }
+                }
+            }
+        }
+        .edit-content-title{
+            height: 84px;
+            margin-top: 10px;
+            line-height: 84px;
+            input{
+                width: 100%;
+                height: 100%;
+                border: none;
+                font-size: 30px;
+                color: #333;
+                text-indent: 20px;
+                border-bottom: 1px solid #ccc;
+            }
+        }
+        .edit-content-text{
+            padding: 23px 20px 0 20px;
+            textarea{
+                width: 100%;
+                height: 200px;
+                border: none;
+                resize: none;
+                font-size: 24px;
+                color: #333;
+            }
+            .edit-content-img-box{
+                margin: 30px 0;
+                input.btn-add-img{
+                    position: relative;
+                    width: 137px;
+                    height: 137px;
+                    &:before{
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        display: block;
+                        width: 138px;
+                        height: 138px;
+                        background: url(../images/add-img.jpg) 0 0/ 100% 100% no-repeat;
+                    }
+                }
+            }
+            .edit-content-location{
+                position: relative;
+                width: 204px;
+                height: 46px;
+                line-height: 46px;
+                border: 1px solid #b3b3b3;
+                border-radius: 23px;
+                color: #666;
+                font-size: 22px;
+                padding-left: 36px;
+                &:before{
+                    content: '';
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    display: block;
+                    width: 18px;
+                    height: 26px;
+                    background: url(../images/icon-location.jpg) 0 0/ 100% 100% no-repeat;
+                }
+            }
+        }
+    }
+    //礼物列表
+    &.gift-list{
+        .container{
+            .user-info{
+                text-align: center;
+                .user-img-box{
+                    width: 120px;
+                    height: 120px;
+                    margin: 20px auto 10px;
+                    border-radius: 60px;
+                    overflow: hidden;
+                }
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+                .user-name{
+                    color: #323232;
+                    font-size: 24px;
+                }
+                .gift-num{
+                    color: #f85858;
+                    font-size: 30px;
+                    line-height: 60px;
+                    margin: 0 0 20px 0;
+                }
+            }
+            .gift-list-box{
+                border-top: 10px solid #fafafa;
+                ul{
+                    padding: 0 20px;
+                    li{
+                        border-bottom: 1px solid #ccc;
+                        .left{
+                            float: left;
+                            width: 400px;
+                            .gift-sender{
+                                width: 220px;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                color: #323232;
+                                font-size: 28px;
+                                margin: 15px 0 5px 0;
+                            }
+                            .gift-time{
+                                color: #999;
+                                font-size: 20px;
+                                margin: 0 0 10px 0;
+                            }
+                        }
+                        .right{
+                            float: right;
+                            .gift-type{
+                                color: #323232;
+                                font-size: 28px;
+                                margin: 15px 0 5px 0;
+                            }
+                            .gift-num{
+                                color: #999;
+                                font-size: 20px;
+                                margin: 0 0 10px 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    //赠送礼物
+    &.gift-send{
+        .container{
+            .user-info{
+                text-align: center;
+                .user-img-box{
+                    width: 120px;
+                    height: 120px;
+                    margin: 20px auto 10px;
+                    border-radius: 60px;
+                    overflow: hidden;
+                }
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+                .user-name{
+                    color: #323232;
+                    font-size: 24px;
+                }
+                .gift-num{
+                    color: #747474;
+                    font-size: 16px;
+                }
+            }
+            .gift-choose-box{
+                border-top: 10px solid #fafafa;
+                padding-bottom: 40px;
+                ul{
+                    li{
+                        float: left;
+                        width: 220px;
+                        height: 300px;
+                        margin: 15px;
+                        border-radius: 10px;
+                        text-align: center;
+                        cursor: pointer;
+                        border: 2px solid #fff;
+                        &.on{                            
+                            border: 2px solid #f85858;
+                        }
+                        img{
+                            width: 216px;
+                        }
+                        .gift-name{
+                            color: #333;
+                            font-size: 28px;
+                        }
+                        .gift-worth{
+                            .volume{
+                                color: #f85858;
+                                font-size: 20px;
+                            }
+                            .money{                                
+                                color: #747474;
+                                font-size: 25px;
+                            }
+                        }
+                    }
+                }
+            }
+            .gift-num{
+                position: relative;
+                padding: 0 20px;
+                border-top: 10px solid #fafafa;
+                p{
+                    color: #747474;
+                    font-size: 25px;
+                    line-height: 100px;
+                }
+                .gift-num-input{
+                    position: absolute;
+                    top: 34px;
+                    right: 22px;
+                    width: 165px;
+                    height: 40px;
+                    border-radius: 10px;
+                    border: 1px solid #f85858;
+                    &:before{
+                        content: '数量:';
+                        position: absolute;
+                        top: 0;
+                        left: 5px;
+                        color: #747474;
+                        font-size: 25px;
+                    }
+                    &:after{
+                        content: '>';
+                        position: absolute;
+                        top: 0;
+                        right: 0px;
+                        color: #747474;
+                        font-size: 25px;
+                    }
+                    input{
+                        width: 60px;
+                        height: 30px;
+                        margin-left: 70px;
+                    }
+                }
+            }
+            .pay-box{
+                padding: 0 20px;
+                a.btn-pay{
+                    display: block;
+                    height: 80px;
+                    line-height: 80px;
+                    text-align: center;
+                    background: #f85858;
+                    color: #fff;
+                    font-size: 32px;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+    //视频详情
+    &.video-detail{
+        position: relative;
+        height: 1334px;
+        .ui-title{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9;
+            width: 100%;
+            background: transparent;
+            border: 0;
+            p{
+                color: #fff;
+            }
+            a.ui-title-btn_back{
+                color: #fff;
+                left: 50px;
+                &:before{
+                    position: absolute;
+                    top: 32px;
+                    left: -30px;
+                    content: '';
+                    display: block;
+                    width: 16px;
+                    height: 30px;
+                    background: url(../images/arrow-left_white.png) 0 0/100% 100% no-repeat;
+                }
+            }
+            a.ui-title-btn_more{
+                top: 40px;
+                right: 50px;
+                width: 53px;
+                height: 12px;
+                background: url(../images/icon-more.png) 0 0/100% 100% no-repeat;
+            }
+        }
+        .container{
+            .video-box{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 750px;
+                height: 1334px;
+                video{
+                    width: 100%;
+                    height: 100%;
+                }
+                a.btn-play{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 100px;
+                    height: 100px;
+                    margin: -50px 0 0 -50px;
+                    background: url(../images/icon-play.png) 0 0/100% 100% no-repeat;
+                }
+            }
+            .video-comment-box{
+                position: absolute;
+                top: 1075px;
+                left: 0;
+                width: 100%;
+                padding: 0 0 0 38px;
+                .video-info{
+                    .video-head-box{
+                        float: left;
+                        width: 85px;
+                        height: 85px;
+                        border-radius: 42.5px;
+                        overflow: hidden;
+                        img{
+                            width: 100%;
+                        }
+                    }
+                    .video-name{
+                        float: left;
+                        margin: 0 16px 0 24px;
+                        color: #fff;
+                        font-size: 36px;
+                        font-weight: 600;
+                        line-height: 85px;
+                    }
+                    a.btn-focus{
+                        float: left;
+                        display: block;
+                        width: 80px;
+                        height: 40px;
+                        margin-top: 22px;
+                        line-height: 38px;
+                        border: 1px solid #f85858;
+                        border-radius: 10px;
+                        color: #f85858;
+                        font-size: 24px;
+                        padding-left: 5px;
+                    }
+                }
+                .video-comment{
+                    height: 80px;
+                    overflow-y: scroll;
+                    color: #fff;
+                    font-size: 26px;
+                    line-height: 80px;
+                }
+                .video-send-comment{
+                    .send-comment-input{
+                        float: left;
+                        position: relative;
+                        width: 280px;
+                        height: 52px;
+                        border-radius: 26px;
+                        background: rgba($color: #fff, $alpha: .6);
+                        padding-left: 60px;
+                        &:before{
+                            content: '';
+                            position: absolute;
+                            top: 15px;
+                            left: 25px;
+                            width: 26px;
+                            height: 26px;
+                            background: url(../images/icon-edit.png) 0 0/100% 100% no-repeat;
+                        }
+                        input{
+                            width: 190px;
+                            height: 50px;
+                            border: 0;
+                            border-radius: 0;
+                            background: transparent;
+                            color: #fff;
+                            font-size: 24px;
+                        }
+                    }
+                    p{
+                        position: relative;
+                        float: left;
+                        width: 100px;
+                        line-height: 50px;
+                        color: #fff;
+                        font-size: 20px;
+                        padding-left: 50px;
+                        margin-left: 30px;
+                        &.comment-num{
+                            &:before{
+                                content: '';
+                                position: absolute;
+                                top: 5px;
+                                left: 0;
+                                display: block;
+                                width: 40px;
+                                height: 40px;
+                                background: url(../images/icon-comment.png) 0 0/100% 100% no-repeat;
+                            }
+                        }
+                        &.liked-num{
+                            &:before{
+                                content: '';
+                                position: absolute;
+                                top: 4px;
+                                left: 0;
+                                display: block;
+                                width: 36px;
+                                height: 36px;
+                                background: url(../images/icon-liked.png) 0 0/100% 100% no-repeat;
+                            }
+                        }
+                    }
+                    a.btn-reward{
+                        position: relative;
+                        float: left;
+                        display: block;
+                        width: 122px;
+                        height: 52px;
+                        margin-left: 20px;
+                        line-height: 52px;
+                        border-radius: 26px;
+                        background: #f85858;
+                        color: #fff;
+                        font-size: 22px;
+                        padding-left: 55px;
+                        &:before{
+                            content: '';
+                            position: absolute;
+                            top: 7px;
+                            left: 12px;
+                            display: block;
+                            width: 36px;
+                            height: 36px;
+                            background: url(../images/icon-reward.png) 0 0/100% 100% no-repeat;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
