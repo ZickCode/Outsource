@@ -108,5 +108,62 @@
                 }
             }
         }
+        .new-project{
+            background: #fff;
+            text-align: center;
+            margin-top: 20px;
+            padding: 0 35px 35px;
+            p.title{
+                display: inline-block;
+                padding: 20px 80px;
+                color: #2d2d2d;
+                font-size: 30px;
+                border: 1px solid #b0b0b0;
+                margin: 60px 0 40px 0;
+            }
+            .project-info{
+                display: flex;
+                align-items: center;
+                .left{
+                    flex: 2;
+                    p{
+                        color: #bbb;
+                        font-size: 24px;
+                        line-height: 1;
+                        text-align: left;
+                        &.name{
+                            color: #373737;
+                            font-size: 28px;
+                            width: 400px;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                        }
+                        &.price{
+                            span{
+                                color: #df4343;
+                                font-size: 28px;
+                            }
+                        }
+                        &.anthor{                  
+                            width: 400px;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                        }
+                    }
+                }
+                .right{
+                    flex: 1;
+                    text-align: right;
+                    i.icon-success{
+                        display: inline-block;
+                        width: 100px;
+                        height: 57px;
+                        background: url(../images/usercenter/icon-success.png) no-repeat 0 0/100% 100%;
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,0 +1,9 @@
+.messagecenter .mui-content ul {
+  padding: 0; }
+  .messagecenter .mui-content ul li a {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px dashed #E1E1E1;
+    padding: 20px 40px; }
+    .messagecenter .mui-content ul li a p {
+      font-size: 30px; }

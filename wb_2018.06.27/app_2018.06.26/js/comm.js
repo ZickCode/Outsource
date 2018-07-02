@@ -3,7 +3,7 @@
 	var homeBtn = document.getElementById('home'),
 		listBtn = document.getElementById('list'),
 		loanBtn = document.getElementById('loan'),
-		regBtn = document.getElementById('reg'),
+		machinelistBtn = document.getElementById('machinelist'),
 		machinedetailBtn = document.getElementById('machinedetail')
 		userCenterBtn = document.getElementById('usercenter');
 	
@@ -55,10 +55,10 @@
 			}
 		});
 	});
-	regBtn.addEventListener('tap', function(event) {
+	machinelistBtn.addEventListener('tap', function(event) {
 		$.openWindow({
-			url: 'reg.html',
-			id: 'reg',
+			url: 'machineList.html',
+			id: 'machinelist',
 			preload: true,
 			show: {
 				aniShow: 'pop-in'
