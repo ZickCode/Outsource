@@ -1,0 +1,55 @@
+.machine-text {
+  border: 2px dashed #e1e1e1; }
+  .machine-text p {
+    text-align: center; }
+    .machine-text p.title {
+      padding: 60px 0 35px;
+      font-size: 34px;
+      line-height: 1.2; }
+  .machine-text div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto; }
+    .machine-text div p {
+      position: relative;
+      width: 50%;
+      text-align: left;
+      font-size: 20px;
+      padding: 15px 0; }
+      .machine-text div p.long {
+        width: 100%; }
+
+.mui-content > img {
+  width: 100%; }
+
+.icon-tel {
+  position: absolute;
+  top: 50%;
+  left: 90px;
+  transform: translateY(-50%);
+  display: inline-block;
+  width: 36px;
+  height: 34px;
+  background: url(../images/machinedetail/icon-tel.png) no-repeat 0 0/100% 100%; }
+
+.machine-intro {
+  padding: 30px 60px;
+  line-height: 1.5; }
+  .machine-intro p {
+    position: relative;
+    margin: 0;
+    font-size: 20px; }
+    .machine-intro p:before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: -20px;
+      display: block;
+      width: 10px;
+      height: 10px;
+      background: #929292;
+      transform: rotateZ(45deg); }
+    .machine-intro p.title:before {
+      display: none; }

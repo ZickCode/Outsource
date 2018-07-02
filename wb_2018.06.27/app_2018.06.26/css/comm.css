@@ -1,0 +1,94 @@
+* {
+  -webkit-overflow-scrolling: touch; }
+
+.ui-page-login,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px; }
+  .ui-page-login > .mui-content,
+  body > .mui-content {
+    padding: 90px 0 130px 0; }
+
+body .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #393a3f;
+  height: 90px;
+  padding: 20px 27px 20px 50px;
+  box-shadow: none; }
+  body .header a {
+    display: block; }
+    body .header a:before {
+      display: none; }
+  body .header .mui-action-back {
+    width: 60px;
+    height: 60px;
+    background: url(../images/comm/icon-back.png) no-repeat center center;
+    background-size: 34px 33px; }
+  body .header .icon-book {
+    width: 64px;
+    height: 44px;
+    background: url(../images/comm/icon-book.png) no-repeat 0 0;
+    background-size: 100% 100%; }
+  body .header .icon-close {
+    width: 33px;
+    height: 32px;
+    background: url(../images/comm/icon-close.png) no-repeat 0 0;
+    background-size: 100% 100%; }
+  body .header div {
+    display: flex;
+    align-items: center;
+    height: 100%; }
+  body .header p {
+    color: #FFF;
+    font-size: 36px;
+    margin: 0 0 0 20px;
+    border-left: 2px solid #2c2d32;
+    height: 100%;
+    line-height: 1;
+    padding: 10px 0 0 20px; }
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  text-align: center;
+  padding: 20px 10px;
+  border-top: 1px solid #e1e1e1; }
+  .footer p {
+    font-size: 22px;
+    margin: 0;
+    padding-top: 10px; }
+  .footer i {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-size: cover !important; }
+    .footer i.icon-home {
+      background: url(../images/comm/icon-home.png) no-repeat center center; }
+    .footer i.icon-list {
+      background: url(../images/comm/icon-list.png) no-repeat center center; }
+    .footer i.icon-pen {
+      background: url(../images/comm/icon-pen.png) no-repeat center center; }
+    .footer i.icon-money {
+      background: url(../images/comm/icon-money.png) no-repeat center center; }
+    .footer i.icon-gear {
+      background: url(../images/comm/icon-gear.png) no-repeat center center; }
+    .footer i.icon-user {
+      background: url(../images/comm/icon-user.png) no-repeat center center; }
+
+.btn-gray {
+  background: #b7b7b7;
+  margin: 30px 0 0 0;
+  font-size: 32px;
+  border: 0;
+  width: 100%;
+  border-radius: 10px; }

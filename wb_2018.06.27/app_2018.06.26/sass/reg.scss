@@ -1,0 +1,132 @@
+.reg {
+    background: #f5f5f5;
+    line-height: 1;
+    min-height: 100%;
+}
+
+.mui-bar-nav~.mui-content {
+    padding-top: 90px;
+}
+
+.mui-content {
+    background: #f5f5f5;
+    .switch {
+        display: flex;
+        width: 450px;
+        height: 90px;
+        border-radius: 15px;
+        margin: 70px auto 50px;
+        overflow: hidden;
+        a {
+            flex: 1;
+            color: #fcfcfc;
+            font-size: 36px;
+            text-align: center;
+            padding: 25px 0 0 0;
+            background: #535353;
+            &.active {
+                background: #fff;
+                color: #7b7b7b;
+            }
+        }
+    }
+    img {
+        width: 100%;
+    }
+    .mui-input-group {
+        margin: 0 35px;
+        background: none;
+        .mui-input-row.inputbox {
+            display: flex;
+            align-items: center;
+            font-size: 32px;
+            height: auto;
+            background: #fff;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            &.code {
+                border-radius: 0;
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+            }
+            input {
+                width: 100%;
+                font-size: 32px;
+                margin: 35px 0;
+                line-height: 1;
+            }
+            img {
+                width: 146px;
+                height: 66px;
+                margin-right: 20px;
+            }
+        }
+        .mui-input-group:before,
+        .mui-input-group:after {
+            display: none;
+        }
+        &:before,
+        &:after {
+            display: none;
+        }
+        .mui-input-row {
+            &.mui-radio {
+                font-size: 26px;
+                color: #a4a4a4;
+                display: flex;
+                align-items: center;
+                label {
+                    line-height: 1;
+                }
+            }
+            &.mui-checkbox {
+                display: flex;
+                align-items: center;
+                font-size: 26px;
+                color: #a4a4a4;
+            }
+        }
+    }
+}
+
+.noafter:after {
+    display: none;
+}
+
+.radio {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    margin: 20px 0;
+}
+
+.checkbox {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-reg {
+    background: #b7b7b7;
+    margin: 20px 35px 0;
+    font-size: 32px;
+    border: 0;
+    width: calc(100% - 70px);
+    border-radius: 10px;
+}
+
+.login-weichat {
+    display: block;
+    text-align: center;
+    margin: 55px 0 0 0;
+    i {
+        display: inline-block;
+        width: 111px;
+        height: 111px;
+        background: url(../images/login/icon-wechat.png) no-repeat 0 0;
+        background-size: 100% 100%;
+    }
+    p {
+        font-size: 32px;
+        color: #3d3d3d;
+    }
+}

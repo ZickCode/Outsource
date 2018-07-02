@@ -1,0 +1,65 @@
+.noticelist .mui-content .company-info {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background: url(../images/noticelist/noticelist.jpg) no-repeat 0 0/100% 100%; }
+  .noticelist .mui-content .company-info img {
+    width: 180px;
+    height: 120px; }
+
+a.back-companypage {
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  color: #f60000;
+  font-size: 20px;
+  padding: 5px 15px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background: rgba(255, 255, 255, 0.5); }
+
+.company-detail {
+  display: flex;
+  padding: 150px 0 0 20px; }
+  .company-detail div p {
+    padding: 10px 0 0 20px;
+    font-size: 22px;
+    color: #fff; }
+    .company-detail div p.name {
+      color: #e30018;
+      font-size: 36px;
+      font-weight: bold; }
+    .company-detail div p.deal span:last-child {
+      margin-left: 30px; }
+    .company-detail div p.address:before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 24px;
+      background: url(../images/noticelist/icon-address.png) no-repeat 0 0/100% 100%;
+      vertical-align: text-bottom;
+      margin-right: 10px; }
+
+.company-detail .company-detail div p .company-detail div p .company-detail div p .notice-box p.title {
+  color: #323232;
+  font-size: 36px;
+  padding: 50px 0 30px 0;
+  text-align: center; }
+
+.company-detail .company-detail div p .company-detail div p .company-detail div p .notice-box ul {
+  padding: 0; }
+  .company-detail .company-detail div p .company-detail div p .company-detail div p .notice-box ul li {
+    list-style: none; }
+    .company-detail .company-detail div p .company-detail div p .company-detail div p .notice-box ul li a {
+      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+      border-top: 2px dashed #e1e1e1; }
+      .company-detail .company-detail div p .company-detail div p .company-detail div p .notice-box ul li a p {
+        color: #5e5e5e;
+        font-size: 24px; }
+        .company-detail .company-detail div p .company-detail div p .company-detail div p .notice-box ul li a p:first-child {
+          width: 420px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
