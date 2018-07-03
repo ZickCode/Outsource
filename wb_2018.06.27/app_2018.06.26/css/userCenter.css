@@ -84,6 +84,7 @@
         .usercenter .mui-content .menu-list ul li i.icon-arrow-right {
           background-image: url(../images/usercenter/icon-arrow-right.png); }
   .usercenter .mui-content .new-project {
+    display: block;
     background: #fff;
     text-align: center;
     margin-top: 20px;

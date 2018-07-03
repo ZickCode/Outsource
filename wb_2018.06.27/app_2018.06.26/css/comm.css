@@ -34,9 +34,9 @@ body .header {
     background: url(../images/comm/icon-book.png) no-repeat 0 0;
     background-size: 100% 100%; }
   body .header .icon-close {
-    width: 33px;
-    height: 32px;
-    background: url(../images/comm/icon-close.png) no-repeat 0 0;
+    width: 40px;
+    height: 40px;
+    background: url(../images/comm/icon-close.png) no-repeat center center;
     background-size: 100% 100%; }
   body .header div {
     display: flex;
@@ -86,9 +86,15 @@ body .header {
       background: url(../images/comm/icon-user.png) no-repeat center center; }
 
 .btn-gray {
+  display: block;
   background: #b7b7b7;
-  margin: 30px 0 0 0;
+  margin: 30px auto 0;
   font-size: 32px;
   border: 0;
   width: 100%;
-  border-radius: 10px; }
+  border-radius: 10px;
+  color: #fff;
+  padding: 30px 0;
+  text-align: center; }
+  .btn-gray.btn-red {
+    background: #ef5050; }

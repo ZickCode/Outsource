@@ -1,0 +1,92 @@
+.shopHome .mui-content .company-info {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background: url(../images/noticelist/noticelist.jpg) no-repeat 0 0/100% 100%; }
+  .shopHome .mui-content .company-info img {
+    width: 180px;
+    height: 120px; }
+  .shopHome .mui-content .company-info a.back-companypage {
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    color: #b1b0af;
+    font-size: 26px;
+    padding: 5px 15px; }
+  .shopHome .mui-content .company-info .company-detail {
+    display: flex;
+    padding: 150px 0 0 20px; }
+    .shopHome .mui-content .company-info .company-detail div p {
+      padding: 10px 0 0 20px;
+      font-size: 22px;
+      color: #fff; }
+      .shopHome .mui-content .company-info .company-detail div p.name {
+        color: #e30018;
+        font-size: 36px;
+        font-weight: bold; }
+      .shopHome .mui-content .company-info .company-detail div p.deal span:last-child {
+        margin-left: 30px; }
+      .shopHome .mui-content .company-info .company-detail div p.address:before {
+        content: '';
+        display: inline-block;
+        width: 16px;
+        height: 24px;
+        background: url(../images/noticelist/icon-address.png) no-repeat 0 0/100% 100%;
+        vertical-align: text-bottom;
+        margin-right: 10px; }
+
+.shopHome .mui-content .switch {
+  display: flex;
+  background: #fff;
+  border-bottom: 1px solid #DCDCDC; }
+  .shopHome .mui-content .switch a {
+    flex: 1;
+    font-size: 32px;
+    color: #242424;
+    padding: 45px 0 27px 0;
+    text-align: center; }
+    .shopHome .mui-content .switch a.active {
+      border-bottom: 2px solid #FF0000; }
+
+.shopHome .mui-content .shop-home .three-num {
+  display: flex;
+  background: #fff;
+  padding-top: 30px; }
+  .shopHome .mui-content .shop-home .three-num > div {
+    flex: 1;
+    text-align: center; }
+    .shopHome .mui-content .shop-home .three-num > div .circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 70px;
+      padding-top: 30px;
+      margin: 0 auto;
+      border: 1px solid #DCDCDC;
+      box-shadow: 0 5px 5px #dcdcdc; }
+      .shopHome .mui-content .shop-home .three-num > div .circle p {
+        font-size: 26px;
+        line-height: 1; }
+        .shopHome .mui-content .shop-home .three-num > div .circle p.red {
+          color: #FF0000;
+          font-size: 30px;
+          font-weight: bold; }
+    .shopHome .mui-content .shop-home .three-num > div > p {
+      font-size: 30px;
+      padding: 40px 0 20px 0; }
+
+.shopHome .mui-content .shop-home .shop-intro {
+  margin-top: 30px;
+  background: #fff;
+  padding: 0 40px; }
+  .shopHome .mui-content .shop-home .shop-intro p.title {
+    font-size: 30px;
+    color: #171717;
+    padding: 40px 0; }
+  .shopHome .mui-content .shop-home .shop-intro img {
+    width: 100%; }
+  .shopHome .mui-content .shop-home .shop-intro p.info {
+    color: #787878;
+    font-size: 26px;
+    line-height: 1.8;
+    text-indent: 2em;
+    padding: 30px 0; }

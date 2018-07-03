@@ -4,9 +4,9 @@
 		listBtn = document.getElementById('list'),
 		loanBtn = document.getElementById('loan'),
 		machinelistBtn = document.getElementById('machinelist'),
-		machinedetailBtn = document.getElementById('machinedetail')
-		userCenterBtn = document.getElementById('usercenter');
-	
+		machinedetailBtn = document.getElementById('machinedetail'),
+		userCenterBtn = document.getElementById('usercenter'),
+		releaseBtn = document.getElementById('icon-book');
 	homeBtn.addEventListener('tap', function(event) {
 		$.openWindow({
 			url: 'missionList.html',
@@ -91,6 +91,23 @@
 		$.openWindow({
 			url: 'userCenter.html',
 			id: 'usercenter',
+			preload: true,
+			show: {
+				aniShow: 'pop-in'
+			},
+			styles: {
+				popGesture: 'hide'
+			},
+			waiting: {
+				autoShow: false
+			}
+		});
+	});
+	if(!releaseBtn) return;
+	releaseBtn.addEventListener('tap', function(event) {
+		$.openWindow({
+			url: 'missionRelease.html',
+			id: 'missionrelease',
 			preload: true,
 			show: {
 				aniShow: 'pop-in'

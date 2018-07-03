@@ -1,0 +1,93 @@
+.missionrelease {
+  background: #fff; }
+  .missionrelease .mui-content {
+    background: #fff; }
+    .missionrelease .mui-content .user-info {
+      height: 320px;
+      padding: 60px 0 0 0;
+      text-align: center;
+      background: url(../images/noticelist/noticelist.jpg) no-repeat 0 0/100% 100%; }
+      .missionrelease .mui-content .user-info img {
+        width: 90px;
+        height: 90px;
+        border-radius: 45px;
+        overflow: hidden; }
+      .missionrelease .mui-content .user-info p {
+        line-height: 1;
+        font-size: 24px;
+        color: #fff;
+        padding: 10px 0 0 0; }
+        .missionrelease .mui-content .user-info p.name {
+          font-size: 30px; }
+        .missionrelease .mui-content .user-info p.address:before {
+          content: '';
+          display: inline-block;
+          width: 16px;
+          height: 24px;
+          background: url(../images/noticelist/icon-address.png) no-repeat 0 0/100% 100%;
+          vertical-align: text-bottom;
+          margin-right: 10px; }
+    .missionrelease .mui-content p.title-top {
+      font-size: 32px;
+      color: #2D2D2D;
+      padding: 35px 0;
+      text-align: center;
+      border-bottom: 2px solid #fafafa; }
+    .missionrelease .mui-content .input-box {
+      padding: 0 30px;
+      color: #6a6a6a; }
+      .missionrelease .mui-content .input-box > p {
+        padding: 30px 0 10px;
+        font-size: 26px;
+        line-height: 1; }
+      .missionrelease .mui-content .input-box .radio {
+        font-size: 22px; }
+        .missionrelease .mui-content .input-box .radio label {
+          padding: 11px 50px 11px 10px; }
+      .missionrelease .mui-content .input-box input[type=radio] {
+        top: 10px;
+        right: 10px; }
+      .missionrelease .mui-content .input-box input[type=radio]:before {
+        vertical-align: middle; }
+      .missionrelease .mui-content .input-box.select-box {
+        margin: 30px 0 10px;
+        font-size: 22px; }
+        .missionrelease .mui-content .input-box.select-box div {
+          flex: 1;
+          display: flex;
+          align-items: center; }
+          .missionrelease .mui-content .input-box.select-box div label {
+            white-space: nowrap; }
+          .missionrelease .mui-content .input-box.select-box div select {
+            width: 100px;
+            margin: 0;
+            padding: 0;
+            border: 1px solid #8f979e !important;
+            margin-left: 15px;
+            padding-left: 15px;
+            font-size: 22px;
+            -webkit-appearance: menulist-button; }
+      .missionrelease .mui-content .input-box .uploadbox {
+        position: relative;
+        margin-bottom: 30px; }
+        .missionrelease .mui-content .input-box .uploadbox a {
+          display: inline-block;
+          width: 200px;
+          padding: 10px;
+          background: #ef5050;
+          color: #fff;
+          font-size: 22px;
+          font-weight: bold;
+          border-radius: 5px;
+          text-align: center; }
+        .missionrelease .mui-content .input-box .uploadbox input[type=file] {
+          position: absolute;
+          width: 200px;
+          height: 100%;
+          top: 0;
+          left: 0;
+          opacity: 0; }
+    .missionrelease .mui-content .btn-gray {
+      width: calc(100% - 60px); }
+    .missionrelease .mui-content .flex-box {
+      display: flex; }

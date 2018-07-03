@@ -1,0 +1,51 @@
+.projectdetail .mui-content img {
+  width: 100%; }
+
+.projectdetail .mui-content p.title {
+  padding: 70px 0 60px 0;
+  text-align: center;
+  font-size: 32px;
+  color: #212121; }
+
+.projectdetail .mui-content .info-box {
+  margin-left: 160px;
+  border-left: 4px solid #b9b9b9;
+  padding-left: 15px; }
+  .projectdetail .mui-content .info-box p {
+    position: relative;
+    line-height: 1;
+    padding: 20px 0;
+    font-size: 28px;
+    color: #969696; }
+    .projectdetail .mui-content .info-box p.info {
+      left: -150px; }
+      .projectdetail .mui-content .info-box p.info:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 122px;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        border-radius: 9px;
+        background: #fff;
+        border: 2px solid #b9b9b9; }
+      .projectdetail .mui-content .info-box p.info span:first-child {
+        margin-right: 40px; }
+    .projectdetail .mui-content .info-box p.time {
+      font-size: 30px;
+      color: #5E5E5E;
+      padding-left: 30px; }
+      .projectdetail .mui-content .info-box p.time:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 40%;
+        left: -50px;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background: url(../images/projectDetail/icon-lock.png) no-repeat 0 0/100% 100% #b9b9b9;
+        border-radius: 30px;
+        border: 10px solid #b9b9b9; }

@@ -1,12 +1,18 @@
-.noticelist .mui-content .company-info {
-    position: relative;
-    width: 100%;
-    height: 320px;
-    background: url(../images/noticelist/noticelist.jpg) no-repeat 0 0/100% 100%;
-    img {
-        width: 180px;
-        height: 120px;
-    }
+.noticelist {
+    background: #fff;
+    .mui-content{
+        background: #fff;
+        .company-info {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            background: url(../images/noticelist/noticelist.jpg) no-repeat 0 0/100% 100%;
+            img {
+                width: 180px;
+                height: 120px;
+            }
+        }
+    }    
 }
 
 a.back-companypage {
@@ -48,7 +54,7 @@ a.back-companypage {
     }
 }
 
-.company-detail .company-detail div p .company-detail div p .company-detail div p .notice-box {
+.notice-box {
     p.title {
         color: #323232;
         font-size: 36px;
