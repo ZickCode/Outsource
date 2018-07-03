@@ -92,7 +92,6 @@
           background: #EF5050;
           border-color: #ef5050; }
     .missiondetail .mui-content .mission-require {
-      display: none;
       padding: 0 35px; }
       .missiondetail .mui-content .mission-require p.title {
         color: #3d3d3d;
@@ -104,89 +103,92 @@
         line-height: 1.2; }
       .missiondetail .mui-content .mission-require img {
         width: 100%; }
-    .missiondetail .mui-content .business-rob .business-info > div {
-      position: relative;
-      padding: 15px 35px;
-      border-bottom: 2px dashed #E1E1E1; }
-      .missiondetail .mui-content .business-rob .business-info > div img {
-        position: absolute;
-        left: 25px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 95px;
-        height: 95px; }
-      .missiondetail .mui-content .business-rob .business-info > div div {
-        padding: 0 145px 0 110px; }
-        .missiondetail .mui-content .business-rob .business-info > div div p {
-          line-height: 1;
-          font-size: 24px;
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis; }
-          .missiondetail .mui-content .business-rob .business-info > div div p.name {
-            color: #252525;
-            font-weight: bold; }
-          .missiondetail .mui-content .business-rob .business-info > div div p em {
-            margin-left: 20px;
-            font-style: normal; }
-          .missiondetail .mui-content .business-rob .business-info > div div p span {
-            color: #ff0000;
-            font-size: 28px;
-            font-weight: bold; }
-      .missiondetail .mui-content .business-rob .business-info > div a.btn-detail {
-        position: absolute;
-        right: 25px;
-        top: 50%;
-        transform: translateY(-50%);
-        display: block;
-        width: 135px;
-        height: 50px;
-        color: #252525;
-        padding: 12px;
-        font-size: 26px;
-        border: 2px solid #E1E1E1;
-        white-space: nowrap; }
-    .missiondetail .mui-content .business-rob .info-box {
-      padding: 0 35px; }
-      .missiondetail .mui-content .business-rob .info-box p.title {
-        font-size: 36px;
-        color: #ed3c3c;
-        padding: 50px 0;
-        text-align: center; }
-      .missiondetail .mui-content .business-rob .info-box .input-box {
-        margin-bottom: 20px; }
-        .missiondetail .mui-content .business-rob .info-box .input-box.flex-box {
-          display: flex;
-          align-items: center; }
-        .missiondetail .mui-content .business-rob .info-box .input-box p {
-          color: #6f6f6f;
-          font-size: 26px;
-          white-space: nowrap; }
-        .missiondetail .mui-content .business-rob .info-box .input-box input {
-          width: 200px;
-          border: 0;
-          border-bottom: 2px solid #E1E1E1;
-          font-size: 26px; }
-      .missiondetail .mui-content .business-rob .info-box .uploadbox {
+    .missiondetail .mui-content .business-rob {
+      display: none; }
+      .missiondetail .mui-content .business-rob .business-info > div {
         position: relative;
-        margin: 15px 0;
-        padding-left: 150px; }
-        .missiondetail .mui-content .business-rob .info-box .uploadbox a {
-          display: inline-block;
-          padding: 10px 50px;
-          background: #ef5050;
-          color: #fff;
-          font-size: 22px;
-          font-weight: bold;
-          border-radius: 5px; }
-        .missiondetail .mui-content .business-rob .info-box .uploadbox input[type=file] {
+        padding: 15px 35px;
+        border-bottom: 2px dashed #E1E1E1; }
+        .missiondetail .mui-content .business-rob .business-info > div img {
           position: absolute;
-          width: 188px;
-          height: 100%;
-          top: 0;
-          left: 150px;
-          opacity: 0; }
-      .missiondetail .mui-content .business-rob .info-box textarea {
-        height: 200px; }
-    .missiondetail .mui-content .business-rob .btn-gray {
-      width: calc(100% - 70px); }
+          left: 25px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 95px;
+          height: 95px; }
+        .missiondetail .mui-content .business-rob .business-info > div div {
+          padding: 0 145px 0 110px; }
+          .missiondetail .mui-content .business-rob .business-info > div div p {
+            line-height: 1;
+            font-size: 24px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis; }
+            .missiondetail .mui-content .business-rob .business-info > div div p.name {
+              color: #252525;
+              font-weight: bold; }
+            .missiondetail .mui-content .business-rob .business-info > div div p em {
+              margin-left: 20px;
+              font-style: normal; }
+            .missiondetail .mui-content .business-rob .business-info > div div p span {
+              color: #ff0000;
+              font-size: 28px;
+              font-weight: bold; }
+        .missiondetail .mui-content .business-rob .business-info > div a.btn-detail {
+          position: absolute;
+          right: 25px;
+          top: 50%;
+          transform: translateY(-50%);
+          display: block;
+          width: 135px;
+          height: 50px;
+          color: #252525;
+          padding: 12px;
+          font-size: 26px;
+          border: 2px solid #E1E1E1;
+          white-space: nowrap; }
+      .missiondetail .mui-content .business-rob .info-box {
+        padding: 0 35px; }
+        .missiondetail .mui-content .business-rob .info-box p.title {
+          font-size: 36px;
+          color: #ed3c3c;
+          padding: 50px 0;
+          text-align: center; }
+        .missiondetail .mui-content .business-rob .info-box .input-box {
+          margin-bottom: 20px; }
+          .missiondetail .mui-content .business-rob .info-box .input-box.flex-box {
+            display: flex;
+            align-items: center; }
+          .missiondetail .mui-content .business-rob .info-box .input-box p {
+            color: #6f6f6f;
+            font-size: 26px;
+            white-space: nowrap; }
+          .missiondetail .mui-content .business-rob .info-box .input-box input {
+            width: 200px;
+            border: 0;
+            border-bottom: 2px solid #E1E1E1;
+            font-size: 26px; }
+        .missiondetail .mui-content .business-rob .info-box .uploadbox {
+          position: relative;
+          margin: 15px 0;
+          padding-left: 150px; }
+          .missiondetail .mui-content .business-rob .info-box .uploadbox a {
+            display: inline-block;
+            padding: 10px 50px;
+            background: #ef5050;
+            color: #fff;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 5px; }
+          .missiondetail .mui-content .business-rob .info-box .uploadbox input[type=file] {
+            position: absolute;
+            width: 188px;
+            height: 100%;
+            top: 0;
+            left: 150px;
+            opacity: 0; }
+        .missiondetail .mui-content .business-rob .info-box textarea {
+          height: 200px;
+          font-size: 26px; }
+      .missiondetail .mui-content .business-rob .btn-gray {
+        width: calc(100% - 70px); }

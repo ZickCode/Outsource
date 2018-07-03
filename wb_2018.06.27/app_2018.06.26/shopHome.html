@@ -34,7 +34,7 @@
 				</div>
 			</div>
 			
-			<div class="switch">
+			<div id="switch" class="switch">
 				<a class="active">店铺首页</a>
 				<a>订单管理</a>
 				<a>厂房设备</a>
@@ -42,7 +42,7 @@
 			</div>
 			
 			<!--店铺首页-->
-			<div class="shop-home">
+			<div class="chlid-box shop-home">
 				<div class="three-num">
 					<div>
 						<div class="circle">
@@ -74,6 +74,52 @@
 					</p>
 				</div>
 			</div>
+			
+			<!--厂房设备-->
+			<div class="chlid-box machine-box">
+				<div class="mui-slider">
+					<div class="mui-slider-group">
+						<div class="mui-slider-item">
+							<img src="http://via.placeholder.com/700x460"/>
+						</div>
+						<div class="mui-slider-item">
+							<img src="http://via.placeholder.com/700x460"/>
+						</div>
+					</div>
+				</div>
+				<p class="title">厂房展示</p>
+				<div class="mui-slider">
+					<div class="mui-slider-group">
+						<div class="mui-slider-item">
+							<img src="http://via.placeholder.com/700x460"/>
+						</div>
+						<div class="mui-slider-item">
+							<img src="http://via.placeholder.com/700x460"/>
+						</div>
+					</div>
+				</div>
+				<p class="title">设备展示</p>
+			</div>
+			
+			<!--联系方式-->
+			<div class="chlid-box shop-info">
+				<div class="phone-box">
+					<div class="left">
+						<p class="name">联系人：方经理</p>
+						<p class="tel">手机号：18712341234</p>
+						<p class="qq">QQ：123456789</p>
+						<p class="email">邮箱：123456789@qq.com</p>
+						<p class="mail">邮编：123456</p>
+					</div>
+					<div class="right">
+						<img src="http://via.placeholder.com/175x175"/>
+						<p>扫一扫加好友</p>
+					</div>
+				</div>
+				<div class="map-box">
+					地图
+				</div>
+			</div>
 		</div>
 		<div class="footer">
 			<div id="home">
@@ -102,9 +148,25 @@
 			</div>
 		</div>
 		<script src="js/mui.min.js"></script>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/comm.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
+			//轮播
+			var item2Show = false,item3Show = false;
+			document.querySelector('.mui-slider').addEventListener('slide', function(event) {
+			  if (event.detail.slideNumber === 1&&!item2Show) {
+			    item2Show = true;
+			  } else if (event.detail.slideNumber === 2&&!item3Show) {
+			    item3Show = true;
+			  }
+			});
+			//切换
+			var boxArr = ['.shop-home','','.machine-box','.shop-info']
+			$('#switch').find('a').on('click', function(){
+				$(this).addClass('active').siblings().removeClass();
+				$(boxArr[$(this).index()]).show().siblings('.chlid-box').hide();
+			});
 		</script>
 	</body>
 

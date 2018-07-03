@@ -90,3 +90,57 @@
     line-height: 1.8;
     text-indent: 2em;
     padding: 30px 0; }
+
+.shopHome .mui-content .machine-box {
+  display: none;
+  background: #fff; }
+  .shopHome .mui-content .machine-box p.title {
+    font-size: 30px;
+    color: #373737;
+    padding: 35px 0;
+    text-align: center; }
+
+.shopHome .mui-content .shop-info {
+  display: none; }
+  .shopHome .mui-content .shop-info .phone-box {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 30px 0;
+    background: #fff; }
+    .shopHome .mui-content .shop-info .phone-box .left {
+      text-align: left; }
+      .shopHome .mui-content .shop-info .phone-box .left p {
+        font-size: 26px;
+        color: #9e9e9e;
+        line-height: 1; }
+        .shopHome .mui-content .shop-info .phone-box .left p:before {
+          content: '';
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+          vertical-align: middle;
+          margin: 0 15px 0 0; }
+        .shopHome .mui-content .shop-info .phone-box .left p.name:before {
+          background: url(../images/shopCenter/user.png) no-repeat 0 0/100% 100%; }
+        .shopHome .mui-content .shop-info .phone-box .left p.tel:before {
+          background: url(../images/shopCenter/phone.png) no-repeat 0 0/100% 100%; }
+        .shopHome .mui-content .shop-info .phone-box .left p.qq:before {
+          background: url(../images/shopCenter/message.png) no-repeat 0 0/100% 100%; }
+        .shopHome .mui-content .shop-info .phone-box .left p.email:before {
+          background: url(../images/shopCenter/email.png) no-repeat 0 0/100% 100%; }
+        .shopHome .mui-content .shop-info .phone-box .left p.mail:before {
+          background: url(../images/shopCenter/mail.png) no-repeat 0 0/100% 100%; }
+    .shopHome .mui-content .shop-info .phone-box .right img {
+      width: 175px;
+      height: 175px; }
+    .shopHome .mui-content .shop-info .phone-box .right p {
+      color: #727272;
+      font-size: 30px;
+      padding-top: 10px; }
+  .shopHome .mui-content .shop-info .map-box {
+    margin-top: 30px;
+    background: #fff;
+    padding: 200px 0;
+    font-size: 40px;
+    text-align: center; }

@@ -37,13 +37,13 @@
 				</div>
 			</div>
 			
-			<div class="switch">
+			<div id="switch" class="switch">
 				<a class="active">任务要求</a>
 				<a>商家抢单</a>
 			</div>
 			
 			<!--任务要求-->
-			<div class="mission-require">
+			<div class="chlid-box mission-require">
 				<p class="title">要求</p>
 				<p class="info">产品数量:10000个</p>
 				<p class="info">产品数量:10000个</p>
@@ -56,7 +56,7 @@
 			</div>
 			
 			<!--商家抢单-->
-			<div class="business-rob">
+			<div class="chlid-box business-rob">
 				<div class="business-info">
 					<div>
 						<img src="https://via.placeholder.com/95x95" alt="" />
@@ -137,9 +137,16 @@
 			</div>
 		</div>
 		<script src="js/mui.min.js"></script>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/comm.js"></script>
 		<script type="text/javascript">
 			mui.init()
+			//切换
+			var boxArr = ['.mission-require','.business-rob']
+			$('#switch').find('a').on('click', function(){
+				$(this).addClass('active').siblings().removeClass();
+				$(boxArr[$(this).index()]).show().siblings('.chlid-box').hide();
+			});
 		</script>
 	</body>
 

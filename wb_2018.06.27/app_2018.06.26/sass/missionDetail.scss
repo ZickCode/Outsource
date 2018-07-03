@@ -124,7 +124,6 @@
         }
         
         .mission-require{
-            display: none;
             padding: 0 35px;
             p{
                 &.title{
@@ -144,6 +143,7 @@
         }
         
         .business-rob{
+            display: none;
             .business-info{
                 >div{
                     position: relative;
@@ -246,6 +246,7 @@
                 }
                 textarea{
                     height: 200px;
+                    font-size: 26px;
                 }
             }
             .btn-gray{
