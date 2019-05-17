@@ -1,5 +1,6 @@
 <template>
-  <view>
+  <view style="padding-top:{{statusHeight}}px">
+    <navigationBar :navigationBar="navigationBar"></navigationBar>
     <view class="container">
       <view class="item-box">
         <view class="title">提醒方式</view>
@@ -9,7 +10,7 @@
         </view>
         <view class="switch-box">
           <text>震动提醒</text>
-          <switch />
+          <switch color="#1eb4fa" />
         </view>
       </view>
       <view class="item-box">
@@ -20,7 +21,7 @@
         </view>
         <view class="switch-box">
           <text>伙伴</text>
-          <switch />
+          <switch color="#1eb4fa" />
         </view>
       </view>
       <view class="item-box">
@@ -39,6 +40,7 @@
 </template>
 <script>
 import wepy from 'wepy';
+import navigationBar from '@/components/navigationBar';
 
 export default class privateSetting extends wepy.page {
   config = {
@@ -46,12 +48,17 @@ export default class privateSetting extends wepy.page {
     enablePullDownRefresh: false
   };
   components = {
-    
+    navigationBar
   };
   data = {
-    
+    statusHeight: null,
+    navigationBar: {
+      title: '隐私设置'
+    }
   };
-  onLoad() {}
+  onLoad() {
+    this.statusHeight = this.$parent.globalData.statusHeight;
+  }
   onShow() {}
   methods = {};
 }

@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view style="padding-top:{{statusHeight}}px">
     <view class="container">
       <div class="top-box">
         <image class="back" src="/images/artcle/back.png" bind:tap="GoBack"></image>
@@ -74,14 +74,16 @@ export default class artcleDetail extends wepy.page {
     
   };
   data = {
-    tabbar: null
+    statusHeight: null
   };
   GoBack() {
     wx.navigateBack({
       delta: 1
     });
   }
-  onLoad() {}
+  onLoad() {
+    this.statusHeight = this.$parent.globalData.statusHeight;
+  }
   onShow() {
     
   }
@@ -90,16 +92,17 @@ export default class artcleDetail extends wepy.page {
 </script>
 <style lang="less" scoped>
   .container{
+    position: relative;
     padding: 100rpx 0 110rpx;
     .top-box{
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10rpx 30rpx;
+      padding: 10rpx 210rpx 10rpx 30rpx;
       border-bottom: 1rpx solid #ccc;
       background: #fff;
       box-sizing: border-box;

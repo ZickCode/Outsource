@@ -1,8 +1,8 @@
 <template>
   <view class="box" style="background-color:{{tabbar.backgroundColor}}">
-    <image class="btn-back" src="/images/artcle/back.png"></image>
-    <text class="title">{{navigationBar.title}}</text>
-    <text class="btn-right" @tap="navigationBar.btnRight.handler">{{navigationBar.btnRight.text}}</text>
+    <image wx:if="{{navigationBar.left != 'hide'}}" @tap="GoBack" class="btn-back" src="/images/artcle/back.png"></image>
+    <text class="title {{navigationBar.rightText ? '' : 'center'}} {{navigationBar.left == 'hide' ? 'left' : ''}}">{{navigationBar.title}}</text>
+    <text wx:if="{{navigationBar.rightText}}" class="btn-right" @tap="GoToPage" data-url="{{navigationBar.rightUrl}}">{{navigationBar.rightText}}</text>
   </view>
 </template>
 <script>
@@ -11,45 +11,58 @@ import wepy from 'wepy';
 export default class navigationBar extends wepy.component {  
   props = {
     navigationBar: {
-      type: String,
+      type: Object,
       defalt: null
     }
   }
   components = {}
 
   data = {
-    
-  }
-
-  onLoad() {
-      
+    tabbarArr: ['home', 'community', 'message', 'user']
   }
 
   computed = {}
   methods = {
-    switchTab(e) {
-      const data = e.currentTarget.dataset
-      const url = data.path
-      wx.switchTab({url});
-      this.selected = data.index;
+    GoBack() {
+      wx.navigateBack();
+    },
+    GoToPage(url) {
+      if(this.tabbarArr.indexOf(url.currentTarget.dataset.url) != -1){
+        wx.switchTab({
+          url: '/pages/' + url.currentTarget.dataset.url
+        })
+      }else{
+        wx.navigateTo({
+          url: '/pages/' + url.currentTarget.dataset.url
+        })
+      }
     }
   }
-  event = {}
 }
 </script>
 <style lang="less" scoped>
   .box{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background: #fff;
-    padding: 10rpx 20rpx;
+    padding: 10rpx 210rpx 10rpx 20rpx;
+    height: 100rpx;
+    box-sizing: border-box;
     image{
-      width: 19rpx;
+      width: 20rpx;
       height: 30rpx;
+      margin: 0 20rpx 0 0;
     }
     .title{
       flex: 1;
       text-align: center;
+      &.center{
+        padding: 0 0 0 150rpx;
+      }
+      &.left{
+        padding: 0 0 0 190rpx;
+      }
     }
     .btn-right{
 

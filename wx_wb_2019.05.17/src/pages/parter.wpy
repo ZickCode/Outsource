@@ -1,11 +1,12 @@
 <template>
-  <view>
+  <view style="padding-top:{{statusHeight}}px">
+    <navigationBar :navigationBar="navigationBar"></navigationBar>
     <view class="container">
       <view class="nav-box">
-        <view class="on">
+        <view @tap="Switch" data-index="0" class="{{currentIndex == 0 ? 'on' : ''}}">
           <text>已有合作</text>
         </view>
-        <view>
+        <view @tap="Switch" data-index="1" class="{{currentIndex == 1 ? 'on' : ''}}">
           <text>意向合作</text>
         </view>
       </view>
@@ -46,6 +47,7 @@
 </template>
 <script>
 import wepy from 'wepy';
+import navigationBar from '@/components/navigationBar';
 
 export default class parter extends wepy.page {
   config = {
@@ -53,14 +55,24 @@ export default class parter extends wepy.page {
     enablePullDownRefresh: false
   };
   components = {
-    
+    navigationBar
   };
   data = {
-    
+    currentIndex: 0,
+    statusHeight: null,
+    navigationBar: {
+      title: '我的伙伴'
+    }
   };
-  onLoad() {}
+  onLoad() {
+    this.statusHeight = this.$parent.globalData.statusHeight;
+  }
   onShow() {}
-  methods = {};
+  methods = {
+    Switch(index) {
+      this.currentIndex = index.currentTarget.dataset.index;
+    }
+  };
 }
 </script>
 <style lang="less" scoped>

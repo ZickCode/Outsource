@@ -1,40 +1,44 @@
 <template>
-  <view class="container">
-    <view class="item-box">
-      <text class="title">店铺名</text>
-      <view class="info-box">
-        <text>康帅傅小店</text>
-        <image class="next" src="/images/artcle/next.png"></image>
+  <view style="padding-top:{{statusHeight}}px">
+    <navigationBar :navigationBar="navigationBar"></navigationBar>
+    <view class="container">
+      <view class="item-box">
+        <text class="title">店铺名</text>
+        <view class="info-box">
+          <text>康帅傅小店</text>
+          <image class="next" src="/images/artcle/next.png"></image>
+        </view>
       </view>
-    </view>
-    <view class="item-box">
-      <text class="title">经营类目</text>
-      <view class="info-box">
-        <text>自然系</text>
-        <image class="next" src="/images/artcle/next.png"></image>
+      <view class="item-box">
+        <text class="title">经营类目</text>
+        <view class="info-box">
+          <text>自然系</text>
+          <image class="next" src="/images/artcle/next.png"></image>
+        </view>
       </view>
-    </view>
-    <view class="item-box">
-      <text class="title">店面与雇员</text>
-      <view class="info-box">
-        <text>100,10</text>
-        <image class="next" src="/images/artcle/next.png"></image>
+      <view class="item-box">
+        <text class="title">店面与雇员</text>
+        <view class="info-box">
+          <text>100,10</text>
+          <image class="next" src="/images/artcle/next.png"></image>
+        </view>
       </view>
-    </view>
-    <view class="item-box">
-      <text class="title">特色与优势</text>
-      <view class="info-box">
-        <image class="next down" src="/images/artcle/next.png"></image>
+      <view class="item-box">
+        <text class="title">特色与优势</text>
+        <view class="info-box">
+          <image class="next down" src="/images/artcle/next.png"></image>
+        </view>
       </view>
+      <view class="edit-box">
+          <textarea name="textarea" value="本小店的特色就是水绝对够自然，因为是康帅傅品牌的。 而本身的优势呢。则是店面小，随时都可以搬走。而且雇员少 不用给" />
+      </view>
+      <button>保存</button>
     </view>
-    <view class="edit-box">
-        <textarea name="textarea" value="本小店的特色就是水绝对够自然，因为是康帅傅品牌的。 而本身的优势呢。则是店面小，随时都可以搬走。而且雇员少 不用给" />
-    </view>
-    <button>保存</button>
   </view>
 </template>
 <script>
 import wepy from 'wepy';
+import navigationBar from '@/components/navigationBar';
 
 export default class myStore extends wepy.page {
   config = {
@@ -42,12 +46,17 @@ export default class myStore extends wepy.page {
     enablePullDownRefresh: false
   };
   components = {
-    
+    navigationBar
   };
   data = {
-    
+    statusHeight: null,
+    navigationBar: {
+      title: '我的店铺'
+    }
   };
-  onLoad() {}
+  onLoad() {
+    this.statusHeight = this.$parent.globalData.statusHeight;
+  }
   onShow() {}
   methods = {};
 }

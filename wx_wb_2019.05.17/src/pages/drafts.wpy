@@ -1,5 +1,6 @@
-remindMe<template>
-  <view>
+<template>
+  <view style="padding-top:{{statusHeight}}px">
+    <navigationBar :navigationBar="navigationBar"></navigationBar>
     <view class="container">
         <view class="message-box">
           <view class="message-item">            
@@ -29,6 +30,7 @@ remindMe<template>
 </template>
 <script>
 import wepy from 'wepy';
+import navigationBar from '@/components/navigationBar';
 
 export default class drafts extends wepy.page {
   config = {
@@ -36,12 +38,17 @@ export default class drafts extends wepy.page {
     enablePullDownRefresh: false
   };
   components = {
-    
+    navigationBar
   };
   data = {
-    
+    statusHeight: null,
+    navigationBar: {
+      title: '草稿箱'
+    }
   };
-  onLoad() {}
+  onLoad() {
+    this.statusHeight = this.$parent.globalData.statusHeight;
+  }
   onShow() {}
   methods = {};
 }

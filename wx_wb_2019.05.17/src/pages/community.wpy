@@ -1,6 +1,5 @@
 <template>
-  <view>
-    <navigationBar :navigationBar.sync="navigationBar"></navigationBar>
+  <view style="padding-top:{{statusHeight}}px">
     <view class="container">
       <view class="search-content">
         <view class="search-box">
@@ -10,12 +9,7 @@
       </view>
 
       <view class="nav-box">
-        <view class="nav-item on">推荐</view>
-        <view class="nav-item">周边</view>
-        <view class="nav-item">教程</view>
-        <view class="nav-item">行业资讯</view>
-        <view class="nav-item">资源</view>
-        <view class="nav-item">更多</view>
+        <view wx:for="{{navArr}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}" @tap="Switch" data-index="{{index}}" class="nav-item {{index == currentIndex ? 'on' : ''}}">{{item}}</view>
       </view>
 
       <view class="content">
@@ -117,7 +111,6 @@
 <script>
 import wepy from 'wepy';
 import tabbar from '@/components/tabbar';
-import navigationBar from '@/components/navigationBar';
 
 export default class community extends wepy.page {
   config = {
@@ -125,38 +118,40 @@ export default class community extends wepy.page {
     enablePullDownRefresh: false
   };
   components = {
-    tabbar,
-    navigationBar
+    tabbar
   };
   data = {
+    currentIndex: 0,
+    navArr: ['推荐', '周边', '教程', '行业资讯', '资源', '更多'],
     tabbar: null,
-    navigationBar: {
-      title: '社区',
-      btnRight: {
-        text: '测试',
-        handler: ()=>{
-          alert(123)
-        }
-      }
-    }
+    statusHeight: null,
   };
   GoToDetail() {
     wx.navigateTo({
       url: '/pages/artcleDetail'
     });
   }
-  onLoad() {}
+  onLoad() {
+    this.statusHeight = this.$parent.globalData.statusHeight;
+  }
   onShow() {
     this.tabbar = this.$parent.editTabbar();
   }
-  methods = {};
+  methods = {
+    Switch(index) {
+      this.currentIndex = index.currentTarget.dataset.index;
+    }
+  };
 }
 </script>
 <style lang="less" scoped>
 .container {
   padding-bottom: 98rpx;
   .search-content {
-    padding: 10rpx 30rpx;
+    height: 90rpx;
+    box-sizing: border-box;
+    padding: 10rpx 220rpx 10rpx 30rpx;
+    background: #fff;
     .search-box {
       display: flex;
       align-items: center;

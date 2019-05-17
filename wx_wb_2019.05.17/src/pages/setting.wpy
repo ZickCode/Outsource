@@ -1,5 +1,6 @@
 <template>
-  <view>
+  <view style="padding-top:{{statusHeight}}px">
+    <navigationBar :navigationBar="navigationBar"></navigationBar>
     <view class="container">
       <view class="item-box">
         <view class="title">账号绑定</view>
@@ -40,6 +41,7 @@
 </template>
 <script>
 import wepy from 'wepy';
+import navigationBar from '@/components/navigationBar';
 
 export default class setting extends wepy.page {
   config = {
@@ -47,12 +49,17 @@ export default class setting extends wepy.page {
     enablePullDownRefresh: false
   };
   components = {
-    
+    navigationBar
   };
   data = {
-    
+    statusHeight: null,
+    navigationBar: {
+      title: '设置'
+    }
   };
-  onLoad() {}
+  onLoad() {
+    this.statusHeight = this.$parent.globalData.statusHeight;
+  }
   onShow() {}
   methods = {};
 }

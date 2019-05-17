@@ -4,30 +4,31 @@
 </style>
 
 <script>
-import wepy from 'wepy'
-import 'wepy-async-function'
+import wepy from 'wepy';
+import 'wepy-async-function';
 
 export default class extends wepy.app {
   config = {
     pages: [
       'pages/home',
       'pages/community',
-      'pages/message',
       'pages/user',
-      'pages/service',
-      'pages/artcleDetail',
-      'pages/productList',
-      'pages/watchMe',
-      'pages/comment',
-      'pages/like',
-      'pages/remindMe',
-      'pages/drafts',
-      'pages/collection',
-      'pages/parter',
-      'pages/editUserInfo',
-      'pages/myStore',
-      'pages/privateSetting',
       'pages/setting',
+      'pages/service',
+      'pages/remindMe',
+      'pages/productList',
+      'pages/privateSetting',
+      'pages/parter',
+      'pages/myStore',
+      'pages/message',
+      'pages/like',
+      'pages/editUserInfo',
+      'pages/drafts',
+      'pages/comment',
+      'pages/watchMe',
+      'pages/artcleDetail',
+      'pages/collection',
+      'pages/userPage',
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -60,7 +61,7 @@ export default class extends wepy.app {
   }
 
   globalData = {
-    userInfo: null,
+    statusHeight: null,
     tabBar: {
       "color": "#999",
       "selectedColor": "#141414",
@@ -103,26 +104,17 @@ export default class extends wepy.app {
   constructor () {
     super()
     this.use('requestfix');
-    this.use('promisify');   //如果项目初始, 这里没有, 记得手动加上
+    this.use('promisify');
   }
 
   onLaunch() {
-      wx.hideTabBar();  //隐藏config中配置好的官方tabbar, 再使用自定义的tabbar
+    wx.hideTabBar();
+    wx.getSystemInfo({success: (res)=>{
+      this.globalData.statusHeight = res.statusBarHeight;
+    }})
   }
 
-  getUserInfo(cb) {
-    const that = this
-    if (this.globalData.userInfo) {
-      return this.globalData.userInfo
-    }
-    wepy.getUserInfo({
-      success (res) {
-        that.globalData.userInfo = res.userInfo
-        cb && cb(res.userInfo)
-      }
-    })
-  }
-  editTabbar () {  //处理tabbar是否选中
+  editTabbar () {
     let tabbar = this.globalData.tabBar;
     let currentPages = getCurrentPages();
     let _this = currentPages[currentPages.length - 1];

@@ -12,7 +12,7 @@
 	"appid": "wx601c6cabe4ade759",
 	"projectname": "wepy-poster-test",
 	"miniprogramRoot": "dist/",
-	"libVersion": "2.6.2",
+	"libVersion": "2.7.0",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {

@@ -1,8 +1,8 @@
 <template>
-  <view>
+  <view style="padding-top:{{statusHeight}}px">
     <view class="container">
       <view class="search-content">
-        <image src="/images/artcle/back.png"></image>
+        <image @tap="GoBack" src="/images/artcle/back.png"></image>
         <view class="search-box">
           <image src="/images/index/search.png"></image>
           <input placeholder="大家都在搜：开店宝典" confirm-type="search" />
@@ -19,7 +19,7 @@
       </view>
 
       <view class="content">
-        <view wx:for="{{mock}}" class="product-item" bind:tap="GoToDetail">
+        <view wx:for="{{mock}}" wx:for-index="{{index}}" wx:key="{{index}}" class="product-item" bind:tap="GoToDetail">
           <image src="https://via.placeholder.com/250x150"></image>
           <view class="info">
             <text class="title">根据地老火锅29.9六荤五素重磅9六荤五素重磅9六荤五素重磅9六荤五素重磅9六荤五素重磅 优惠引爆大学城</text>
@@ -45,17 +45,22 @@ export default class productList extends wepy.page {
     enablePullDownRefresh: false
   };
   components = {
-    
   };
   data = {
-    mock: [0, 1, 2, 3, 4, 5, 6, 7]
+    mock: [0, 1, 2, 3, 4, 5, 6, 7],    
+    statusHeight: null
   };
+  GoBack() {
+    wx.navigateBack();
+  }
   GoToDetail() {
     wx.navigateTo({
       url: '/pages/artcleDetail'
     });
   }
-  onLoad() {}
+  onLoad() {
+    this.statusHeight = this.$parent.globalData.statusHeight;
+  }
   onShow() {}
   methods = {};
 }
@@ -63,7 +68,9 @@ export default class productList extends wepy.page {
 <style lang="less" scoped>
 .container {
   .search-content {
-    padding: 10rpx 30rpx;
+    height: 90rpx;
+    box-sizing: border-box;
+    padding: 10rpx 210rpx 10rpx 30rpx;
     display: flex;
     align-items: center;
     image{

@@ -1,5 +1,6 @@
 <template>
-  <view>
+  <view style="padding-top:{{statusHeight}}px">
+    <navigationBar :navigationBar="navigationBar"></navigationBar>
     <view class="container">
         <view class="nav-box">
           <view class="nav-item">
@@ -84,6 +85,7 @@
 <script>
 import wepy from 'wepy';
 import tabbar from '@/components/tabbar';
+import navigationBar from '@/components/navigationBar';
 
 export default class message extends wepy.page {
   config = {
@@ -91,12 +93,19 @@ export default class message extends wepy.page {
     enablePullDownRefresh: false
   };
   components = {
-    tabbar
+    tabbar,
+    navigationBar
   };
   data = {
-    tabbar: null
+    tabbar: null,    
+    statusHeight: null,
+    navigationBar: {
+      title: '消息'
+    }
   };
-  onLoad() {}
+  onLoad() {
+    this.statusHeight = this.$parent.globalData.statusHeight;
+  }
   onShow() {
     this.tabbar = this.$parent.editTabbar();
   }

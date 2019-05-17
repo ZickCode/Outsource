@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view style="padding-top:{{statusHeight}}px">
     <view class="container">
       <view class="info-box">
         <image src="/images/user/bg.png"></image>
@@ -13,7 +13,7 @@
         </view>
       </view>
       <view class="group-box">
-        <view class="group-item">
+        <view class="group-item" @tap="GoToPage" data-url="drafts">
           <image src="/images/user/draft.png"></image>
           <text>草稿箱</text>
         </view>
@@ -23,21 +23,21 @@
         </view>
       </view>
       <view class="group-box">
-        <view class="group-item">
+        <view class="group-item" @tap="GoToPage" data-url="collection">
           <image src="/images/user/collect.png"></image>
           <text>我的收藏</text>
         </view>
-        <view class="group-item">
+        <view class="group-item" @tap="GoToPage" data-url="parter">
           <image src="/images/user/parter.png"></image>
           <text>合作伙伴</text>
         </view>
-        <view class="group-item">
+        <view class="group-item" @tap="GoToPage" data-url="myStore">
           <image src="/images/user/store.png"></image>
           <text>我的店铺</text>
         </view>
       </view>
       <view class="group-box">
-        <view class="group-item">
+        <view class="group-item" @tap="GoToPage" data-url="setting">
           <image src="/images/user/setting.png"></image>
           <text>设置</text>
         </view>
@@ -62,11 +62,20 @@ export default class user extends wepy.page {
     tabbar
   };
   data = {
-    tabbar: null
+    tabbar: null,
+    statusHeight: null,
   };
-  onLoad() {}
+  onLoad() {
+    this.statusHeight = this.$parent.globalData.statusHeight;
+  }
   onShow() {
     this.tabbar = this.$parent.editTabbar();
+  }
+  //跳转
+  GoToPage(url) {
+    wx.navigateTo({
+      url: '/pages/' + url.currentTarget.dataset.url
+    })
   }
   methods = {};
 }

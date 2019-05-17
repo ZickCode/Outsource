@@ -1,51 +1,55 @@
 <template>
-  <view class="container">
-    <view class="item-box">
-      <text class="title">头像</text>
-      <view class="info-box">
-        <image class="head" src="https://via.placeholder.com/72x72"></image>
-        <image class="next" src="/images/artcle/next.png"></image>
+  <view style="padding-top:{{statusHeight}}px">
+    <navigationBar :navigationBar="navigationBar"></navigationBar>
+    <view class="container">
+      <view class="item-box">
+        <text class="title">头像</text>
+        <view class="info-box">
+          <image class="head" src="https://via.placeholder.com/72x72"></image>
+          <image class="next" src="/images/artcle/next.png"></image>
+        </view>
       </view>
-    </view>
-    <view class="item-box">
-      <text class="title">昵称</text>
-      <view class="info-box">
-        <text>康帅傅矿泉水</text>
-        <image class="next" src="/images/artcle/next.png"></image>
+      <view class="item-box">
+        <text class="title">昵称</text>
+        <view class="info-box">
+          <text>康帅傅矿泉水</text>
+          <image class="next" src="/images/artcle/next.png"></image>
+        </view>
       </view>
-    </view>
-    <view class="item-box">
-      <text class="title">性别</text>
-      <view class="info-box">
-        <text>男</text>
-        <image class="next" src="/images/artcle/next.png"></image>
+      <view class="item-box">
+        <text class="title">性别</text>
+        <view class="info-box">
+          <text>男</text>
+          <image class="next" src="/images/artcle/next.png"></image>
+        </view>
       </view>
-    </view>
-    <view class="item-box">
-      <text class="title">生日</text>
-      <view class="info-box">
-        <text>1900-01-01</text>
-        <image class="next" src="/images/artcle/next.png"></image>
+      <view class="item-box">
+        <text class="title">生日</text>
+        <view class="info-box">
+          <text>1900-01-01</text>
+          <image class="next" src="/images/artcle/next.png"></image>
+        </view>
       </view>
-    </view>
-    <view class="item-box">
-      <text class="title">简介</text>
-      <view class="info-box">
-        <text>这个人太懒了  什么也没有留下</text>
-        <image class="next" src="/images/artcle/next.png"></image>
+      <view class="item-box">
+        <text class="title">简介</text>
+        <view class="info-box">
+          <text>这个人太懒了  什么也没有留下</text>
+          <image class="next" src="/images/artcle/next.png"></image>
+        </view>
       </view>
-    </view>
-    <view class="item-box">
-      <text class="title">位置</text>
-      <view class="info-box">
-        <text>重庆市 沙坪坝</text>
-        <image class="next" src="/images/artcle/next.png"></image>
+      <view class="item-box">
+        <text class="title">位置</text>
+        <view class="info-box">
+          <text>重庆市 沙坪坝</text>
+          <image class="next" src="/images/artcle/next.png"></image>
+        </view>
       </view>
     </view>
   </view>
 </template>
 <script>
 import wepy from 'wepy';
+import navigationBar from '@/components/navigationBar';
 
 export default class editUserInfo extends wepy.page {
   config = {
@@ -53,12 +57,17 @@ export default class editUserInfo extends wepy.page {
     enablePullDownRefresh: false
   };
   components = {
-    
+    navigationBar
   };
   data = {
-    
+    statusHeight: null,
+    navigationBar: {
+      title: '编辑个人信息'
+    }
   };
-  onLoad() {}
+  onLoad() {
+    this.statusHeight = this.$parent.globalData.statusHeight;
+  }
   onShow() {}
   methods = {};
 }
