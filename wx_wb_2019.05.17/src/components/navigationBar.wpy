@@ -1,0 +1,58 @@
+<template>
+  <view class="box" style="background-color:{{tabbar.backgroundColor}}">
+    <image class="btn-back" src="/images/artcle/back.png"></image>
+    <text class="title">{{navigationBar.title}}</text>
+    <text class="btn-right" @tap="navigationBar.btnRight.handler">{{navigationBar.btnRight.text}}</text>
+  </view>
+</template>
+<script>
+import wepy from 'wepy';
+
+export default class navigationBar extends wepy.component {  
+  props = {
+    navigationBar: {
+      type: String,
+      defalt: null
+    }
+  }
+  components = {}
+
+  data = {
+    
+  }
+
+  onLoad() {
+      
+  }
+
+  computed = {}
+  methods = {
+    switchTab(e) {
+      const data = e.currentTarget.dataset
+      const url = data.path
+      wx.switchTab({url});
+      this.selected = data.index;
+    }
+  }
+  event = {}
+}
+</script>
+<style lang="less" scoped>
+  .box{
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10rpx 20rpx;
+    image{
+      width: 19rpx;
+      height: 30rpx;
+    }
+    .title{
+      flex: 1;
+      text-align: center;
+    }
+    .btn-right{
+
+    }
+  }
+</style>

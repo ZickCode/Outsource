@@ -1,0 +1,265 @@
+  <template>
+  <view>
+    <view class="container">
+      <view class="search-content">
+        <view class="search-box">
+          <image src="/images/index/search.png"></image>
+          <input placeholder="大家都在搜：开店宝典" confirm-type="search" />
+        </view>
+      </view>
+
+      <view class="swiper-box">
+        <swiper
+          bindchange="SwiperChange"
+          indicator-dots="{{indicatorDots}}"
+          indicator-color="{{indicatorColor}}"
+          indicator-active-color="{{indicatorActive}}"
+          autoplay="{{autoplay}}"
+          interval="{{interval}}"
+          duration="{{duration}}"
+          previous-margin="60rpx"
+          next-margin="60rpx"
+          circular="{{circular}}"
+          current="{{current}}"
+        >
+          <block wx:for="{{imgUrls}}" wx:for-index="index" wx:key="index">
+            <swiper-item class="swiper-item">
+              <image src="{{item}}" class="slide-image {{ currnetSwiperIndex != index ? 'no-current' : ''}}" width="355" height="150" />
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+
+      <view class="nav-box">
+        <view class="nav-item">
+          <view>
+            <image src="/images/index/homepage.png"></image>
+          </view>
+          <text>官网</text>
+        </view>
+        <view class="nav-item" @tap="GoToPage" data-url="artcleDetail">
+          <view>
+            <image src="/images/index/intro.png"></image>
+          </view>
+          <text>介绍</text>
+        </view>
+        <view class="nav-item" @tap="GoToPage" data-url="productList">
+          <view>
+            <image src="/images/index/product.png"></image>
+          </view>
+          <text>产品</text>
+        </view>
+        <view class="nav-item" @tap="GoToPage" data-url="service">
+          <view>
+            <image src="/images/index/service.png"></image>
+          </view>
+          <text>客服</text>
+        </view>
+      </view>
+      
+      <view class="course-box">
+        <view class="title">
+          <text class="name">精 品 教 程</text>
+          <text class="more">查看全部 ></text>
+        </view>
+        <div class="content">
+          <view class="course-item" @tap="GoToPage" data-url="community">
+            <image src="https://via.placeholder.com/255x135"></image>
+            <text>3.8女神节流量引爆8女神节流量引爆</text>
+          </view>
+          <view class="course-item" @tap="GoToPage" data-url="community">
+            <image src="https://via.placeholder.com/255x135"></image>
+            <text>3.8女神节流量引爆8女神节流量引爆</text>
+          </view>
+          <view class="course-item" @tap="GoToPage" data-url="community">
+            <image src="https://via.placeholder.com/255x135"></image>
+            <text>3.8女神节流量引爆8女神节流量引爆</text>
+          </view>
+        </div>
+      </view>
+
+      <view class="case-box">
+        <text class="title">案 例 展 示</text>
+        <view class="case-item" @tap="GoToPage" data-url="artcleDetail">
+          <image src="https://via.placeholder.com/750x375" mode="scaleToFill"></image>
+        </view>
+        <view class="case-item" @tap="GoToPage" data-url="artcleDetail">
+          <image src="https://via.placeholder.com/750x375"></image>
+        </view>
+        <view class="case-item" @tap="GoToPage" data-url="artcleDetail">
+          <image src="https://via.placeholder.com/750x375"></image>
+        </view>
+      </view>
+    </view>
+    <tabbar :tabbar.sync="tabbar"></tabbar>
+  </view>
+</template>
+<script>
+import wepy from 'wepy';
+import tabbar from '@/components/tabbar';
+
+export default class home extends wepy.page {
+  config = {
+    navigationBarTitleText: '首页',
+    enablePullDownRefresh: false
+  };
+  components = {
+    tabbar
+  };
+  data = {
+    tabbar: null,    
+    imgUrls: [
+      'https://via.placeholder.com/600x340',
+      'https://via.placeholder.com/600x340',
+      'https://via.placeholder.com/600x340'
+    ],
+    current: 0,
+    currnetSwiperIndex: 0,
+    indicatorDots: true,
+    indicatorColor: '#fff',
+    indicatorActive: '#f33',
+    autoplay: false,
+    interval: 3000,
+    duration: 1000,
+    circular: true,
+    tabbarArr: ['home', 'community', 'message', 'user']
+  };
+  //轮播
+  SwiperChange(e) {
+    this.currnetSwiperIndex = e.detail.current;
+  }
+  //跳转
+  GoToPage(url) {
+    if(this.tabbarArr.indexOf(url.currentTarget.dataset.url) != -1){
+      wx.switchTab({
+        url: '/pages/' + url.currentTarget.dataset.url
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/' + url.currentTarget.dataset.url
+      })
+    }
+  }
+  onLoad() {}
+  onShow() {
+    this.tabbar = this.$parent.editTabbar();
+  }
+  methods = {
+  };
+}
+</script>
+<style lang="less" scoped>
+.container {
+  padding-bottom: 78rpx;
+  .search-content {
+    padding: 10rpx 30rpx;
+    background: #fff;
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #f5f5f5;
+      padding: 0 20rpx;
+      border-radius: 5rpx;
+      image {
+        width: 24rpx;
+        height: 24rpx;
+      }
+      input {
+        padding: 7rpx 0 7rpx 15rpx;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .swiper-box{
+    background: #fff;
+    padding: 20rpx 0;
+    .swiper-item{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      image{
+        border-radius: 20rpx;
+        width: 98%;
+        transition: height 1s, width 1s;
+        &.no-current{
+          width: 90%;
+          height: 80%;
+        }
+      }
+    }
+  }
+
+  .nav-box{
+    display: flex;
+    background: #fff;
+    .nav-item{
+      flex: 1;
+      text-align: center;
+      padding: 10rpx 0 35rpx 0;
+      image{
+        width: 110rpx;
+        height: 110rpx;
+      }
+    }
+  }
+  
+  .course-box{
+    background: #fff;
+    border-bottom: 1rpx solid #f5f5f5;
+    .title{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30rpx 20rpx;
+      border-bottom: 1rpx solid #f5f5f5;
+      .name{
+        color: #141414;
+        font-size: 32rpx;
+        font-weight: bold;
+      }
+      .more{
+        color: #ccc;
+        font-size: 30rpx;
+      }
+    }
+    .content{
+      display: flex;
+      overflow-x: auto;
+      padding: 20rpx 30rpx 30rpx;
+      .course-item{
+        width: 255rpx;
+        margin: 0 20rpx 0 0;
+        image{
+          height: 135rpx;
+          border-radius: 5rpx;
+        }
+        text{
+          display: block;
+          color: #141414;
+          font-size: 24rpx;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  .case-box{
+    text-align: center;
+    padding: 20rpx 0;
+    .title{
+      display: block;
+      color: #141414;
+      font-size: 32rpx;
+      font-weight: bold;
+      padding: 0 0 20rpx 0;
+    }
+    .case-item{
+      width: 750rpx;
+      height: 375rpx;
+    }
+  }
+}
+</style>

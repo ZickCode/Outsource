@@ -1,0 +1,141 @@
+<style lang="css">
+@import './styles/base.wxss';
+@import './styles/font.wxss';
+</style>
+
+<script>
+import wepy from 'wepy'
+import 'wepy-async-function'
+
+export default class extends wepy.app {
+  config = {
+    pages: [
+      'pages/home',
+      'pages/community',
+      'pages/message',
+      'pages/user',
+      'pages/service',
+      'pages/artcleDetail',
+      'pages/productList',
+      'pages/watchMe',
+      'pages/comment',
+      'pages/like',
+      'pages/remindMe',
+      'pages/drafts',
+      'pages/collection',
+      'pages/parter',
+      'pages/editUserInfo',
+      'pages/myStore',
+      'pages/privateSetting',
+      'pages/setting',
+    ],
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#fff',
+      navigationBarTitleText: 'WeChat',
+      navigationBarTextStyle: 'black',
+      enablePullDownRefresh: true,
+      navigationStyle: 'custom',
+    },
+    "tabBar": {
+      "color": "#7A7E83",
+      "selectedColor": "#3cc51f",
+      "borderStyle": "black",
+      "backgroundColor": "#ffffff",
+      "list": [
+        {
+          "pagePath": "pages/home"
+        },
+        {
+          "pagePath": "pages/community"
+        },
+        {
+          "pagePath": "pages/message"
+        },
+        {
+          "pagePath": "pages/user"
+        }
+      ]
+    }
+  }
+
+  globalData = {
+    userInfo: null,
+    tabBar: {
+      "color": "#999",
+      "selectedColor": "#141414",
+      "borderStyle": "black",
+      "backgroundColor": "#ffffff",
+      "list": [
+        {
+          "pagePath": "home",
+          "iconPath": "../images/tabs/home.png",
+          "selectedIconPath": "../images/tabs/home-active.png",
+          "text": "首页"
+        },
+        {
+          "pagePath": "community",
+          "iconPath": "../images/tabs/community.png",
+          "selectedIconPath": "../images/tabs/community-active.png",
+          "text": "社区"
+        },
+        {
+          "pagePath": "add",
+          "iconPath": "../images/tabs/add.png",
+          "isSpecial": true,
+        },
+        {
+          "pagePath": "message",
+          "iconPath": "../images/tabs/message.png",
+          "selectedIconPath": "../images/tabs/message-active.png",
+          "text": "消息"
+        },
+        {
+          "pagePath": "user",
+          "iconPath": "../images/tabs/user.png",
+          "selectedIconPath": "../images/tabs/user-active.png",
+          "text": "我的"
+        }
+      ]
+    }
+  }
+
+  constructor () {
+    super()
+    this.use('requestfix');
+    this.use('promisify');   //如果项目初始, 这里没有, 记得手动加上
+  }
+
+  onLaunch() {
+      wx.hideTabBar();  //隐藏config中配置好的官方tabbar, 再使用自定义的tabbar
+  }
+
+  getUserInfo(cb) {
+    const that = this
+    if (this.globalData.userInfo) {
+      return this.globalData.userInfo
+    }
+    wepy.getUserInfo({
+      success (res) {
+        that.globalData.userInfo = res.userInfo
+        cb && cb(res.userInfo)
+      }
+    })
+  }
+  editTabbar () {  //处理tabbar是否选中
+    let tabbar = this.globalData.tabBar;
+    let currentPages = getCurrentPages();
+    let _this = currentPages[currentPages.length - 1];
+    let pagePath = _this.route;
+    for (let i in tabbar.list) {
+        tabbar.list[i].selected = false;
+        if (pagePath.indexOf(tabbar.list[i].pagePath) != -1) {
+            tabbar.list[i].selected = true
+        } else {
+            tabbar.list[i].selected = false
+        }
+    }
+    return tabbar;
+  }
+}
+</script>

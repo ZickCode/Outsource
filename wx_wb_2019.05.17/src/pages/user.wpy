@@ -1,0 +1,146 @@
+<template>
+  <view>
+    <view class="container">
+      <view class="info-box">
+        <image src="/images/user/bg.png"></image>
+        <view class="info">
+          <image src="https://via.placeholder.com/114x114"></image>
+          <view class="text">
+            <text class="name">提利尔先生</text>
+            <text class="type">话痨</text>
+          </view>
+          <text class="more">个人资料 ></text>
+        </view>
+      </view>
+      <view class="group-box">
+        <view class="group-item">
+          <image src="/images/user/draft.png"></image>
+          <text>草稿箱</text>
+        </view>
+        <view class="group-item">
+          <image src="/images/user/case.png"></image>
+          <text>我的教程</text>
+        </view>
+      </view>
+      <view class="group-box">
+        <view class="group-item">
+          <image src="/images/user/collect.png"></image>
+          <text>我的收藏</text>
+        </view>
+        <view class="group-item">
+          <image src="/images/user/parter.png"></image>
+          <text>合作伙伴</text>
+        </view>
+        <view class="group-item">
+          <image src="/images/user/store.png"></image>
+          <text>我的店铺</text>
+        </view>
+      </view>
+      <view class="group-box">
+        <view class="group-item">
+          <image src="/images/user/setting.png"></image>
+          <text>设置</text>
+        </view>
+      </view>
+      <view class="logo-box">
+        <image class="logo" src="/images/user/logo.png"></image>
+      </view>
+    </view>
+    <tabbar :tabbar.sync="tabbar"></tabbar>
+  </view>
+</template>
+<script>
+import wepy from 'wepy';
+import tabbar from '@/components/tabbar';
+
+export default class user extends wepy.page {
+  config = {
+    navigationBarTitleText: '我的',
+    enablePullDownRefresh: false
+  };
+  components = {
+    tabbar
+  };
+  data = {
+    tabbar: null
+  };
+  onLoad() {}
+  onShow() {
+    this.tabbar = this.$parent.editTabbar();
+  }
+  methods = {};
+}
+</script>
+<style lang="less" scoped>
+.container{
+  padding: 0 0 98rpx 0;
+  .info-box{
+    position: relative;
+    width: 750rpx;
+    height: 375rpx;
+    .info{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 180rpx 30rpx 0;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+      image{
+        width: 114rpx;
+        height: 114rpx;
+        border-radius: 57rpx;
+      }
+      .text{
+        flex: 1;
+        padding: 0 0 0 30rpx;
+        .name{
+          display: block;
+          font-size: 32rpx;
+          padding: 0 0 15rpx 0;
+        }
+        .type{
+          border: 1rpx solid #fff;
+          font-size: 24rpx;
+          padding: 3rpx 16rpx;
+          border-radius: 34rpx;
+        }        
+      }
+      .more{
+        font-size: 24rpx;
+      }
+    }
+  }
+  .group-box{
+    padding: 0 30rpx;
+    border-bottom: 10rpx solid #f5f5f5;
+    .group-item{
+      display: flex;      
+      padding: 26rpx 0;
+      border-bottom: 1rpx solid #f5f5f5;
+      image{
+        width: 50rpx;
+        height: 50rpx;
+      }
+      text{
+        color: #333;
+        font-size: 28rpx;
+        padding: 0 0 0 30rpx;
+        line-height: 50rpx;
+      }
+    }
+  }
+  .logo-box{
+    text-align: center;
+    padding: 30rpx 0;
+    .logo{
+      width: 173rpx;
+      height: 72rpx;
+    }
+  }
+}
+</style>

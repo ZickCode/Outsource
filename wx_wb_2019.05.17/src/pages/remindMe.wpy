@@ -1,0 +1,86 @@
+remindMe<template>
+  <view>
+    <view class="container">
+        <view class="message-box">
+          <view class="message-item">
+            <view class="image-box">
+              <image src="https://via.placeholder.com/72x72"></image>
+            </view>
+            <view class="text-box">
+              <text class="name">偷窥达人</text>
+              <text class="text">叫你去看：手推车资源互换</text>
+            </view>
+            <view class="time">1分钟前</view>
+          </view>
+        </view>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy';
+
+export default class remindMe extends wepy.page {
+  config = {
+    navigationBarTitleText: '@我的',
+    enablePullDownRefresh: false
+  };
+  components = {
+    
+  };
+  data = {
+    
+  };
+  onLoad() {}
+  onShow() {}
+  methods = {};
+}
+</script>
+<style lang="less" scoped>
+  .container{
+    border-top: 1rpx solid #f5f5f5;
+    padding: 0 0 98rpx 0;
+
+    .message-box{
+      .message-item{
+        display: flex;
+        align-items: center;
+        padding: 30rpx 30rpx 30rpx;
+        border-bottom: 1rpx solid #f5f5f5;
+        .image-box{
+          position: relative;
+          image{
+            width: 72rpx;
+            height: 72rpx;
+            border-radius: 36rpx;
+          }
+        }
+        .text-box{
+          width: 450rpx;
+          padding: 0 40rpx 0 30rpx;
+          .name{
+            display: block;
+            font-style: 28rpx;
+            color: #000;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          .text{
+            display: block;
+            font-size: 24rpx;
+            color: #999;            
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 5rpx 0 0 0;
+          }
+        }
+        .time{
+          color: #d2d2d2;
+          font-size: 24rpx;
+        }
+      }
+    }
+  }
+</style>

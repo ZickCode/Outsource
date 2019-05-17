@@ -1,0 +1,185 @@
+<template>
+  <view>
+    <view class="container">
+        <view class="nav-box">
+          <view class="nav-item">
+            <image src="/images/message/happen.png"></image>
+            <text>谁看过我</text>
+          </view>
+          <view class="nav-item">
+            <image src="/images/message/like.png"></image>
+            <text>点赞</text>
+          </view>
+          <view class="nav-item">
+            <image src="/images/message/comment.png"></image>
+            <text>评论</text>
+          </view>
+          <view class="nav-item">
+            <image src="/images/message/remind.png"></image>
+            <text>@我的</text>
+          </view>
+        </view>
+
+        <view class="message-box">
+          <view class="message-item">
+            <view class="image-box">
+              <text class="tag">99</text>
+              <image src="https://via.placeholder.com/72x72"></image>
+            </view>
+            <view class="text-box">
+              <text class="name">西门吹雪</text>
+              <text class="text">你写的实在是太好了，能教教我吗？</text>
+            </view>
+            <view class="time">1分钟前</view>
+          </view>
+          <view class="message-item">
+            <view class="image-box">
+              <text class="tag">99</text>
+              <image src="https://via.placeholder.com/72x72"></image>
+            </view>
+            <view class="text-box">
+              <text class="name">西门吹雪</text>
+              <text class="text">你写的实在是太好了，能教教我吗？</text>
+            </view>
+            <view class="time">1分钟前</view>
+          </view>
+          <view class="message-item">
+            <view class="image-box">
+              <text class="tag">99</text>
+              <image src="https://via.placeholder.com/72x72"></image>
+            </view>
+            <view class="text-box">
+              <text class="name">西门吹雪</text>
+              <text class="text">你写的实在是太好了，能教教我吗？</text>
+            </view>
+            <view class="time">1分钟前</view>
+          </view>
+          <view class="message-item">
+            <view class="image-box">
+              <text class="tag">99</text>
+              <image src="https://via.placeholder.com/72x72"></image>
+            </view>
+            <view class="text-box">
+              <text class="name">西门吹雪</text>
+              <text class="text">你写的实在是太好了，能教教我吗？</text>
+            </view>
+            <view class="time">1分钟前</view>
+          </view>
+          <view class="message-item">
+            <view class="image-box">
+              <text class="tag">99</text>
+              <image src="https://via.placeholder.com/72x72"></image>
+            </view>
+            <view class="text-box">
+              <text class="name">西门吹雪</text>
+              <text class="text">你写的实在是太好了，能教教我吗？</text>
+            </view>
+            <view class="time">1分钟前</view>
+          </view>
+        </view>
+    </view>
+    <tabbar :tabbar.sync="tabbar"></tabbar>
+  </view>
+</template>
+<script>
+import wepy from 'wepy';
+import tabbar from '@/components/tabbar';
+
+export default class message extends wepy.page {
+  config = {
+    navigationBarTitleText: '消息',
+    enablePullDownRefresh: false
+  };
+  components = {
+    tabbar
+  };
+  data = {
+    tabbar: null
+  };
+  onLoad() {}
+  onShow() {
+    this.tabbar = this.$parent.editTabbar();
+  }
+  methods = {};
+}
+</script>
+<style lang="less" scoped>
+  .container{
+    border-top: 1rpx solid #f5f5f5;
+    padding: 30rpx 0 98rpx 0;
+    .nav-box{
+      display: flex;
+      justify-content: space-between;
+      padding: 0 100rpx 37rpx;
+      border-bottom: 1rpx solid #f5f5f5;
+      .nav-item{
+        flex: 1;
+        text-align: center;
+      }
+      image{
+        width: 80rpx;
+        height: 81rpx;
+      }
+      text{
+        display: block;
+        font-size: 24rpx;
+        color: #666;
+      }
+    }
+
+    .message-box{
+      .message-item{
+        display: flex;
+        align-items: center;
+        padding: 40rpx 30rpx 30rpx;
+        border-bottom: 1rpx solid #f5f5f5;
+        .image-box{
+          position: relative;
+          image{
+            width: 72rpx;
+            height: 72rpx;
+            border-radius: 36rpx;
+          }
+          .tag{
+            position: absolute;
+            top: -6rpx;
+            left: -6rpx;
+            background: #e81d1d;
+            font-size: 18rpx;
+            color: #fff;
+            width: 30rpx;
+            height: 30rpx;
+            border-radius: 15rpx;
+            text-align: center;
+            line-height: 30rpx;
+          }
+        }
+        .text-box{
+          width: 450rpx;
+          padding: 0 40rpx 0 30rpx;
+          .name{
+            display: block;
+            font-style: 28rpx;
+            color: #000;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          .text{
+            display: block;
+            font-size: 24rpx;
+            color: #999;            
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+        .time{
+          color: #d2d2d2;
+          font-size: 24rpx;
+        }
+      }
+    }
+  }
+</style>

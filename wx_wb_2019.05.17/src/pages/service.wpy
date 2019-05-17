@@ -1,0 +1,132 @@
+<template>
+  <view class="container" style="height: {{containerHeight}}px">
+    <view class="message-box left">
+      <image src="https://via.placeholder.com/72x72"></image>
+      <view class="message">你好，我是客服，请问有什么可 以帮到你？</view>
+    </view>
+    <view class="message-box right">
+      <view class="message">你好</view>
+      <image src="https://via.placeholder.com/72x72"></image>
+    </view>
+    <view class="input-box">
+      <input placeholder="大家都在搜：开店宝典" confirm-type="search" />
+      <image class="look" src="/images/service/look.png"></image>
+      <image class="pic" src="/images/service/pic.png"></image>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy';
+
+export default class service extends wepy.page {
+  config = {
+    navigationBarTitleText: '在线客服',
+    enablePullDownRefresh: false
+  };
+  components = {
+    
+  };
+  data = {
+    containerHeight: 0
+  };
+  onLoad() {
+     wx.getSystemInfo({
+       success: (res)=>{
+         this.containerHeight = res.windowHeight - res.windowWidth/750*110;
+       }
+     })
+  }
+  onShow() {}
+  methods = {};
+}
+</script>
+<style lang="less" scoped>
+.container {
+  background: #f0f0f0;
+  .message-box{
+    padding: 30rpx;
+    display: flex;
+    image{
+      width: 72rpx;
+      height: 72rpx;
+      border-radius: 36rpx;
+      flex-shrink: 0;
+    }
+    .message{
+      position: relative;
+      padding: 15rpx 20rpx;
+      font-size: 32rpx;
+      color: #000;
+      line-height: 1.3;
+      border-radius: 20rpx;
+      &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 20rpx;
+        left: -30rpx;
+        width: 0;
+        height: 0;
+        border: 18rpx solid #fff;
+        border-color: transparent #fff transparent transparent;
+      }
+    }
+    &.left{
+      image{
+        margin: 0 20rpx 0 0;
+      }
+      .message{
+        background: #fff;
+        margin: 0 92rpx 0 0;
+      }
+    }
+    &.right{
+      justify-content: flex-end;
+      image{
+        margin: 0 0 0 20rpx;
+      }
+      .message{
+        background: #1eb4fa;
+        color: #fff;
+        margin: 0 0 0 92rpx;
+        &:before{
+          left: auto;
+          right: -30rpx;
+          border-color: transparent transparent transparent #1eb4fa;
+        }
+      }
+    }
+  }
+  .input-box{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 110rpx;
+    background: #f6f6f6;
+    padding: 15rpx 30rpx;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    input{
+      flex: 1;
+      background: #fff;
+      padding: 18rpx;
+      font-size: 32rpx;
+      color: #282828;
+    }
+    image{
+      flex-shrink: 0;      
+      &.look{
+        width: 49rpx;
+        height: 47rpx;
+        margin: 0 23rpx 0 29rpx;
+      }
+      &.pic{
+        width: 47rpx;
+        height: 36rpx;
+      }
+    }
+  }
+}
+</style>

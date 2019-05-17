@@ -1,0 +1,101 @@
+<template>
+  <view class="container">
+    <view class="item-box">
+      <text class="title">头像</text>
+      <view class="info-box">
+        <image class="head" src="https://via.placeholder.com/72x72"></image>
+        <image class="next" src="/images/artcle/next.png"></image>
+      </view>
+    </view>
+    <view class="item-box">
+      <text class="title">昵称</text>
+      <view class="info-box">
+        <text>康帅傅矿泉水</text>
+        <image class="next" src="/images/artcle/next.png"></image>
+      </view>
+    </view>
+    <view class="item-box">
+      <text class="title">性别</text>
+      <view class="info-box">
+        <text>男</text>
+        <image class="next" src="/images/artcle/next.png"></image>
+      </view>
+    </view>
+    <view class="item-box">
+      <text class="title">生日</text>
+      <view class="info-box">
+        <text>1900-01-01</text>
+        <image class="next" src="/images/artcle/next.png"></image>
+      </view>
+    </view>
+    <view class="item-box">
+      <text class="title">简介</text>
+      <view class="info-box">
+        <text>这个人太懒了  什么也没有留下</text>
+        <image class="next" src="/images/artcle/next.png"></image>
+      </view>
+    </view>
+    <view class="item-box">
+      <text class="title">位置</text>
+      <view class="info-box">
+        <text>重庆市 沙坪坝</text>
+        <image class="next" src="/images/artcle/next.png"></image>
+      </view>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy';
+
+export default class editUserInfo extends wepy.page {
+  config = {
+    navigationBarTitleText: '编辑个人信息',
+    enablePullDownRefresh: false
+  };
+  components = {
+    
+  };
+  data = {
+    
+  };
+  onLoad() {}
+  onShow() {}
+  methods = {};
+}
+</script>
+<style lang="less" scoped>
+  .container{
+    border-top: 1rpx solid #f5f5f5;
+    padding: 0 30rpx;
+    .item-box{
+      padding: 30rpx 0;
+      border-bottom: 1rpx solid #e6e6e6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .title{
+        color: #000;
+        font-size: 28rpx;
+        font-weight: bold;
+      }
+      .info-box{
+        display: flex;
+        align-items: center;
+        color: #6e6e6e;
+        font-size: 26rpx;
+        .head{
+          width: 72rpx;
+          height: 72rpx;
+          border-radius: 36rpx;
+          flex-shrink: 0;
+        }
+        .next{
+          width: 15rpx;
+          height: 24rpx;
+          flex-shrink: 0;
+          margin: 0 0 0 20rpx;
+        }
+      }
+    }
+  }
+</style>

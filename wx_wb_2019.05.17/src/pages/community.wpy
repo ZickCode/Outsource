@@ -1,0 +1,282 @@
+<template>
+  <view>
+    <navigationBar :navigationBar.sync="navigationBar"></navigationBar>
+    <view class="container">
+      <view class="search-content">
+        <view class="search-box">
+          <image src="/images/index/search.png"></image>
+          <input placeholder="大家都在搜：开店宝典" confirm-type="search" />
+        </view>
+      </view>
+
+      <view class="nav-box">
+        <view class="nav-item on">推荐</view>
+        <view class="nav-item">周边</view>
+        <view class="nav-item">教程</view>
+        <view class="nav-item">行业资讯</view>
+        <view class="nav-item">资源</view>
+        <view class="nav-item">更多</view>
+      </view>
+
+      <view class="content">
+        <view class="news-item" bind:tap="GoToDetail">
+          <view class="title-box">
+            <image class="title" src="https://via.placeholder.com/250x140"></image>
+            <text class="tag">教程</text>
+            <view class="info-box">
+              <text class="title">行业经典</text>
+              <text class="text">3天引爆5000万流量，怎样做到？3天引爆5000万流量，怎样做到？</text>
+            </view>
+          </view>
+          <view class="auther-box">
+            <text class="num">9人看过</text>
+            <text class="time">3分钟前</text>
+            <view class="autner-info">
+              <text class="name">推拿大魔王推拿大魔王推拿大魔王</text>
+              <image src="https://via.placeholder.com/36x36"></image>
+            </view>
+          </view>
+        </view>
+        <view class="news-item" bind:tap="GoToDetail">
+          <view class="title-box">
+            <image class="title" src="https://via.placeholder.com/250x140"></image>
+            <text class="tag red">干货</text>
+            <view class="info-box">
+              <text class="title">行业经典</text>
+              <text class="text">3天引爆5000万流量，怎样做到？3天引爆5000万流量，怎样做到？</text>
+            </view>
+          </view>
+          <view class="auther-box">
+            <text class="num">9人看过</text>
+            <text class="time">3分钟前</text>
+            <view class="autner-info">
+              <text class="name">推拿大魔王推拿大魔王推拿大魔王</text>
+              <image src="https://via.placeholder.com/36x36"></image>
+            </view>
+          </view>
+        </view>
+        <view class="news-item" bind:tap="GoToDetail">
+          <view class="title-box">
+            <image class="title" src="https://via.placeholder.com/250x140"></image>
+            <text class="tag yellow">资源</text>
+            <view class="info-box">
+              <text class="title">行业经典</text>
+              <text class="text">3天引爆5000万流量，怎样做到？3天引爆5000万流量，怎样做到？</text>
+            </view>
+          </view>
+          <view class="auther-box">
+            <text class="num">9人看过</text>
+            <text class="time">3分钟前</text>
+            <view class="autner-info">
+              <text class="name">推拿大魔王推拿大魔王推拿大魔王</text>
+              <image src="https://via.placeholder.com/36x36"></image>
+            </view>
+          </view>
+        </view>
+        <view class="news-item" bind:tap="GoToDetail">
+          <view class="title-box">
+            <image class="title" src="https://via.placeholder.com/250x140"></image>
+            <text class="tag yellow">教程</text>
+            <view class="info-box">
+              <text class="title">行业经典</text>
+              <text class="text">3天引爆5000万流量，怎样做到？3天引爆5000万流量，怎样做到？</text>
+            </view>
+          </view>
+          <view class="auther-box">
+            <text class="num">9人看过</text>
+            <text class="time">3分钟前</text>
+            <view class="autner-info">
+              <text class="name">推拿大魔王推拿大魔王推拿大魔王</text>
+              <image src="https://via.placeholder.com/36x36"></image>
+            </view>
+          </view>
+        </view>
+        <view class="news-item" bind:tap="GoToDetail">
+          <view class="title-box">
+            <image class="title" src="https://via.placeholder.com/250x140"></image>
+            <text class="tag yellow">教程</text>
+            <view class="info-box">
+              <text class="title">行业经典</text>
+              <text class="text">3天引爆5000万流量，怎样做到？3天引爆5000万流量，怎样做到？</text>
+            </view>
+          </view>
+          <view class="auther-box">
+            <text class="num">9人看过</text>
+            <text class="time">3分钟前</text>
+            <view class="autner-info">
+              <text class="name">推拿大魔王推拿大魔王推拿大魔王</text>
+              <image src="https://via.placeholder.com/36x36"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <tabbar :tabbar.sync="tabbar"></tabbar>
+  </view>
+</template>
+<script>
+import wepy from 'wepy';
+import tabbar from '@/components/tabbar';
+import navigationBar from '@/components/navigationBar';
+
+export default class community extends wepy.page {
+  config = {
+    navigationBarTitleText: '社区',
+    enablePullDownRefresh: false
+  };
+  components = {
+    tabbar,
+    navigationBar
+  };
+  data = {
+    tabbar: null,
+    navigationBar: {
+      title: '社区',
+      btnRight: {
+        text: '测试',
+        handler: ()=>{
+          alert(123)
+        }
+      }
+    }
+  };
+  GoToDetail() {
+    wx.navigateTo({
+      url: '/pages/artcleDetail'
+    });
+  }
+  onLoad() {}
+  onShow() {
+    this.tabbar = this.$parent.editTabbar();
+  }
+  methods = {};
+}
+</script>
+<style lang="less" scoped>
+.container {
+  padding-bottom: 98rpx;
+  .search-content {
+    padding: 10rpx 30rpx;
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #f5f5f5;
+      padding: 0 20rpx;
+      border-radius: 5rpx;
+      image {
+        width: 24rpx;
+        height: 24rpx;
+      }
+      input {
+        padding: 7rpx 0 7rpx 15rpx;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .nav-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx 30rpx 10rpx;
+    background: #fff;
+    .nav-item{
+      font-size: 30rpx;
+      color: #666;
+      &.on{
+        color: #1eb4fa;
+        font-size: 34rpx;
+        font-weight: bold;
+        padding: 0 0 10rpx 0;
+        border-bottom: 5rpx solid #1eb4fa;
+      }
+    }
+  }
+
+  .content{
+    background: #f5f5f5;
+    padding: 10rpx 0 20rpx 0;
+    .news-item{
+      position: relative;
+      height: 190rpx;
+      margin: 60rpx 30rpx 0 80rpx;
+      background: #fff;
+      border-radius: 10rpx;
+      image.title{
+        position: absolute;
+        top: -30rpx;
+        left: -50rpx;
+        width: 250rpx;
+        height: 140rpx;
+        border-radius: 10rpx;
+      }
+      .tag{
+        position: absolute;
+        top: -15rpx;
+        right: 40rpx;
+        padding: 6rpx 10rpx;
+        background: #1eb4fa;
+        color: #fff;
+        font-size: 24rpx;
+        border-radius: 5rpx;
+        &.red{
+          background: #df0024;
+        }
+        &.yellow{
+          background: #eaa515;
+        }
+      }
+      .info-box{
+        padding: 0 0 0 220rpx;
+        .title{
+          display: block;
+          font-size: 32rpx;
+          color: #333;
+          font-weight: bold;
+          padding: 10rpx 0;
+        }
+        .text{
+          display: block;
+          font-size: 24rpx;
+          color: #666;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      .auther-box{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30rpx 30rpx 0;
+        font-size: 24rpx;
+        .num{
+          color: #999;
+        }
+        .time{
+          color: #ccc;
+        }
+        .autner-info{
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          width: 230rpx;
+          .name{
+            color: #333;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          image{
+            flex-shrink: 0;
+            width: 36rpx;
+            height: 36rpx;
+            border-radius: 18rpx;
+            margin: 0 0 0 10rpx;
+          }
+        }
+      }
+    }
+  }
+}
+</style>

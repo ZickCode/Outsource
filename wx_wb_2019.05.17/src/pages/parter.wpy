@@ -1,0 +1,131 @@
+<template>
+  <view>
+    <view class="container">
+      <view class="nav-box">
+        <view class="on">
+          <text>已有合作</text>
+        </view>
+        <view>
+          <text>意向合作</text>
+        </view>
+      </view>
+      <view class="message-box">
+        <view class="message-item">
+          <view class="image-box">
+            <image src="https://via.placeholder.com/72x72"></image>
+          </view>
+          <view class="text-box">
+            <text class="name">求购风湿药</text>
+            <text class="text">重庆胖哥风湿广告有限公司</text>
+          </view>
+          <image src="/images/artcle/next.png"></image>
+        </view>
+        <view class="message-item">
+          <view class="image-box">
+            <image src="https://via.placeholder.com/72x72"></image>
+          </view>
+          <view class="text-box">
+            <text class="name">求购风湿药</text>
+            <text class="text">重庆胖哥风湿广告有限公司</text>
+          </view>
+          <image src="/images/artcle/next.png"></image>
+        </view>
+        <view class="message-item">
+          <view class="image-box">
+            <image src="https://via.placeholder.com/72x72"></image>
+          </view>
+          <view class="text-box">
+            <text class="name">求购风湿药</text>
+            <text class="text">重庆胖哥风湿广告有限公司</text>
+          </view>
+          <image src="/images/artcle/next.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy';
+
+export default class parter extends wepy.page {
+  config = {
+    navigationBarTitleText: '我的伙伴',
+    enablePullDownRefresh: false
+  };
+  components = {
+    
+  };
+  data = {
+    
+  };
+  onLoad() {}
+  onShow() {}
+  methods = {};
+}
+</script>
+<style lang="less" scoped>
+  .container{
+    border-top: 1rpx solid #f5f5f5;
+    padding: 0 0 98rpx 0;
+
+    .nav-box{
+      display: flex;
+      box-shadow: 1rpx 1rpx 5rpx #eee;
+      view{
+        flex: 1;
+        text-align: center;
+        padding: 15rpx 0;
+        font-size: 28rpx;
+        color: #6e6e6e;
+        &.on text{
+          color: #1eb4fa;
+          border-bottom: 5rpx solid #1eb4fa;
+        }
+      }
+    }
+
+    .message-box{
+      .message-item{
+        display: flex;
+        align-items: center;
+        padding: 30rpx 30rpx 30rpx;
+        border-bottom: 1rpx solid #f5f5f5;
+        .image-box{
+          position: relative;
+          image{
+            width: 72rpx;
+            height: 72rpx;
+            border-radius: 36rpx;
+          }
+        }
+        .text-box{
+          flex: 1;
+          padding: 0 40rpx 0 30rpx;
+          .name{
+            display: block;
+            font-style: 28rpx;
+            color: #000;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          .text{
+            display: block;
+            font-size: 24rpx;
+            color: #999;            
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 5rpx 0 0 0;
+          }
+        }
+        image{
+          width: 15rpx;
+          height: 24rpx;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+</style>
