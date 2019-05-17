@@ -1,6 +1,8 @@
 <template>
   <view class="box" style="background-color:{{tabbar.backgroundColor}}">
-    <image wx:if="{{navigationBar.left != 'hide'}}" @tap="GoBack" class="btn-back" src="/images/artcle/back.png"></image>
+    <view @tap="GoBack">
+      <image wx:if="{{navigationBar.left != 'hide'}}" class="btn-back" src="/images/artcle/back.png"></image>
+    </view>
     <text class="title {{navigationBar.rightText ? '' : 'center'}} {{navigationBar.left == 'hide' ? 'left' : ''}}">{{navigationBar.title}}</text>
     <text wx:if="{{navigationBar.rightText}}" class="btn-right" @tap="GoToPage" data-url="{{navigationBar.rightUrl}}">{{navigationBar.rightText}}</text>
   </view>

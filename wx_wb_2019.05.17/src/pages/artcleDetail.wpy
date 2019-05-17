@@ -2,7 +2,9 @@
   <view style="padding-top:{{statusHeight}}px">
     <view class="container">
       <div class="top-box">
-        <image class="back" src="/images/artcle/back.png" bind:tap="GoBack"></image>
+        <view class="back-box" @tap="GoBack">
+          <image class="back" src="/images/artcle/back.png"></image>
+        </view>
         <view class="info">
           <text class="title">酒店营销策略</text>
           <text class="num">999人浏览过</text>
@@ -106,13 +108,15 @@ export default class artcleDetail extends wepy.page {
       border-bottom: 1rpx solid #ccc;
       background: #fff;
       box-sizing: border-box;
+      .back-box{
+        padding: 0 20rpx 0 0;
+      }
       .back{
         width: 20rpx;
         height: 30rpx;
         flex-shrink: 0;
       }
       .info{
-        padding: 0 0 0 20rpx;
         flex: 1;
         text{
           display: block;

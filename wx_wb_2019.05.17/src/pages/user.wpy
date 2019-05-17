@@ -17,7 +17,7 @@
           <image src="/images/user/draft.png"></image>
           <text>草稿箱</text>
         </view>
-        <view class="group-item">
+        <view class="group-item" @tap="GoToPage" data-url="myCase">
           <image src="/images/user/case.png"></image>
           <text>我的教程</text>
         </view>

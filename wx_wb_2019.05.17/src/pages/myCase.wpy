@@ -1,0 +1,98 @@
+<template>
+  <view style="padding-top:{{statusHeight}}px">
+    <navigationBar :navigationBar="navigationBar"></navigationBar>
+    <view class="container">
+        <view class="message-box">
+          <view class="message-item">            
+            <view class="info">
+              <text class="name">当空气的密度达到一定程度的时候</text>
+              <text class="text">它就变成了过一会儿的空气</text>
+            </view>
+            <image src="/images/artcle/next.png"></image>
+          </view>
+          <view class="message-item">            
+            <view class="info">
+              <text class="name">当空气的密度达到一定程度的时候</text>
+              <text class="text">它就变成了过一会儿的空气</text>
+            </view>
+            <image src="/images/artcle/next.png"></image>
+          </view>
+          <view class="message-item">            
+            <view class="info">
+              <text class="name">当空气的密度达到一定程度的时候</text>
+              <text class="text">它就变成了过一会儿的空气</text>
+            </view>
+            <image src="/images/artcle/next.png"></image>
+          </view>
+        </view>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy';
+import navigationBar from '@/components/navigationBar';
+
+export default class myCase extends wepy.page {
+  config = {
+    navigationBarTitleText: '我的教程',
+    enablePullDownRefresh: false
+  };
+  components = {
+    navigationBar
+  };
+  data = {
+    statusHeight: null,
+    navigationBar: {
+      title: '我的教程'
+    }
+  };
+  onLoad() {
+    this.statusHeight = this.$parent.globalData.statusHeight;
+  }
+  onShow() {}
+  methods = {};
+}
+</script>
+<style lang="less" scoped>
+  .container{
+    border-top: 1rpx solid #e6e6e6;
+    padding: 0 0 98rpx 0;
+
+    .message-box{
+      padding: 0 30rpx;
+      .message-item{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30rpx 0 30rpx;
+        border-bottom: 1rpx solid #e6e6e6;
+        .info{
+          flex: 1;
+          padding: 0 40rpx 0 30rpx;
+          .name{
+            display: block;
+            font-style: 30rpx;
+            color: #282828;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          .text{
+            display: block;
+            font-size: 24rpx;
+            color: #6e6e6e;            
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 10rpx 0 0 0;
+          }
+        }
+        image{
+          width: 15rpx;
+          height: 24rpx;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+</style>

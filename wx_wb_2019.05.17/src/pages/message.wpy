@@ -100,7 +100,8 @@ export default class message extends wepy.page {
     tabbar: null,    
     statusHeight: null,
     navigationBar: {
-      title: '消息'
+      title: '消息',
+      left: 'hide'
     }
   };
   onLoad() {
