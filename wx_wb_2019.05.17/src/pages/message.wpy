@@ -3,19 +3,19 @@
     <navigationBar :navigationBar="navigationBar"></navigationBar>
     <view class="container">
         <view class="nav-box">
-          <view class="nav-item">
+          <view class="nav-item" @tap="GoToPage" data-url="watchMe">
             <image src="/images/message/happen.png"></image>
             <text>谁看过我</text>
           </view>
-          <view class="nav-item">
+          <view class="nav-item" @tap="GoToPage" data-url="like">
             <image src="/images/message/like.png"></image>
             <text>点赞</text>
           </view>
-          <view class="nav-item">
+          <view class="nav-item" @tap="GoToPage" data-url="comment">
             <image src="/images/message/comment.png"></image>
             <text>评论</text>
           </view>
-          <view class="nav-item">
+          <view class="nav-item" @tap="GoToPage" data-url="remindMe">
             <image src="/images/message/remind.png"></image>
             <text>@我的</text>
           </view>
@@ -109,6 +109,12 @@ export default class message extends wepy.page {
   }
   onShow() {
     this.tabbar = this.$parent.editTabbar();
+  }
+  //跳转
+  GoToPage(url) {
+    wx.navigateTo({
+      url: '/pages/' + url.currentTarget.dataset.url
+    })
   }
   methods = {};
 }

@@ -56,7 +56,7 @@
             <text>3分钟前</text>
             <view class="like-box">
               <text>999</text>
-              <image class="parter" src="/images/user/parter.png"></image>
+              <image class="parter" src="/images/user/parter-icon.png"></image>
               <text>999</text>
               <image class="good" src="/images/user/good.png"></image>
             </view>

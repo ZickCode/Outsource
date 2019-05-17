@@ -36,6 +36,39 @@
           </view>
         </view>
       </view>
+      <view class="item-box">
+        <view class="title">提醒方式</view>
+        <view class="switch-box">
+          <text>声音提醒</text>
+          <switch checked color="#1eb4fa" />
+        </view>
+        <view class="switch-box">
+          <text>震动提醒</text>
+          <switch color="#1eb4fa" />
+        </view>
+      </view>
+      <view class="item-box">
+        <view class="title">谁可以提醒我</view>
+        <view class="switch-box">
+          <text>所有人</text>
+          <switch checked color="#1eb4fa" />
+        </view>
+        <view class="switch-box">
+          <text>伙伴</text>
+          <switch color="#1eb4fa" />
+        </view>
+      </view>
+      <view class="item-box">
+        <view class="title">黑名单</view>
+        <view class="switch-box">
+          <text>已拉黑</text>
+          <image src="/images/artcle/next.png"></image>
+        </view>
+        <view class="switch-box">
+          <text>已删除</text>
+          <image src="/images/artcle/next.png"></image>
+        </view>
+      </view>
     </view>
   </view>
 </template>
