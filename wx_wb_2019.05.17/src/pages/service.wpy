@@ -3,12 +3,12 @@
     <navigationBar :navigationBar="navigationBar"></navigationBar>
     <view class="container" style="height: {{containerHeight}}px">
       <view class="message-box left">
-        <image src="https://via.placeholder.com/72x72"></image>
+        <image src="/images/mock/logo.png"></image>
         <view class="message">你好，我是客服，请问有什么可 以帮到你？</view>
       </view>
       <view class="message-box right">
         <view class="message">你好</view>
-        <image src="https://via.placeholder.com/72x72"></image>
+        <image src="/images/mock/user.png"></image>
       </view>
       <view class="input-box">
         <input placeholder="大家都在搜：开店宝典" confirm-type="search" />

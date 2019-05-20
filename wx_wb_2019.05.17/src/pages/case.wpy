@@ -15,18 +15,18 @@
       <view class="content">
         <view class="news-item" bind:tap="GoToDetail">
           <view class="title-box">
-            <image class="title" src="/images/mock/case-bg-5.png"></image>
+            <image class="title" src="/images/mock/case-bg-1.png"></image>
             <text class="tag">教程</text>
             <view class="info-box">
-              <text class="title">行业经典</text>
-              <text class="text">3天引爆5000流量，怎样做到？</text>
+              <text class="title">新商业公开课</text>
+              <text class="text">这课程绝对适合天马行空的你</text>
             </view>
           </view>
           <view class="auther-box">
             <text class="num">45人看过</text>
             <text class="time">3分钟前</text>
             <view class="autner-info">
-              <text class="name">推拿大魔王</text>
+              <text class="name">商业奇才</text>
               <image src="/images/mock/user-1.png"></image>
             </view>
           </view>
@@ -36,8 +36,8 @@
             <image class="title" src="/images/mock/case-bg-2.png"></image>
             <text class="tag">教程</text>
             <view class="info-box">
-              <text class="title">牛人说法</text>
-              <text class="text">买房就要趁现在，点进来看看</text>
+              <text class="title">店铺发展方向</text>
+              <text class="text">人生难免会迷茫，给你方向</text>
             </view>
           </view>
           <view class="auther-box">
@@ -54,8 +54,8 @@
             <image class="title" src="/images/mock/case-bg-3.png"></image>
             <text class="tag">教程</text>
             <view class="info-box">
-              <text class="title">资源共享</text>
-              <text class="text">手中有好项目？</text>
+              <text class="title">正确的握手方式</text>
+              <text class="text">你真的会握手吗</text>
             </view>
           </view>
           <view class="auther-box">
@@ -72,8 +72,8 @@
             <image class="title" src="/images/mock/case-bg-4.png"></image>
             <text class="tag">教程</text>
             <view class="info-box">
-              <text class="title">新春特惠</text>
-              <text class="text">全场7折，不限量</text>
+              <text class="title">新商业公开课</text>
+              <text class="text">这课程绝对适合天马行空的你</text>
             </view>
           </view>
           <view class="auther-box">
@@ -112,16 +112,16 @@
 import wepy from 'wepy';
 import tabbar from '@/components/tabbar';
 
-export default class community extends wepy.page {
+export default class Case extends wepy.page {
   config = {
-    navigationBarTitleText: '社区',
+    navigationBarTitleText: '教程',
     enablePullDownRefresh: false
   };
   components = {
     tabbar
   };
   data = {
-    currentIndex: 0,
+    currentIndex: 2,
     navArr: ['推荐', '周边', '教程', '行业资讯', '资源', '更多'],
     tabbar: null,
     statusHeight: null,
@@ -146,7 +146,6 @@ export default class community extends wepy.page {
 </script>
 <style lang="less" scoped>
 .container {
-  padding-bottom: 98rpx;
   .search-content {
     height: 90rpx;
     box-sizing: border-box;

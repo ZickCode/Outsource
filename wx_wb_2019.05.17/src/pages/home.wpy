@@ -37,7 +37,7 @@
           </view>
           <text>官网</text>
         </view>
-        <view class="nav-item" @tap="GoToPage" data-url="artcleDetail">
+        <view class="nav-item" @tap="GoToPage" data-url="intro">
           <view>
             <image src="/images/index/intro.png"></image>
           </view>
@@ -63,17 +63,17 @@
           <text class="more">查看全部 ></text>
         </view>
         <div class="content">
-          <view class="course-item" @tap="GoToPage" data-url="community">
-            <image src="https://via.placeholder.com/255x135"></image>
+          <view class="course-item" @tap="GoToPage" data-url="case">
+            <image src="/images/mock/index-case-1.png"></image>
             <text>3.8女神节流量引爆8女神节流量引爆</text>
           </view>
-          <view class="course-item" @tap="GoToPage" data-url="community">
-            <image src="https://via.placeholder.com/255x135"></image>
-            <text>3.8女神节流量引爆8女神节流量引爆</text>
+          <view class="course-item" @tap="GoToPage" data-url="case">
+            <image src="/images/mock/index-case-2.png"></image>
+            <text>免单教程点击了解</text>
           </view>
-          <view class="course-item" @tap="GoToPage" data-url="community">
-            <image src="https://via.placeholder.com/255x135"></image>
-            <text>3.8女神节流量引爆8女神节流量引爆</text>
+          <view class="course-item" @tap="GoToPage" data-url="case">
+            <image src="/images/mock/index-case-3.png"></image>
+            <text>提升客户体验</text>
           </view>
         </div>
       </view>
@@ -81,13 +81,7 @@
       <view class="case-box">
         <text class="title">案 例 展 示</text>
         <view class="case-item" @tap="GoToPage" data-url="artcleDetail">
-          <image src="https://via.placeholder.com/750x375"></image>
-        </view>
-        <view class="case-item" @tap="GoToPage" data-url="artcleDetail">
-          <image src="https://via.placeholder.com/750x375"></image>
-        </view>
-        <view class="case-item" @tap="GoToPage" data-url="artcleDetail">
-          <image src="https://via.placeholder.com/750x375"></image>
+          <image src="/images/mock/index-bottom.png"></image>
         </view>
       </view>
     </view>
@@ -109,9 +103,9 @@ export default class home extends wepy.page {
   data = {
     tabbar: null,    
     imgUrls: [
-      'https://via.placeholder.com/600x340',
-      'https://via.placeholder.com/600x340',
-      'https://via.placeholder.com/600x340'
+      '/images/mock/index-banner-2.png',
+      '/images/mock/index-banner-1.png',
+      '/images/mock/index-banner-2.png',
     ],
     current: 0,
     currnetSwiperIndex: 0,
@@ -235,6 +229,7 @@ export default class home extends wepy.page {
       .course-item{
         width: 255rpx;
         margin: 0 20rpx 0 0;
+        flex-shrink: 0;
         image{
           height: 135rpx;
           border-radius: 5rpx;

@@ -9,20 +9,20 @@
             <text>绝世高手阿福</text>
           </view>
           <view class="head-box">
-            <image src="https://via.placeholder.com/114x114"></image>
+            <image src="/images/mock/user-2.png"></image>
             <view class="head-text">
               <view class="text">
                 <view>
                   <view>关注</view>
-                  <view>999</view>
+                  <view>19</view>
                 </view>
                 <view class="center">
                   <view>粉丝</view>
-                  <view>999</view>
+                  <view>22</view>
                 </view>
                 <view>
                   <view>获赞与收藏</view>
-                  <view>999</view>
+                  <view>98</view>
                 </view>
               </view>
               <view class="btn">
@@ -50,65 +50,31 @@
             <text>开店历程</text>
             <image class="back" @tap="GoBack" src="/images/artcle/back.png"></image>
           </view>          
-          <image src="https://via.placeholder.com/690x360"></image>
-          <text>自从我阿福来到这个城市那一刻，我感受到了，回来了，全都回 来了，大师兄他们，回来了。</text>
+          <image src="/images/mock/userpage-bg-1.png"></image>
+          <text>回到了自己的城市，我终于要有一家属于自己的店啦！</text>
           <view class="time-box">
             <text>3分钟前</text>
             <view class="like-box">
-              <text>999</text>
+              <text>65</text>
               <image class="parter" src="/images/user/parter-icon.png"></image>
-              <text>999</text>
+              <text>33</text>
               <image class="good" src="/images/user/good.png"></image>
             </view>
           </view>
         </view>
         <view class="item">
           <view class="title-box">
-            <text>开店历程</text>
+            <text>我阿福又回来啦</text>
             <image class="back" @tap="GoBack" src="/images/artcle/back.png"></image>
           </view>          
-          <image src="https://via.placeholder.com/690x360"></image>
+          <image src="/images/mock/userpage-bg-2.png"></image>
           <text>自从我阿福来到这个城市那一刻，我感受到了，回来了，全都回 来了，大师兄他们，回来了。</text>
           <view class="time-box">
             <text>3分钟前</text>
             <view class="like-box">
-              <text>999</text>
+              <text>22</text>
               <image class="parter" src="/images/user/parter.png"></image>
-              <text>999</text>
-              <image class="good" src="/images/user/good.png"></image>
-            </view>
-          </view>
-        </view>
-        <view class="item">
-          <view class="title-box">
-            <text>开店历程</text>
-            <image class="back" @tap="GoBack" src="/images/artcle/back.png"></image>
-          </view>          
-          <image src="https://via.placeholder.com/690x360"></image>
-          <text>自从我阿福来到这个城市那一刻，我感受到了，回来了，全都回 来了，大师兄他们，回来了。</text>
-          <view class="time-box">
-            <text>3分钟前</text>
-            <view class="like-box">
-              <text>999</text>
-              <image class="parter" src="/images/user/parter.png"></image>
-              <text>999</text>
-              <image class="good" src="/images/user/good.png"></image>
-            </view>
-          </view>
-        </view>
-        <view class="item">
-          <view class="title-box">
-            <text>开店历程</text>
-            <image class="back" @tap="GoBack" src="/images/artcle/back.png"></image>
-          </view>          
-          <image src="https://via.placeholder.com/690x360"></image>
-          <text>自从我阿福来到这个城市那一刻，我感受到了，回来了，全都回 来了，大师兄他们，回来了。</text>
-          <view class="time-box">
-            <text>3分钟前</text>
-            <view class="like-box">
-              <text>999</text>
-              <image class="parter" src="/images/user/parter-icon.png"></image>
-              <text>999</text>
+              <text>75</text>
               <image class="good" src="/images/user/good.png"></image>
             </view>
           </view>

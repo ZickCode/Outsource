@@ -5,21 +5,21 @@
         <view class="message-box">
           <view class="message-item">            
             <view class="info">
-              <text class="name">当空气的密度达到一定程度的时候</text>
-              <text class="text">它就变成了过一会儿的空气</text>
+              <text class="name">凉席为什么不能当被子盖呢</text>
+              <text class="text">今天我们就这个问题展开深入探讨</text>
             </view>
             <image src="/images/artcle/next.png"></image>
           </view>
           <view class="message-item">            
             <view class="info">
-              <text class="name">当空气的密度达到一定程度的时候</text>
-              <text class="text">它就变成了过一会儿的空气</text>
+              <text class="name">喝可乐和水是什么感觉</text>
+              <text class="text">经过有关人士的实验，感觉非常解渴</text>
             </view>
             <image src="/images/artcle/next.png"></image>
           </view>
           <view class="message-item">            
             <view class="info">
-              <text class="name">当空气的密度达到一定程度的时候</text>
+              <text class="name">砍树需要什么</text>
               <text class="text">它就变成了过一会儿的空气</text>
             </view>
             <image src="/images/artcle/next.png"></image>

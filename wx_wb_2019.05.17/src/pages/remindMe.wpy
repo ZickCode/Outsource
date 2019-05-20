@@ -5,7 +5,7 @@
         <view class="message-box">
           <view class="message-item">
             <view class="image-box">
-              <image src="https://via.placeholder.com/72x72"></image>
+              <image src="/images/mock/user.png"></image>
             </view>
             <view class="text-box">
               <text class="name">偷窥达人</text>

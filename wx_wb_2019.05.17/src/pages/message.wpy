@@ -24,8 +24,8 @@
         <view class="message-box">
           <view class="message-item">
             <view class="image-box">
-              <text class="tag">99</text>
-              <image src="https://via.placeholder.com/72x72"></image>
+              <text class="tag">9</text>
+              <image src="/images/mock/user.png"></image>
             </view>
             <view class="text-box">
               <text class="name">西门吹雪</text>
@@ -35,45 +35,34 @@
           </view>
           <view class="message-item">
             <view class="image-box">
-              <text class="tag">99</text>
-              <image src="https://via.placeholder.com/72x72"></image>
+              <text class="tag">1</text>
+              <image src="/images/mock/user-1.png"></image>
             </view>
             <view class="text-box">
-              <text class="name">西门吹雪</text>
-              <text class="text">你写的实在是太好了，能教教我吗？</text>
+              <text class="name">长岛的雪</text>
+              <text class="text">我最近准备开一家餐饮店，你有什么建议吗？</text>
             </view>
             <view class="time">1分钟前</view>
           </view>
           <view class="message-item">
             <view class="image-box">
-              <text class="tag">99</text>
-              <image src="https://via.placeholder.com/72x72"></image>
+              <text class="tag">5</text>
+              <image src="/images/mock/user-2.png"></image>
             </view>
             <view class="text-box">
-              <text class="name">西门吹雪</text>
-              <text class="text">你写的实在是太好了，能教教我吗？</text>
+              <text class="name">小可爱</text>
+              <text class="text">听说你有狗粮的进货渠道，谈谈合作吧</text>
             </view>
             <view class="time">1分钟前</view>
           </view>
           <view class="message-item">
             <view class="image-box">
-              <text class="tag">99</text>
-              <image src="https://via.placeholder.com/72x72"></image>
+              <text class="tag">8</text>
+              <image src="/images/mock/user-3.png"></image>
             </view>
             <view class="text-box">
-              <text class="name">西门吹雪</text>
-              <text class="text">你写的实在是太好了，能教教我吗？</text>
-            </view>
-            <view class="time">1分钟前</view>
-          </view>
-          <view class="message-item">
-            <view class="image-box">
-              <text class="tag">99</text>
-              <image src="https://via.placeholder.com/72x72"></image>
-            </view>
-            <view class="text-box">
-              <text class="name">西门吹雪</text>
-              <text class="text">你写的实在是太好了，能教教我吗？</text>
+              <text class="name">Sorry</text>
+              <text class="text">我很赞同你的说法，有空出来喝咖啡吗</text>
             </view>
             <view class="time">1分钟前</view>
           </view>

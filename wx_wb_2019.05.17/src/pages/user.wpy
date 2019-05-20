@@ -4,7 +4,7 @@
       <view class="info-box">
         <image src="/images/user/bg.png"></image>
         <view class="info">
-          <image src="https://via.placeholder.com/114x114"></image>
+          <image src="/images/mock/user.png"></image>
           <view class="text">
             <text class="name">提利尔先生</text>
             <text class="type">话痨</text>

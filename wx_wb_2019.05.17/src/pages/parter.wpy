@@ -13,7 +13,7 @@
       <view class="message-box">
         <view class="message-item">
           <view class="image-box">
-            <image src="https://via.placeholder.com/72x72"></image>
+            <image src="/images/mock/user-2.png"></image>
           </view>
           <view class="text-box">
             <text class="name">求购风湿药</text>
@@ -23,21 +23,21 @@
         </view>
         <view class="message-item">
           <view class="image-box">
-            <image src="https://via.placeholder.com/72x72"></image>
+            <image src="/images/mock/user-3.png"></image>
           </view>
           <view class="text-box">
-            <text class="name">求购风湿药</text>
-            <text class="text">重庆胖哥风湿广告有限公司</text>
+            <text class="name">船底星的王者</text>
+            <text class="text">重庆十六楼工业机械有限公司</text>
           </view>
           <image src="/images/artcle/next.png"></image>
         </view>
         <view class="message-item">
           <view class="image-box">
-            <image src="https://via.placeholder.com/72x72"></image>
+            <image src="/images/mock/user-1.png"></image>
           </view>
           <view class="text-box">
-            <text class="name">求购风湿药</text>
-            <text class="text">重庆胖哥风湿广告有限公司</text>
+            <text class="name">暴力炒菜</text>
+            <text class="text">阿嫂餐饮管理有限公司</text>
           </view>
           <image src="/images/artcle/next.png"></image>
         </view>

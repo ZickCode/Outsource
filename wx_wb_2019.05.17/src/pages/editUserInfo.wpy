@@ -5,7 +5,7 @@
       <view class="item-box">
         <text class="title">头像</text>
         <view class="info-box">
-          <image class="head" src="https://via.placeholder.com/72x72"></image>
+          <image class="head" src="/images/mock/user-2.png"></image>
           <image class="next" src="/images/artcle/next.png"></image>
         </view>
       </view>

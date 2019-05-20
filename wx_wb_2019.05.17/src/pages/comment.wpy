@@ -6,21 +6,21 @@
           <view class="message-item">
             <view class="image-box">
               <text class="tag"></text>
-              <image src="https://via.placeholder.com/72x72"></image>
+              <image src="/images/mock/user-3.png"></image>
             </view>
             <view class="text-box">
-              <text class="name">小罗就是罗师傅</text>
-              <view class="text">评论你：<text>穷鬼撒的风格哈哈哈</text></view>
+              <text class="name">小王</text>
+              <view class="text">评论你：<text>很厉害</text></view>
             </view>
             <view class="time">1分钟前</view>
           </view>
           <view class="message-item">
             <view class="image-box">
-              <image src="https://via.placeholder.com/72x72"></image>
+              <image src="/images/mock/user-4.png"></image>
             </view>
             <view class="text-box">
-              <text class="name">小罗就是罗师傅</text>
-              <view class="text">评论你：<text>穷鬼撒的风格哈哈哈</text></view>
+              <text class="name">小罗</text>
+              <view class="text">评论你：<text>哈哈哈哈哈</text></view>
             </view>
             <view class="time">1分钟前</view>
           </view>

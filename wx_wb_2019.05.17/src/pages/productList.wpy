@@ -12,23 +12,88 @@
       </view>
 
       <view class="nav-box">
-        <view class="nav-item on">餐饮</view>
-        <view class="nav-item">教育</view>
-        <view class="nav-item">旅游</view>
-        <view class="nav-item">亲子活动</view>
-        <view class="nav-item">娱乐</view>
-        <view class="nav-item">更多</view>
+        <view class="nav-item {{currentIndex == 0 ? 'on' : ''}}" @tap="Switch" data-index="0">餐饮</view>
+        <view class="nav-item {{currentIndex == 1 ? 'on' : ''}}" @tap="Switch" data-index="1">教育</view>
+        <view class="nav-item {{currentIndex == 2 ? 'on' : ''}}" @tap="Switch" data-index="2">旅游</view>
+        <view class="nav-item {{currentIndex == 3 ? 'on' : ''}}" @tap="Switch" data-index="3">亲子活动</view>
+        <view class="nav-item {{currentIndex == 4 ? 'on' : ''}}" @tap="Switch" data-index="4">娱乐</view>
+        <view class="nav-item {{currentIndex == 5 ? 'on' : ''}}" @tap="Switch" data-index="5">更多</view>
       </view>
 
       <view class="content">
-        <view wx:for="{{mock}}" wx:for-index="{{index}}" wx:key="{{index}}" class="product-item" bind:tap="GoToDetail">
-          <image src="https://via.placeholder.com/250x150"></image>
+        <view class="product-item" bind:tap="GoToDetail">
+          <image src="/images/mock/list-bg-1.png"></image>
           <view class="info">
             <text class="title">根据地老火锅29.9六荤五素重磅9六荤五素重磅9六荤五素重磅9六荤五素重磅9六荤五素重磅 优惠引爆大学城</text>
             <view class="price-box">
               <view class="price">
                 <text>￥</text>
-                <text class="num">99999.9</text>
+                <text class="num">29.9</text>
+              </view>
+              <text class="original">原价131 | 101抵扣券</text>
+            </view>
+          </view>
+        </view>
+        <view class="product-item" bind:tap="GoToDetail">
+          <image src="/images/mock/list-bg-2.png"></image>
+          <view class="info">
+            <text class="title">阿嫂印象川菜馆4人套餐6荤3素1汤只需37.5</text>
+            <view class="price-box">
+              <view class="price">
+                <text>￥</text>
+                <text class="num">37.5</text>
+              </view>
+              <text class="original">原价137 | 70抵扣券</text>
+            </view>
+          </view>
+        </view>
+        <view class="product-item" bind:tap="GoToDetail">
+          <image src="/images/mock/list-bg-3.png"></image>
+          <view class="info">
+            <text class="title">周老吆宜宾烧烤16.8单人啤酒乐 享餐到店立送啤酒5瓶</text>
+            <view class="price-box">
+              <view class="price">
+                <text>￥</text>
+                <text class="num">16.8</text>
+              </view>
+              <text class="original">原价98 | 76抵扣券</text>
+            </view>
+          </view>
+        </view>
+        <view class="product-item" bind:tap="GoToDetail">
+          <image src="/images/mock/list-bg-4.png"></image>
+          <view class="info">
+            <text class="title">扯哟海鲜自助餐两大一小套票周 末不限量</text>
+            <view class="price-box">
+              <view class="price">
+                <text>￥</text>
+                <text class="num">118.8</text>
+              </view>
+              <text class="original">原价368 | 99抵扣券</text>
+            </view>
+          </view>
+        </view>
+        <view class="product-item" bind:tap="GoToDetail">
+          <image src="/images/mock/list-bg-5.png"></image>
+          <view class="info">
+            <text class="title">魑魅泰式火锅29.9六荤五素重磅 优惠引爆大学城</text>
+            <view class="price-box">
+              <view class="price">
+                <text>￥</text>
+                <text class="num">29.9</text>
+              </view>
+              <text class="original">原价131 | 101抵扣券</text>
+            </view>
+          </view>
+        </view>
+        <view class="product-item" bind:tap="GoToDetail">
+          <image src="/images/mock/list-bg-6.png"></image>
+          <view class="info">
+            <text class="title">翘壳儿美蛙鱼29.9双人餐重磅优 惠引爆大学城</text>
+            <view class="price-box">
+              <view class="price">
+                <text>￥</text>
+                <text class="num">29.9</text>
               </view>
               <text class="original">原价131 | 101抵扣券</text>
             </view>
@@ -48,9 +113,9 @@ export default class productList extends wepy.page {
   };
   components = {
   };
-  data = {
-    mock: [0, 1, 2, 3, 4, 5, 6, 7],    
-    statusHeight: null
+  data = {  
+    statusHeight: null,
+    currentIndex: 0
   };
   GoBack() {
     wx.navigateBack();
@@ -59,6 +124,9 @@ export default class productList extends wepy.page {
     wx.navigateTo({
       url: '/pages/artcleDetail'
     });
+  }
+  Switch(index) {
+    this.currentIndex = index.currentTarget.dataset.index;
   }
   onLoad() {
     this.statusHeight = this.$parent.globalData.statusHeight;

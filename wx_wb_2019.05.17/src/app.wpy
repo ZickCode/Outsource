@@ -29,6 +29,8 @@ export default class extends wepy.app {
       'pages/collection',
       'pages/userPage',
       'pages/myCase',
+      'pages/intro',
+      'pages/case',
     ],
     window: {
       backgroundTextStyle: 'light',

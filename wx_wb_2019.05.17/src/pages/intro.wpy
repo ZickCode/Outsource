@@ -6,48 +6,26 @@
           <image class="back" src="/images/artcle/back.png"></image>
         </view>
         <view class="info">
-          <text class="title">酒店营销策略</text>
-          <text class="num">999人浏览过</text>
+          <text class="title">书胤科技介绍</text>
+          <text class="num">346人浏览过</text>
         </view>
         <image class="star" src="/images/artcle/star.png"></image>
       </div>
       <view class="content" scroll-y="true">
         <view class="auther-box">
-          <image class="title" src="/images/mock/logo-1.png"></image>
+          <image class="title" src="/images/mock/logo.png"></image>
           <view class="info">
-            <text class="name">曼图酒店</text>
-            <text class="name-long">重庆两江曼图酒店</text>
+            <text class="name">书胤科技</text>
+            <text class="name-long">重庆书胤网络科技有限公司</text>
           </view>
           <text class="like">已关注</text>
         </view>
         <view class="content-box">
-          <text>(一)	新产品应对成熟期</text>
-          <text>任何产品都拥有自己的生命周期，应通过对市场和消费者的分析，积极调整自己的产品主动去适应市场要求，只有这样才能够保持酒店的竞争力和活力。</text>
-          <text>1.改进酒店新产品</text>
-          <text>对于酒店来讲，必须在原有酒店产品的基础上进行改进。例如对于商务客人来讲，在安排的商务客房内配备便携式的打印机，方便客人打印资料；或者对于使用会议室的客人配套话筒、高清的投影仪和屏幕。还有对于家庭住客，酒店应该为其安排儿童的洗漱用品、儿童床、儿童睡衣等等。餐厅方面也可以延长开放时间来满足不同顾客的时间安排。另外酒店必须将之前只有在大堂吧内有 Wi-Fi 信号改为酒店全覆盖，在互联网营销时代，为客人提供免费、易用的 Wi-Fi 信号显得尤为重要，将近 80%的客人在选择入住时很看重酒店 Wi-Fi 覆盖情况1。改进新产品，是其吸引顾客、保持市场份额和拓展更大市场的一种重要手段。</text>
-          <text>2.推出全新产品</text>
-          <text>处于成熟期的产品，已在市场上存在了一段时间了，消费者相对熟悉，已经形成了一大批忠诚顾客，需要更多的吸引新客户。对于新客户就要增加全新产品来吸引眼球。娱乐方面也增加儿童乐园、恒温游泳池、美容中心等等。在对旅游住客来讲，可以推出与常州著名景点如恐龙园，淹城乐园进行“酒店+景点”的组合新产品，安排酒店与景点往返的专车，便利出行。酒店的新产品的推出，可以增加酒店的新特色，消费者在奥阳酒店体验的产品比别的酒店新颖有趣，由此形成新的竞争力，积极应对产品成熟期。</text>
-        </view>
-        <view class="comment-box">
-          <text class="title">最新评论</text>
-          <view class="comment-item">
-            <image class="head" src="/images/mock/user-2.png"></image>
-            <view class="info">
-              <text class="name">酒店爱好者</text>
-              <text class="time">刚刚</text>
-              <text class="comment">楼主一定没见过这么标准的十五字←最经常的 你们有见过这么整齐的十五个字吗 这么整齐的十五个字人家最喜欢了 他们都说打出十五字才</text>
-            </view>
-            <image class="like" src="/images/artcle/like_on.png"></image>
-          </view>
-          <view class="comment-item">
-            <image class="head" src="/images/mock/user-4.png"></image>
-            <view class="info">
-              <text class="name">酒店爱好者</text>
-              <text class="time">刚刚</text>
-              <text class="comment">楼主一定没见过这么标准的十五字←最经常的 你们有见过这么整齐的十五个字吗 这么整齐的十五个字人家最喜欢了 他们都说打出十五字才</text>
-            </view>
-            <image class="like" src="/images/artcle/like.png"></image>
-          </view>
+          <text>重庆书胤网络科技有限公司成立于2018年10月,注册资金50万,致力于为线下商家提供一站式互联网营销解决方案。</text>
+          <text>公司以“创新、高效、务实、求真、”为核心价值,立志于通过我们的专业技术研发水平和不懈努力,重塑中小企业网络形象,为企业产品推广,文化建设传播提供服务指导。</text>
+          <text> 书胤科技一直秉承以用户需求为核心,在专注重庆本地市场开拓的同时,为数十余家中小企业提供了互联网产品研发，书胤科技以优质、用心的服务赢得了众多企业的信赖和好评。</text>          
+          <image class="title" src="/images/mock/arctle-bg-1.png"></image>
+          <image class="title" src="/images/mock/arctle-bg-2.png"></image>
         </view>
       </view>
       <view class="bottom-box">
@@ -66,7 +44,7 @@
 <script>
 import wepy from 'wepy';
 
-export default class artcleDetail extends wepy.page {
+export default class intro extends wepy.page {
   config = {
     navigationBarTitleText: '文章详情',
     enablePullDownRefresh: false
@@ -188,7 +166,7 @@ export default class artcleDetail extends wepy.page {
         }
         image{
           width: 100%;
-          height: 500rpx;
+          height: 375rpx;
         }
       }
       .comment-box{
