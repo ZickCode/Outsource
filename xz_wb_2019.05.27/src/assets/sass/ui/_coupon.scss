@@ -1,0 +1,208 @@
+.orderCopon-view{
+    min-height: 100vh;
+}
+.coupon-view{
+    width:100%;
+    overflow: hidden;
+    .van-list{
+        margin-top:110px;
+    }
+}
+.coupon-info{
+    padding:25px;
+    width:100%;
+    .coupon-item{
+        margin-top:0;
+                width:100%;
+        background: #dc7877;
+        height: auto;
+        border-radius: 10px;
+        &.coupon-item{
+            margin-top:30px;
+        }
+        &.dq-item{
+            background: #969696;
+            .price-box{
+                color: #969696;
+            }
+            .coupon-desc{
+                background-size: 17px 9px;
+                -webkit-background-size: 17px 9px;
+                border-top:1Px #969696 dashed;
+                &:before,&:after{
+                    border-color: #969696 #969696 transparent transparent;
+                }
+            }
+            .btn{
+                color: #969696;
+            }
+        }
+    }
+}
+.coupon-txtbox{
+    padding:40px 20px;
+    width:100%;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    color: #fff;
+    span{
+        display: inline-block;
+        /*width:100px;*/
+        font-size: 32px;
+    }
+    .c-txtbox{
+        flex: 1;
+        -webkit-flex: 1;
+        padding:0 30px;
+    }
+    p{
+        font-size: 22px;
+    }
+    time{
+        font-size: 16px;
+    }
+    .btn{
+        display: inline-block;
+        width:120px;
+        font-size: 24px;
+        background: white;
+        color: #dc7877;
+        text-align: center;
+        border-radius: 5px;
+        line-height: 40px;
+    }
+}
+.coupon-desc{
+    display: flex;
+    display: -webkit-flex;
+    padding:0 20px;
+    width:100%;
+    background: #cb6f6e url(../images/uccenter/line_2.png) top left repeat-x;
+    background-size: 17px 9px;
+    -webkit-background-size: 17px 9px;
+    .xz-icon{
+      margin-left: 30px;
+      line-height: 90px;
+      color: #fff;
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+    }
+    .c-desc-box{
+        margin:25px 0;
+        flex: 1;
+        -webkit-flex: 1;
+        font-size: 24px;
+        height: 36px;
+        line-height: 36px;
+        color: #fff;
+        word-break: break-word;
+        white-space: pre-line;
+        overflow: hidden;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+    &.active{
+            .c-desc-box{
+                height: auto;
+            }
+        }
+}
+
+.orderCopon{
+    .coupon-txtbox{
+        .c-txtbox{
+            font-size: 22px;
+        }
+        p{
+            font-size: 22px;
+            margin: 8px 0 27px 0;
+        }
+        time{
+            font-size: 22px;
+        }
+    }
+    .coupon-desc{
+        position: relative;
+        background:none;
+        border-top:1Px #CB6F6E dashed;
+        .c-desc-box{
+            height: auto;
+            line-height: normal;
+            margin:22px 0;
+            font-size: 18px;
+            color: #010101;
+            overflow: hidden;
+        }
+        &.active{
+            .c-desc-box{
+                height: auto;
+            }
+        }
+        &:before,&:after{
+            content: "";
+            width: 21px;
+            height: 21px;
+            position: absolute;
+            border-width: 1Px;
+            border-style: solid;
+            border-color: #CB6F6E #CB6F6E transparent transparent;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+        }
+        &:before{
+            left: -14px;
+            top: -14px;
+            transform: rotate(45deg);
+        }
+        &:after{
+            right: -14px;
+            top: -14px;
+            transform: rotate(-135deg);
+        }
+    }
+    .coupon-item{
+        border:1Px solid #cb6f6e;
+        background: #fff8f3;
+        &.dq-item{
+            border-color: #8a8a8a;
+            background: #fafafa;
+            .price-box{
+                span{
+                    color: #8a8a8a;
+                }
+            }
+            .coupon-desc{
+                background-size: 35px 18px;
+                -webkit-background-size: 35px 18px;
+            }
+        }
+    }
+    .coupon-left{
+        .price-box{
+            font-size: 24px;
+            color: #e4393c;
+            span{
+                color: #e4393c;
+                font-size: 48px;
+                font-weight: 600;
+            }
+        }
+        span{
+            color: #000;
+            font-size: 20px;
+        }
+    }
+    .c-txtbox{
+        color: #000;
+    }
+    .coupon-desc{
+        background-size: 35px 18px;
+        -webkit-background-size: 35px 18px;
+    }
+}

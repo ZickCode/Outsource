@@ -1,0 +1,321 @@
+.saleafter-tips{
+    padding-top:20px;
+	  padding-bottom: 20px;
+    width:100%;
+    overflow: hidden;
+    font-size: 24px;
+    color: #787878;
+	& p{
+		color: #8c8c8c;
+		font-size: 24px;
+		line-height: 44px;
+		margin: 0;
+	}
+}
+
+/* 申请售后
+ ============================================================ */
+ .mb-20{
+	 margin-bottom: 20px;
+ }
+ .s-reason{
+ 	padding-right: 20px;
+ 	border-bottom: 1Px solid #eee;
+ 	& li{
+ 		padding: 20px;
+ 	}
+ 	& .reason-item{
+ 		&:after{
+ 			margin-right: -20px;
+ 			display: block;
+ 			content: '';
+ 			width:15px;
+ 			height: 26px;
+ 			background: url(../../assets/images/common/jiantou.png) center center no-repeat;
+ 			background-size: 15px 26px;
+ 			-webkit-background-size: 15px 26px;
+ 		}
+ 		& .reason-msg{
+ 			margin-right: 15px;
+ 		}
+ 	}
+ }
+ .reason-tit{
+ 	width: 160px;
+ 	color: #333333;
+ 	font-size: 24px;
+ 	line-height: 44px;
+ 	font-weight: normal;
+ }
+ .reason-msg{
+ 	text-align: right;
+ 	color: #787878;
+ 	font-size: 24px;
+ 	line-height: 44px;
+ 	
+ }
+ 
+ .return-box{
+ 	background-color: #fafafa;
+ 	margin-bottom: 20px;
+ }
+ .return-warp{
+ 	padding: 20px;
+ 	border-bottom: 1Px solid #eee;
+    & p{
+ 	   a{
+ 	   	position: relative;
+ 	   	margin:0 10px;
+ 	   	display: inline-block;
+ 	   	width:150px;
+ 	   	height: 56px;
+ 	   	border:1Px solid #000;
+      border-radius: 4px;
+ 	   	font-size: 24px;
+ 	   	color: #000;
+ 	   	text-align: center;
+ 	   	line-height: 54px;
+ 	   	input{
+ 	   		margin:0;
+ 	   		padding:0;
+ 	   		position: absolute;
+ 	   		top:0;
+ 	   		left:0;
+ 	   		width:100%;
+ 	   		height: 100%;
+ 	   		opacity: 0;
+ 	   	}
+ 	   	&.cur{
+ 	   		border-color: #e4393c;
+ 	   		color: #e4393c;
+ 	   	}
+ 	   }
+    }	
+ }
+ 
+ .comment-form{
+    position: relative;
+    width:100%;
+    border-top:1Px solid #EEE;
+    background: #fff;
+    .hd{
+        padding:20px;
+        font-size: 0;
+        border-bottom:1Px solid #EEE;
+    }
+    .bd{
+        padding-bottom:100px;
+        width:100%;
+        textarea{
+            padding:20px;
+            font-size: 28px;
+            color: #666;
+            line-height:1.5;
+            border:none;
+            margin:0;
+			border-bottom:1Px solid #EEE;
+			width: 100%;
+        }
+    }
+    .up-img-box{
+        width:100%;
+        margin-bottom: 80px;
+        ul{
+            padding:10px;
+            >li{
+                margin:10px;
+                width:160px;
+                height: 160px;
+            }
+            .upbtn-box{
+                .sheetselbtn{
+                    width:100%;
+                    height: 100%;
+                    // background: #fafafa url(../images/common/jia.png) center center no-repeat;
+                    background-size: 46px 46px;
+                    -webkit-background-size: 46px 46px;
+                    &:before,&:after{
+                        display: none;
+                    }
+                }
+            }
+        }
+        .img-box{
+            padding:0;
+            border:1Px solid #eee;
+        }
+        .del-icon{
+            top:0;
+            right:0;
+            width:40px;
+            height: 40px;
+            border-radius: 0;
+            text-align: center;
+            line-height: 40px;
+        }
+    }
+    .ftr{
+        position: absolute;
+        left:0;
+        bottom:0;
+        z-index: 1;
+        width:100%;
+        height: 100px;
+        .u-link{
+            padding:0;
+            border:none;
+            border-radius: 0;
+        }
+    }
+}
+.bg-white{
+	& .bgz-cont{
+		background-color: #fff;
+	}
+}
+ 
+.saleafter-form{
+    background: none;
+    .hd{
+        padding:20px;
+        background: white;
+        p{
+           margin:0 20px 0 -10px;
+        }
+    }
+    .pro-selitems{
+        border-top-color: #eee;
+        border-bottom:0;
+    }
+    .bd{
+        background: #fff;
+    }
+    .amount{
+        padding:20px;
+        border-bottom:1Px solid #eee;
+    }
+    .balance-box{
+        margin-bottom: 20px;
+    }
+}
+.saleafter-tips{
+    padding-top:20px;
+    width:100%;
+    overflow: hidden;
+    font-size: 24px;
+    color: #787878;
+    border-top:1Px dashed #eee;
+}
+.z-disno{
+	display:none;
+}
+.mb-0{
+	margin-bottom: 0;
+}
+
+//申请售后退货退款
+.return-tips{
+    width:100%;
+    padding:30px;
+    background-color: white;
+    .address{
+        padding:30px;
+        margin-top:30px;
+        border:1Px solid #eee;
+        background: #fafafa;
+        header{
+            margin-bottom:20px;
+            width:100%;
+            overflow: hidden;
+            font-size: 24px;
+            color: #4d79d8;
+            line-height: 36px;
+        }
+        .mobile{
+            float:right;
+        }
+        .title{
+            display: block;
+            margin-right: 200px;
+        }
+        .add{
+            font-size: 20px;
+            color: #333;
+            line-height: 30px;
+        }
+    }
+}
+.r-tips{
+    font-size: 24px;
+    color: #8c8c8c;
+    line-height: 36px;
+    .red{
+        color: #e4393c;
+        font-style: normal
+    }
+}
+.btn-blue{
+    background-color: #4d79d8;
+}
+
+//邮寄信息
+.express-tips{
+    background-color: white;
+    padding:20px;
+    font-size: 24px;
+    color: #333;
+    line-height: 36px;
+    border-top:1Px solid #eee;
+}
+.s-formcont{
+    width:100%;
+    overflow: hidden;
+    background-color: white;
+    .title,.number{
+        width:100%;
+        padding:0 20px;
+        font-size: 24px;
+        color: #333;
+        line-height: 88px;
+        border-bottom:1Px solid #eee;
+        background-color: #fafafa;
+    }
+    .content{
+        padding:20px;
+        width:100%;
+        height: 360px;
+        border-bottom:1Px solid #eee;
+        font-size: 24px;
+        color: #8b8b8b;
+        resize:none;
+    }
+}
+.select{
+    a{
+        margin-bottom: 25px;
+    }
+    a::after{
+        display: none;
+    }
+    .item-check{
+        margin-right: 20px;
+    }
+    .tool{
+        display: flex;
+        display: -webkit-flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 0 ;
+        border-top: 1px #eee solid;
+    }
+    .number-wrap{
+        width: auto;
+        height: auto;
+        padding: 0;
+        position: initial;
+        border: none;
+        .van-stepper__input,.van-stepper__minus, .van-stepper__plus{
+            background-color: #fff;
+        }
+    }
+}

@@ -1,0 +1,88 @@
+.xz-lr{
+	display: block;
+	padding: 0 55px;
+}
+.xz-lr .xz-lr-title{
+	padding: 150px 10px 20px 10px;
+	font-size: 50px;
+}
+.xz-lr-tip{
+	font-size: 26px;
+	padding: 20px 10px;
+}
+.xz-lr-tip.end{
+	padding-bottom: 0;
+}
+.xz-lr-tip .link_btn{
+	float: right;
+}
+.xz-lr-box{
+	height: 100px;
+	padding: 0 10px;
+	margin-top: 20px;
+}
+.xz-lr-btn{
+	padding: 0;
+	margin-top: 130px;
+}
+.xz-lr-box .box-input{
+	display: block;
+	height: 100%;
+	width: 100%;
+	padding: 0 30px;
+	border: 1Px solid #eee;
+	border-radius: 5px;
+    font-size: 30px;
+    &.pwd{
+        padding:0;
+        font-size: 100px;
+        font-weight: bold;
+    }
+}
+.xz-lr-box-text{
+	text-align: center;
+	margin-top: 50px;
+}
+.xz-pact{
+	height: 100vh;
+	background: #fff;
+}
+.xz-pact-title{
+	height: 90px;
+	line-height: 90px;
+	padding:  0 20px;
+	font-size: 24px;
+	text-align: center;
+	background: #fafafa;
+	border-bottom: 1Px solid #eee;
+}
+.xz-pact-title .xz-icon{
+	float: right;
+}
+.xz-pact-content{
+	position: absolute;
+	top: 90px;
+	right: 0;
+	bottom: 100px;
+	left: 0;
+	width: 100%;
+	padding: 40px;
+	background: #fff;
+	overflow-y: auto;
+	word-break: break-all;
+}
+.xz-pact-btn{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+}
+.xz-pact-btn .xz-btn{
+	width: 50%;
+}
+.qust-link{
+	& a{
+		display: inline-block;
+	}
+}

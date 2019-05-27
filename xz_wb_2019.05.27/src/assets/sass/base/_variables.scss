@@ -1,0 +1,16 @@
+$baseDesignWidth: 750px !default; //设计稿宽度
+$baseRootWidth: ($baseDesignWidth / 2) !default;
+$baseRootFontSize: ($baseRootWidth / 10) !default; //根字体大小
+$bps: (319px,320px,360px,375px,384px, 400px, 414px, 424px, 480px,540px,720px,750px);
+
+$line-height-base: 1.5 !default;
+
+$color-white: #ffffff !default;
+$color-black: #000000 !default;
+$color-gray-dark: #333333 !default;
+$color-main-blue: #2175cc !default;
+$font-family-base: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", sans-serif !default;
+$font-size-base: 12px !default;
+$font-style-base: normal !default;
+$font-variant-base: normal !default;
+$font-weight-base: normal !default;

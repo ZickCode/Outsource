@@ -1,0 +1,462 @@
+@import "base";
+html {
+    font-size: $baseRootFontSize;
+}
+@for $i from 1 through length($bps) {
+    $item: nth($bps, $i);
+    $fontSize: ($item / $baseRootWidth * $baseRootFontSize);
+
+    /*
+	@if $i == 1 and $item == 375 {
+		@include max-screen($item - 1) {
+			html {
+				font-size: $fontSize;
+			}
+		}
+	}
+	*/
+
+    @include min-screen($item) {
+        html {
+            font-size: $fontSize;
+        }
+    }
+}
+#main {
+    width: 100%;
+    font-size: pxTorem(24);
+    // width: 100%;
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    // touch-action: none;
+}
+.home-main {
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 0 100px 0;
+    background-color: #f0f0f0;
+}
+.nav-main {
+    min-height: 100vh;
+    padding-top: 90px;
+    background: #fff;
+    overflow: hidden;
+}
+.nav-main-bottom {
+    padding-bottom: 100px;
+}
+.bg-f0 {
+    background: #f0f0f0;
+}
+/*隐藏滚动条*/
+::-webkit-scrollbar {
+    display: none;
+}
+*::-webkit-scrollbar {
+    width: 0 !important;
+}
+input,
+textarea,
+select {
+    -webkit-appearance: none;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+.xz-tabbar {
+    box-shadow: 0 0 pxTorem(10) rgba(0, 0, 0, 0.1);
+    height: 100px !important;
+}
+.xz-tabbar .van-tabbar-item {
+    font-size: pxTorem(18);
+    color: #333;
+}
+.xz-tabbar .xz-icon {
+    font-size: pxTorem(30);
+}
+.xz-tabbar .van-tabbar-item--active {
+    color: #e4393c;
+}
+.xz-nva-bar {
+    height: pxTorem(90);
+    line-height: pxTorem(90);
+    color: #6d6d6d;
+    box-shadow: 0 0 pxTorem(10) rgba(0, 0, 0, 0.1);
+    .xz-icon {
+        font-size: 30px;
+        color: #000;
+    }
+    &.search-nav-bar {
+        .van-nav-bar__right {
+            width: 88%;
+            height: 90px;
+        }
+        .van-search__content {
+            background-color: #f4f4f4;
+        }
+        .van-search {
+            padding: 10px 0;
+            height: 90px;
+            background: none !important;
+        }
+        .van-icon-search {
+            display: none;
+        }
+        .van-cell {
+            padding-top: 0;
+            padding-bottom: 0;
+            height: 70px;
+            border-radius: 5px;
+        }
+        .van-field__body {
+            height: 70px;
+            input {
+                line-height: 70px;
+                font-size: 26px;
+            }
+        }
+        .van-search__action {
+            padding-left: 20px;
+            padding-right: 0;
+            font-size: 26px;
+        }
+    }
+    &.lr {
+        box-shadow: none;
+    }
+}
+.xz-nva-bar::after {
+    border: none;
+}
+.xz-nva-bar .van-icon {
+    font-size: 30px;
+    font-weight: bolder;
+    color: #c7c7c7;
+}
+.xz-nva-bar .van-nav-bar__title,
+.xz-nva-bar .van-nav-bar__text {
+    font-size: pxTorem(26);
+    color: #6d6d6d;
+}
+.xz-nva-bar .van-nav-bar__title {
+    font-weight: bold;
+}
+.xz-nva-bar .van-nav-bar__text:active {
+    background: none;
+}
+.my-scroller {
+    top: pxTorem(90) !important;
+    bottom: 0;
+}
+.scroller-view {
+    width: 100%;
+    background: #f0f0f0;
+    .van-pull-refresh {
+        padding-top: 90px;
+        min-height: 100vh;
+    }
+    .scroller-tip {
+        height: calc(100vh - 90px);
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 2;
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #333;
+        background: #f0f0f0;
+        padding: pxTorem(60);
+        .xz-icon {
+            font-size: pxTorem(190);
+            color: #cdcdcd;
+        }
+        span {
+            margin: pxTorem(70) 0 pxTorem(200) 0;
+            font-size: pxTorem(30);
+            font-weight: 400;
+        }
+    }
+    .scroller-tip-bottom {
+        height: calc(100vh - 190px);
+    }
+}
+.scroller-view-bottom {
+    .van-pull-refresh {
+        padding-bottom: 100px;
+    }
+}
+
+.xz-bottom {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    height: pxTorem(100);
+    width: 100%;
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: #fff;
+}
+.xz-bottom .van-checkbox {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    padding-left: pxTorem(20);
+}
+.xz-bottom .xz-btn {
+    flex: 0 0 pxTorem(200);
+    width: pxTorem(220);
+}
+.marginTop {
+    margin-top: 20px;
+}
+.hd-tip {
+    font-size: 20px;
+    color: #e4393c;
+    border: 1px #e4393c solid;
+    border-radius: 10px;
+    text-align: center;
+    padding: 0px 5px;
+    margin-right: 10px;
+    &.tip-no{
+        color: #8a8a8a;
+        border: 1px #8a8a8a solid;
+    }
+}
+/*徽标样式修改*/
+.van-info {
+    top: -10px;
+    min-width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+}
+/*下拉刷新 上拉加载*/
+.xz-refresh {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    .van-pull-refresh__head,
+    .van-list__loading-text {
+        font-size: 24px;
+    }
+    .van-pull-refresh__loading {
+        .van-loading {
+            width: 24px !important;
+            height: 24px !important;
+        }
+    }
+}
+.xz-refresh-top {
+    top: 90px;
+}
+.xz-refresh-bottom {
+    bottom: 90px;
+}
+.van-list__finished-text,
+.van-list__loading-text {
+    margin: 0 !important;
+    padding: 20px 0;
+}
+
+/*vant cell 边框样式*/
+.van-cell::after,
+.van-tabbar::after,
+.van-dialog .van-button::after {
+    border: none !important;
+    border-bottom: none !important;
+}
+/*修改vant向上菜单弹出最高高度*/
+.van-actionsheet {
+    max-height: 100%;
+}
+/*vant Toast弹出样式调整*/
+.van-toast--text {
+    padding: 20px;
+}
+.van-notify,
+.van-toast {
+    font-size: 24px;
+}
+.van-toast--default .van-loading {
+    width: 50px !important;
+    height: 50px !important;
+}
+/*vant数字键盘样式调整*/
+.van-key {
+    height: 120px !important;
+    line-height: 120px !important;
+}
+.van-key.van-key--active {
+    background: #e4393c;
+    color: #fff;
+}
+.van-key::after {
+    border-width: 1px 1px 0 0 !important;
+    border-color: #eee !important;
+}
+/*vant van-dialog*/
+.van-dialog {
+    border-radius: 10px;
+}
+.van-toast--default {
+    width: 180px;
+    min-height: 180px;
+    padding: 30px;
+    .van-toast__icon {
+        font-size: 100px;
+    }
+    .van-toast__text {
+        line-height: 1.5;
+    }
+}
+.van-dialog__message {
+    padding: 100px 60px;
+    font-size: 32px;
+    text-align: center;
+}
+.van-dialog .van-button {
+    height: 90px;
+    font-size: 32px;
+    border-top: 1px solid #eee;
+}
+.van-dialog .van-dialog__footer::after {
+    border: none;
+}
+
+.van-dialog__confirm,
+.van-dialog__confirm:active {
+    color: #fff;
+    background: #e4393c;
+    border: none !important;
+}
+// .van-stepper__input {
+//     width: 70px;
+// }
+// .van-stepper__minus {
+//     width: 40px;
+//     height: 30px;
+// }
+// .van-stepper__plus {
+//     width: 40px;
+//     height: 30px;
+// }
+.or-number {
+    position: relative;
+    z-index: 10;
+    top: 10px;
+    span {
+        float: left;
+        line-height: 60px;
+        font-size: 24px;
+        color: #333;
+    }
+    .van-stepper {
+        width: 150px;
+        border-width: 1.5px;
+    }
+    .van-stepper__minus,
+    .van-stepper__plus {
+        border-radius: 0 5px 5px 0;
+        width: 40px;
+        height: 36px;
+        margin: 1Px;
+        &:after {
+            width: 9px;
+            height: 1Px;
+        }
+        &:before {
+            left: 0px;
+            width: 1Px;
+            height: 9px;
+        }
+    }
+    .van-stepper__minus {
+        border-radius: 5px 0 0 5px;
+        &:after {
+            width: 9px;
+            height: 1Px;
+        }
+        &:before {
+            width: 9px;
+            height: 1Px;
+        }
+    }
+    .van-stepper__input {
+        width: 55px;
+        height: 34px;
+        color: #333;
+        margin: 1Px;
+    }
+    .van-stepper__input[disabled] {
+        background: #fff;
+    }
+}
+/*上拉菜单选项样式重写*/
+.van-actionsheet__cancel,
+.van-actionsheet__item {
+    height: 80px;
+    line-height: 80px;
+    font-size: 28px;
+}
+
+/*日期选择框样式重写*/
+.van-picker {
+    .van-picker-column__item,
+    .van-picker__cancel,
+    .van-picker__confirm {
+        font-size: 30px;
+    }
+}
+/*单选按钮样式重写*/
+.van-radio{
+    .van-radio__icon{
+        height: 30px;
+        line-height: 30px;
+        .van-icon{
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+            border: 1Px solid #000;
+        }
+    }
+}
+/*swipe样式重写*/
+body{
+    .van-swipe__indicators {
+        bottom: 30px;
+        .van-swipe__indicator {
+            width: 16px;
+            height: 16px;
+            background: #dcdcdc;
+            opacity: 1;
+            &:not(:last-child) {
+                margin-right: 15px;
+            }
+            &.van-swipe__indicator--active {
+                background: #e4393c;
+            }
+        }
+    }
+}
+/*iphoneX适配*/
+.margin-ios{
+    padding-bottom: constant(safe-area-inset-bottom);
+}
+body {
+    padding-top: constant(safe-area-inset-top);   //为导航栏+状态栏的高度 88px            
+    padding-left: constant(safe-area-inset-left);   //如果未竖屏时为0                
+    padding-right: constant(safe-area-inset-right); //如果未竖屏时为0                
+    padding-bottom: constant(safe-area-inset-bottom);//为底下圆弧的高度 34px       
+}

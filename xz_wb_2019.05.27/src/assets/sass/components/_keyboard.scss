@@ -1,0 +1,91 @@
+.xz-keyboard {
+    position: fixed;
+    height: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    transition: all 0.3s;
+    background: #fff;
+    user-select: none;
+    .xz-keyboard-mask {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+    .xz-keyboard-content {
+        width: 100%;
+        padding-right: 150px;
+        z-index: 110;
+        i {
+            display: inline-block;
+            height: 112.5px;
+            line-height: 110px;
+            text-align: center;
+            border: none;
+            font-size: 36px;
+            font-style: normal;
+        }
+        .xz-keylist {
+            // display: flex;
+            // display: -webkit-flex;
+            // justify-content: space-between;
+            // flex-wrap: wrap;
+        }
+        .xz-key-item {
+            -webkit-user-select:none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            width: 33.3333333%;
+            background: #fff;
+            color: #333;
+            border-top: 1px solid #eee;
+        }
+        .xz-key-item:nth-child(3n-1) {
+            border-left: 1px solid #eee;
+            border-right: 1px solid #eee;
+        }
+        .xz-key--active {
+            background: #eee;
+            color: #333;
+        }
+        .xz-key-0 {
+            width: 66.666666666%;
+            border-right: 1px solid #eee;
+        }
+        .xz-key-d {
+            border-left: none !important;
+            border-right: none !important;
+        }
+    }
+    .xz-keyboard-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 150px;
+        height: 450px;
+        z-index: 110;
+        a {
+            display: inline-block;
+            width: 100%;
+            height: 225px;
+            line-height: 225px;
+            text-align: center;
+            border: none;
+        }
+        .btn-del {
+            background: #e1e1e1;
+            color: #333;
+        }
+        .btn-ok {
+            color: #fff;
+        }
+    }
+}
+.keyboard-show {
+    height: 450px;
+}

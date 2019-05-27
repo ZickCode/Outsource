@@ -1,0 +1,49 @@
+.payment-suc-warp{
+	padding:20px 32px 0;
+	border-bottom: 1Px solid #eee;
+	background-color: #fff;
+}
+.payment-box{
+	border-bottom:1Px dotted #f0f0f0;
+	text-align: center;
+	padding-top: 44px;
+	& p{
+		color:#333333;
+		margin:26px 0;
+		font-size:30px;
+		line-height: 50px;
+	}
+	& h4{
+		line-height: 50px;
+		color: #000000;
+		margin: 40px 0;
+		font-weight: normal;
+		& span{
+			color:#e4393c;	
+		}
+	}
+}
+.payment-icon{
+	display:block;
+	width: 80px;
+	height: 81px;
+	margin: 0 auto;
+	.xz-icon{
+		font-size: 80px;
+	}
+}
+.psuccess-num{
+	padding:20px 0;
+	& .p-time{
+		width:180px;
+		margin-rihgt: 10px;
+		text-align: left;
+		line-height: 44px;
+		color: #666;
+	}
+	& .p-name{
+		text-align: right;
+		line-height: 44px;
+		color: #666;
+	}
+}

@@ -1,0 +1,40 @@
+.xz-paypwd-moadl{
+    .xz-paypwd-mask{
+        position:fixed;
+        top:0;
+        right:0;
+        left:0;
+        bottom:0;
+        background: rgba(0,0,0,0.5);
+        z-index: 109;
+    }
+    .xz-paypwd{
+        position: fixed;
+        height: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 110;
+        background: #fff;
+        transition: all .3s;
+        .xz-paypwd-head{
+            height: 90px;
+            line-height: 90px;
+            text-align: center;
+            background: #fafafa;
+        }
+        .xz-keyboard{
+            position: initial;
+        }
+        .box-flex{
+            margin: 20px 0;
+        }
+        .key-input{
+            font-size: 100px;
+            font-weight: bold;
+        }
+    }
+    .xz-paypwd-show{
+        height: 680px;;
+    }
+}

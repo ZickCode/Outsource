@@ -1,0 +1,91 @@
+.invoice{
+    & .distr-list{
+        border-bottom: 1Px solid #eee;
+    }
+} 
+.invoice-list{
+    min-height: 100vh;
+    padding: 90px 0 100px 0;
+}
+.invoice-list-item{
+    justify-content: space-between;
+    .content{
+        display: flex;
+        display: -webkit-flex;
+        height: 100%;
+        flex-flow: column;
+        justify-content: space-between;
+        span{
+            margin-right: 20px;
+        }
+    }
+    .item-title{
+        height: 100%;
+    }
+}
+.distr-list{
+    & li{
+        background-color: #fafafa;
+        border-top: 1Px solid #eee;
+        padding: 20px;
+        & .lab-tit{
+            width:150px;
+            margin-right:10px;
+            text-align: left;
+        }
+    }
+}
+.distr-msg{
+    background:url(../images/common/jiantou.png) no-repeat;
+    background-size: 15px 26px;
+    background-position: center right;
+    padding-right: 50px;
+    height: 66px;
+    & a{
+        display: block;
+        text-align:right;
+        height: 66px;
+        line-height: 66px;
+        color: #666;
+        font-size: 24px;
+    }
+}
+.invoice{
+    & .distr-list{
+        & .z-ipt{
+            background-color: #fafafa;
+            padding-left: 0;
+            width: 100%;
+        }
+    }
+    & .bm-none {
+        border-bottom: none;
+
+    }
+}
+.z-invoice{
+    & .z-ipt{
+        text-align: right;
+    }
+}
+.sort-list{
+    & .gd-msg-txt{
+        padding-left: 0;
+    }
+}
+.z-distr-msg{
+    background: inherit;
+    padding-right: 10px;
+}
+.credit-msg{
+    padding-right: 0;
+    background: 0;
+    .z-ipt{
+        text-align: right;
+    }
+}
+.szprice{
+    & .invoice-pic{
+        padding-right: 10px;
+    }
+}

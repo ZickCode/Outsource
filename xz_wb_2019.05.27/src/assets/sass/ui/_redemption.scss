@@ -1,0 +1,130 @@
+/*超值换购*/
+.repurchase-news{
+	position: fixed;
+    top: 90px;
+    right: 0;
+    left: 0;
+	display: block;
+    z-index: 1;
+}
+// height: 75px;
+// height: 90px;
+.rease-head{
+	 top: 165px;
+	 & .xz-tabs{
+		 background-color: #fafafa;
+	 }
+}
+.repurchase{
+	& .van-tabs__wrap{
+		top: 165px !important;
+	}
+	& .van-tabs__nav{
+		background-color: #fafafa;
+	}
+	& .van-tabs{
+		padding-top: 255px;
+		padding-bottom: pxTorem(100);
+		min-height: 100vh;
+	}
+}
+.repurchase-bd{
+	background-color: #fff;
+	& .order-list{
+		& .item{
+			background-color: #fff;
+			border-bottom:1px solid #dcdcdc;
+			margin-top: 0;
+		}
+	}
+	 & .order-tit{
+		  height: 72px;
+		 & a{
+			 color:#333;
+			 font-size: 28px;
+			 font-weight: normal;
+			 line-height: 36px;
+			 margin: 0;
+			 @include fn-text-ellipsis2;
+			 height: 72px;
+		 }
+	 }
+	 .or-number{
+	 	display: inline-block;
+	 	flex-shrink: 0;
+	 	flex-grow: 0;
+		top: 0;
+		border: none;
+		z-index: inherit;
+		&  .van-stepper{
+			display: flex;
+			display: -webkit-flex;
+			height: 40px;
+		}
+	 }
+	 .or-number .van-stepper{
+		// overflow: hidden;
+		
+	 }
+	 .or-number .van-stepper__minus, .or-number .van-stepper__plus {
+	     height: 37px;
+		//  border-radius:0;
+	 }
+	 .or-number .van-stepper__input{
+	 	flex: 1;
+	 }
+	 .or-number .van-stepper__input{
+	 	 height: 37px;
+	 }
+}
+.r-condition{
+	color: #e6474a;
+	margin:8px 0;
+	line-height: 40px;
+	font-size:20px;
+    @include fn-text-ellipsis;
+	height: 40px;
+}
+.calculate-wrap{
+	display: flex;
+	display: -webkit-flex;
+}
+.calculate-num{
+	flex: 1;
+	margin: 0 10px 0 0;
+	color: #909090;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 40px;
+	display: inline-block;
+	text-decoration:line-through;
+}
+.select-menu{
+	color: #e4393c;
+	font-size:20px;
+	display: inline-block;
+	padding: 0 20px;
+	border: 1Px solid #e4393c;
+	@include fn-border-radius(20px);
+	line-height: 40px;
+}
+.notslt-menu{
+	color: #b4b4b4;
+	border: 1Px solid #b4b4b4;
+}
+
+.redemptips{
+	display: inline-block;
+	padding: 0 20px;
+	flex: 1;
+	line-height: 100px;
+	color: #000000;
+	font-size: 20px;
+	& span{
+		color: #e4393c;
+	}
+}
+.redemp-bottom{
+	// @include fn-boxder-shadow()
+	 box-shadow: 0 0 10px rgba(0,0,0,.2);
+}

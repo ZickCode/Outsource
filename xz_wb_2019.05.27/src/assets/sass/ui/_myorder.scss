@@ -1,0 +1,325 @@
+.myorder-view{
+    width: 100%;
+    overflow: hidden;
+    background: #f0f0f0;
+    .van-tabs__wrap{
+      top: 90px !important;
+    }
+    .van-tabs--line{
+      padding-top: 180px;
+    }
+    .van-pull-refresh{
+          min-height: calc(100vh - 180px);
+      }
+  }
+  .myorder-tab-hd{
+    position: fixed;
+    top:90px;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+  }
+  .order-info{
+    margin-top:90px;
+    overflow: hidden;
+  }
+  .order-item{
+    margin-top:20px;
+    width:100%;
+    overflow: hidden;
+    background: white;
+  }
+  .order-hd{
+    padding:0 20px;
+    line-height: 88px;
+    height: 88px;
+    font-size: 24px;
+    color: #333;
+    background: #fafafa;
+    .status{
+      float:right;
+    }
+    .order-num{
+      margin-right: 100px;
+      font-weight: 400;
+    }
+  }
+  .order-bd{
+    border-top:1Px solid #eee;
+    border-bottom:1Px solid #eee;
+  }
+  .order-list{
+    width:100%;
+    overflow: hidden;
+    .item{
+      padding:25px 20px;
+      margin-top: 10px;
+      background: #fafafa;
+    }
+    .item:last-child{
+      margin-bottom: 10px;
+    }
+  }
+  .item-cont{
+    display: flex;
+    display:-webkit-flex;
+  }
+  .order-pic{
+    width:182px;
+    height: 182px;
+    border:1Px solid #eee;
+    background: #f0f0f0;
+    overflow: hidden;
+    img{
+      display: block;
+      width:100%;
+      height: 100%;
+    }
+  }
+  .order-txt{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding-left:30px;
+    flex: 1;
+    -webkit-flex: 1;
+    overflow: hidden;
+    .order-tit{
+      color:#333;
+      font-size: 28px;
+      font-weight: normal;
+      line-height: 30px;
+      margin: 0;
+      @include fn-text-ellipsis2;
+      height: 60px;
+    }
+    .norm{
+      margin:20px 0;
+      font-size: 20px;
+        line-height: 1.5;
+      color: #8c8c8c;
+    }
+    .price{
+      width:100%;
+      height: 40px;
+      font-size: 0;
+      em{
+        float:right;
+        font-size: 20px;
+        color: #000;
+        font-style: normal;
+        line-height: 40px;
+      }
+      span{
+        display: block;
+        margin-right: 100px;
+        font-size: 20px;
+        color: #e4393c;
+        strong{
+          font-size: 30px;
+        }
+      }
+    }
+  }
+  .order-ftr{
+    padding:0 20px;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    height: 86px;
+    .total{
+      padding-right:20px;
+      width:250px;
+      font-size: 20px;
+      color: #333;
+    }
+    .btn-box{
+      flex: 1;
+      -webkit-flex: 1;
+      text-align: right;
+      font-size: 0;
+      a{
+        display: inline-block;
+        border:1Px solid #000;
+        border-radius: 4px;
+        padding:0 20px;
+        line-height: 54px;
+        font-size: 24px;
+        color: #000;
+        &+a{
+          margin-left: 20px;
+        }
+        &.red{
+          border-color: #e4393c;
+          color: #e4393c;
+        }
+      }
+    }
+  }
+  
+  .van-tabs{
+          background: #f0f0f0;
+      }
+      .van-tabs--line .van-tabs__wrap{
+        height: 90px!important;
+        border-bottom: 1px solid #eee;
+              .xz-tab{
+          width:auto;
+          font-size: 28px;
+              }
+      }
+  
+      .van-tabs__nav .van-tabs__line{
+              height: 2Px;
+  
+      }
+  
+      .order-info {
+          margin-top: 32px;
+      }
+      .navbar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+  
+      }
+  
+      .order-info .van-list {
+          margin-top: 120px;
+    }
+  
+    //满减满赠
+    .reduction-wrap{
+      width:100%;
+      overflow: hidden;
+    }
+    .reduction-hd{
+      padding:0 30px;
+      height: 88px;
+      border-top:1Px solid #eee;
+      border-bottom:1Px solid #eee;
+      display: flex;
+      display: -webkit-flex;
+      align-items: center;
+      .xz-icon{
+        width:42px;
+        height: 42px;
+        border-radius: 21px;
+        text-align: center;
+        line-height: 42px;
+        font-size: 24px;
+        color: #fff;
+      }
+      span{
+        flex: 1;
+        -webkit-flex:1;
+        padding:0 20px;
+        font-size: 24px;
+        color: #666;
+      }
+    }
+    .reduction-bd{
+      width:100%;
+      .info-btn{
+        height: 46px;
+        border-radius: 23px;
+        padding:0 20px;
+        border:1Px solid #318fe6;
+        color:#237df7;
+        line-height: 46px;
+        font-size: 20px;
+        &.active{
+          background: #318fe6;
+          color: #fff;
+        }
+        &.disabled{
+          border-color: #d6d6d6;
+          color: #d6d6d6;
+        }
+      }
+    }
+    .list-infos{
+      li{
+        padding:20px 30px;
+        display: flex;
+        display:-webkit-flex;
+        align-items: center;
+        span{
+          flex: 1;
+          -webkit-flex:1;
+          font-size: 24px;
+          color: #666;
+        }
+      }
+    }
+    .reduction-tips{
+      border-top:1Px solid #eee;
+      height: 88px;
+      padding:0 30px;
+      font-size: 24px;
+      color: #999;
+      font-weight: 400;
+      line-height: 88px;
+    }
+    .goods-infos{
+      li{
+        border-bottom:1Px solid #eee;
+        padding:30px;
+      }
+    }
+    .goods-cont{
+      display: flex;
+      display:-webkit-flex;
+      align-items: center;
+    }
+    .pic-panel{
+      display: block;
+      width:140px;
+      height: 140px;
+      border-radius: 6px;
+      background: #ccc;
+      img{
+          height: 100%;
+          width: 100%;
+      }
+    }
+    .txt-box{
+      padding-left:30px;
+      flex: 1;
+      -webkit-flex:1;
+      overflow: hidden;
+      .title{
+        font-weight: 400;
+        font-size: 24px;
+        color: #000;
+        line-height: 1.5;
+        @include fn-text-ellipsis2;
+      }
+      .guide{
+        a{
+          float:right;
+          height: 36px;
+          line-height: 34px;
+          font-size: 18px;
+        }
+        span{
+          display: inline-block;
+          margin-right: 140px;
+          font-size: 20px;
+          line-height: 36px;
+          padding:0 20px;
+          border-radius: 6px;
+          background: #ec4d27;
+          color: #fff;
+        }
+      }
+      del{
+        font-size: 18px;
+        color: #999;
+      }
+    }
+    .reduction-btn{
+      &.disabled{
+        background: #e5e5e5;
+        color: #999;
+      }
+    }

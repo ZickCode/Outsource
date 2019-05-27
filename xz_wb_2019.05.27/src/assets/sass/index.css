@@ -1,0 +1,39 @@
+/*
+Error: Invalid GBK character "\xE9"
+        on line 58 of G:\SWP_Web\F-framework\xiaozhe\M-mobile-web\src\assets\sass\index.scss
+
+53: 	bottom: pxTorem(100);
+54: }
+55: .main-fff{
+56: 	background: #FFF;
+57: }
+58: /*隐藏滚动条*\/
+59: ::-webkit-scrollbar{
+60:     display: none;
+61: }
+62: *::-webkit-scrollbar { width: 0 !important }
+63: input,textarea,select{
+
+Backtrace:
+G:\SWP_Web\F-framework\xiaozhe\M-mobile-web\src\assets\sass\index.scss:58
+E:/soft/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/util.rb:1297:in `rescue in block in find_encoding_error'
+E:/soft/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/util.rb:1294:in `block in find_encoding_error'
+E:/soft/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/util.rb:1293:in `each'
+E:/soft/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/util.rb:1293:in `each_with_index'
+E:/soft/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/util.rb:1293:in `find_encoding_error'
+E:/soft/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/util.rb:902:in `check_sass_encoding'
+E:/soft/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/engine.rb:433:in `check_encoding!'
+E:/soft/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/engine.rb:389:in `_to_tree'
+E:/soft/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/engine.rb:278:in `render'
+E:/soft/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/exec/sass_scss.rb:420:in `run'
+E:/soft/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/exec/sass_scss.rb:63:in `process_result'
+E:/soft/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/exec/base.rb:52:in `parse'
+E:/soft/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/lib/sass/exec/base.rb:19:in `parse!'
+E:/soft/Adobe/Adobe Dreamweaver CC 2017/ruby/lib/ruby/gems/2.2.0/gems/sass-3.4.20/bin/sass:13:in `<top (required)>'
+E:/soft/Adobe/Adobe Dreamweaver CC 2017/ruby/bin/sass:23:in `load'
+E:/soft/Adobe/Adobe Dreamweaver CC 2017/ruby/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid GBK character \"\xE9\"\A         on line 58 of G:\SWP_Web\F-framework\xiaozhe\M-mobile-web\src\assets\sass\index.scss\A \A 53: 	bottom: pxTorem(100);\A 54: }\A 55: .main-fff{\A 56: 	background: #FFF;\A 57: }\A 58: /*隐藏滚动条*/\A 59: ::-webkit-scrollbar{\A 60:     display: none;\A 61: }\A 62: *::-webkit-scrollbar { width: 0 !important }\A 63: input,textarea,select{"; }

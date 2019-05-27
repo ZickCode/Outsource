@@ -1,0 +1,102 @@
+.wallet-view{
+	.wallet-view-head{
+		position: fixed;
+		top: 90px;
+		right: 0;
+		left: 0;
+		z-index: 99;
+	}
+	.van-pull-refresh{
+		padding: 420px 0 90px 0px;
+	}
+}
+.wallet-wrap{
+	background-color:#434a54;
+	background: url(../../assets/images/uccenter/walletbg.jpg) no-repeat;
+	padding:20px;
+	background-size:750px 272px;
+	& p{
+		color:#ffffff;
+		font-size: 24px;
+		margin: 0;
+		line-height:44px;
+	}
+	.wallet-money{
+		& p{
+			line-height: 84px;
+		}
+	}
+}
+.wallet-money{
+	border-bottom:1Px solid #656d78;
+	padding: 0 0 ;
+	margin-bottom: 10px;
+	& p{
+		& i{
+			font-size:74px;
+			font-style: normal;
+		}
+	}
+}
+.w-record-hd{
+	background-color:#fafafa;
+	border-bottom: 1Px solid #eee;
+	padding:0 20px;
+	& p{
+		line-height: 46px;
+		padding: 20px 0;
+		margin: 0;
+		text-align: center;
+		color: #333333;
+		font-size: 24px;
+	}
+}
+.w-record-list{
+	& li{
+		padding:40px 20px;
+		border-bottom: 1Px solid #eee;
+	}
+}
+.rec-data{
+	width:165px;
+	text-align: center;
+	& span{
+		display:block;
+		font-size:32px;
+		line-height: 52px;
+	}
+	.year{
+		font-size:24px;
+		color: #828282;
+		margin: 0;
+		line-height: 44px;
+	}
+}
+.rec-num,.rec-money{
+	padding-left: 30px;
+	border-left:1Px solid #eee;
+	& h5{
+		margin: 0;
+		font-size:32px;
+		line-height: 52px;
+		color: #666;
+		word-break:break-all;
+		font-weight: 400;
+	}
+	p{
+		margin: 0;
+		color: #828282;
+		margin: 0;
+		line-height: 44px;
+	}
+}
+.rec-money{
+	margin-left: 10px;
+	border-left:none;
+	text-align: right;
+	padding-left: 0;
+	width: 150px;
+	& .fail{
+		color:#da4453;
+	}
+}

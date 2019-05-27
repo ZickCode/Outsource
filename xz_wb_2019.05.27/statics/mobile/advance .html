@@ -1,0 +1,324 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="author" content="LHVE TEAM, contact@lhave.com">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telphone=no, email=no">
+		<meta name="wap-font-scale" content="no">
+		<!--公共 meta 属性-->
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<title>无标题文档</title>
+		<script src="js/jquery.min.js"></script>
+	</head>
+	<style>
+		* {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		body,
+		html {
+			width: 100%;
+			height: 100%;
+			font-family: sans-serif;
+		}
+
+		body {
+			margin: 0;
+		}
+
+		html {
+			font-size: 37.5px
+		}
+
+		@media only screen and (min-width: 319px) {
+			html {
+				font-size: 31.9px
+			}
+		}
+
+		@media only screen and (min-width: 320px) {
+			html {
+				font-size: 32px
+			}
+		}
+
+		@media only screen and (min-width: 360px) {
+			html {
+				font-size: 36px
+			}
+		}
+
+		@media only screen and (min-width: 375px) {
+			html {
+				font-size: 37.5px
+			}
+		}
+
+		@media only screen and (min-width: 384px) {
+			html {
+				font-size: 38.4px
+			}
+		}
+
+		@media only screen and (min-width: 400px) {
+			html {
+				font-size: 40px
+			}
+		}
+
+		@media only screen and (min-width: 414px) {
+			html {
+				font-size: 41.4px
+			}
+		}
+
+		@media only screen and (min-width: 424px) {
+			html {
+				font-size: 42.4px
+			}
+		}
+
+		@media only screen and (min-width: 480px) {
+			html {
+				font-size: 48px
+			}
+		}
+
+		@media only screen and (min-width: 540px) {
+			html {
+				font-size: 54px
+			}
+		}
+
+		@media only screen and (min-width: 720px) {
+			html {
+				font-size: 72px
+			}
+		}
+
+		@media only screen and (min-width: 750px) {
+			html {
+				font-size: 75px
+			}
+		}
+
+		ul {
+			display: block;
+			list-style-type: disc;
+			-webkit-margin-before: 0;
+			-webkit-margin-after: 0;
+			-webkit-margin-start: 0px;
+			-webkit-margin-end: 0px;
+			-webkit-padding-start: 0;
+		}
+
+		.adv-bg {
+			width: 100%;
+			height: 100%;
+			/* background-image: url(images/bg_01.jpg); */
+			background-size: 100% auto;
+			background-position: top center;
+			background-repeat: no-repeat;
+			position: relative;
+		}
+
+		.adv-item {
+			display: inline-block;
+			padding: 0 0.333333rem;
+		}
+
+		.adv-list {
+			font-size: 0;
+			line-height: 0;
+			text-align: center;
+		}
+
+		.adv-txt {
+			font-size: 0.4rem;
+			color: #333333;
+			line-height: 0.533333rem;
+			margin: 0;
+			text-align: left;
+			padding-left: 0.106666rem;
+		}
+
+		.time-box {
+			overflow: hidden;
+			padding-top: 0.133333rem;
+		}
+
+		.time-box span {
+			float: left;
+			width: 0.906666rem;
+			height: 1.013333rem;
+			background-color: #fff;
+			border-radius: 0.066666rem;
+			margin: 0 0.106666rem;
+			color: #ff8f00;
+			font-size: 0.453333rem;
+			line-height: 1.013333rem;
+			text-align: center;
+			font-weight: bold;
+			border: 1Px solid #000;
+		}
+
+		.tips {
+			text-align: center;
+			color: #333333;
+			margin: 0.533333rem 0 0;
+			font-size: 12px;
+		}
+
+		.adv-bd {
+			margin-top: 0.6rem;
+			width: 100%;
+			padding-bottom:0.4rem;
+		}
+		.adv-reveal{
+			width: 100%;
+		}
+		.adv-reveal img{
+			display: block;
+			width: 100%;
+		}
+	</style>
+	<script>
+    $(function(){
+		var endTime = (new Date('2019/04/01 09:00:00')).getTime();
+		var startTime = (new Date()).getTime();
+		var difTimeMins = (endTime - startTime)/1000;
+
+	   //限时秒杀
+	  function countdownActivity() {
+	      $('.J_time').each(function() {
+	          var _this = $(this);
+	          catTimeStr(_this, difTimeMins);
+	  
+	      });
+	  };
+	  function catTimeStr(tagele, seconds) {
+	      var countTimer = setInterval(function() {
+	          var timeObj =_countTime(seconds--);
+	          var str = null;
+			  console.log('timeObj===='+JSON.stringify(timeObj));
+	          if(seconds > 0) {
+				  console.log('if');
+	           str ='<li class="adv-item">' + 
+	            	' <p class="adv-txt">小时</p>' + 
+	            	' <div class="time-box">' + 
+	            		' <span>' +  timeObj.myH.toString().slice(0,1) + '</span>' + 
+	            		' <span>' +  timeObj.myH.toString().slice(1,2) + '</span>' +  
+	            	' </div>' + 
+	           '  </li>' + 
+	           '<li class="adv-item">' + 
+	            	' <p class="adv-txt">分</p>' + 
+	            	' <div class="time-box">' + 
+	            		' <span>' +  timeObj.myM.toString().slice(0,1) + '</span>' + 
+	            		' <span>' +  timeObj.myM.toString().slice(1,2) + '</span>' +  
+	            	' </div>' + 
+	           '  </li>' + 
+	           '<li class="adv-item">' + 
+	            	' <p class="adv-txt">秒</p>' + 
+	            	' <div class="time-box">' + 
+	            		' <span>' +  timeObj.myS.toString().slice(0,1) + '</span>' + 
+	            		' <span>' + timeObj.myS.toString().slice(1,2) + '</span>' +  
+	            	' </div>' + 
+	           '  </li>' ;
+	          } else {
+				  console.log('else');
+	              str ='<li class="adv-item">' + 
+	               	' <p class="adv-txt">小时</p>' + 
+	               	' <div class="time-box">' + 
+	               		' <span>' +  0 + '</span>' + 
+	               		' <span>' + 0 + '</span>' +  
+	               	' </div>' + 
+	              '  </li>' + 
+	              '<li class="adv-item">' + 
+	               	' <p class="adv-txt">分</p>' + 
+	               	' <div class="time-box">' + 
+	               		' <span>' +  0 + '</span>' + 
+	               		' <span>' +  0 + '</span>' +  
+	               	' </div>' + 
+	              '  </li>' + 
+	              '<li class="adv-item">' + 
+	               	' <p class="adv-txt">秒</p>' + 
+	               	' <div class="time-box">' + 
+	               		' <span>' +  0+ '</span>' + 
+	               		' <span>' + 0 + '</span>' +  
+	               	' </div>' + 
+	              '  </li>' ;
+	              clearTimeout(countTimer);
+	          }
+	          tagele.html(str);
+	      }, 1000);
+	  
+	  };
+	  function _countTime(seconds) {
+	      var myD = Math.floor(seconds / 86400); //天 
+	      var myH = Math.floor(seconds / 3600) % 24; //小时 
+	      var myM = Math.floor(seconds / 60) % 60; //分钟 
+	      var myS = seconds % 60; //秒  //秒 
+	      if(myD < 10) {
+	          myD = '0' + myD;
+	      }
+	      if(myH < 10) {
+	          myH = '0' + myH;
+	      }
+	      if(myM < 10) {
+	          myM = '0' + myM;
+	      }
+	      if(myS < 10) {
+	          myS = '0' + myS;
+	      }
+	      return {
+	          myD: myD,
+	          myH: myH,
+	          myM: myM,
+	          myS: myS
+	      };
+	  }
+	  countdownActivity();
+  })
+</script>
+
+	<body>
+		<div class="adv-bg">
+			<div class="adv-reveal">
+				<img src="images/bg_01.jpg" />
+			</div>
+			<div class="adv-bd">
+				<ul class="adv-list J_time" data-seconds="43200">
+					<li class="adv-item">
+						<p class="adv-txt">小时</p>
+						<div class="time-box">
+							<span>1</span>
+							<span>2</span>
+						</div>
+					</li>
+					<li class="adv-item">
+						<p class="adv-txt">分</p>
+						<div class="time-box">
+							<span>0</span>
+							<span>0</span>
+						</div>
+					</li>
+					<li class="adv-item">
+						<p class="adv-txt">秒</p>
+						<div class="time-box">
+							<span>0</span>
+							<span>0</span>
+						</div>
+					</li>
+				</ul>
+				<p class="tips">短暂的关闭是为了更好的为您服务</p>
+			</div>
+
+		</div>
+	</body>
+</html>

@@ -1,0 +1,99 @@
+.setaccount-box{
+	width: 100%;
+	position: relative;
+}
+.modifyhd-wrap{
+	width: 100%;
+	position: relative;
+	background-color: #fafafa;
+	margin-bottom:20px;
+	height: 340px;
+	padding:20px;
+}
+.accoun-item{
+	background-color: #fff;
+	border-bottom: 1Px solid #eee;
+	padding:0 20px;
+	& .flex-one{
+		padding-right: 30px;
+	}
+}
+.accttxt{
+	width: 140px;
+	color: #333333;
+	font-size: 24px;
+	margin-right: 10px;
+	line-height: 85px;
+}
+.cout-bg{
+	background: url(../../assets/images/common/jiantou.png) center right no-repeat;
+	background-size: 15px 26px;
+}
+.a-link{
+	height: 85px;
+}
+.u-text{
+	display: block;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	border: 0Px solid #eee;
+	border-radius: 0px;
+	font-size: 30px;
+	text-align: right;
+	color: #8d8d8d;
+	font-size: 24px;
+}
+.ipt-box{
+	& .u-text{
+		height: 85px;
+		line-height: 85px;
+	}
+}
+
+/*==============================账号安全======================*/
+.safe-text{
+   margin: 0;
+	 text-align: right;
+	 color: #8d8d8d;
+	 font-size: 24px;
+	 height: 85px;
+	 line-height: 85px;
+}
+.xz-z-tip{
+	padding: 10px 10px 30px;
+	color: #000000;
+	font-size: 26px;
+}
+.z-sex{
+	text-align: right;
+	margin: 0;
+	line-height: 85px;
+	color: #8d8d8d;
+	font-size: 24px;
+}
+.modifyhd-box{
+	padding: 40px 20px 20px;
+}
+.modifyhd-pic{
+	display: block;
+	margin: 0 auto;
+	width: 165px;
+	height: 165px;
+	border: 3px solid #fff;
+	border-radius: 165px;
+	overflow: hidden;
+	& img{
+		display: block;
+		width: 100%;
+		height: 100%;
+		border: none;
+	}
+}
+.clhead{
+	margin:20px 0 0;
+	text-align: center;
+	color: #8d8d8d;
+	font-size: 24px;
+	line-height: 44px;
+}

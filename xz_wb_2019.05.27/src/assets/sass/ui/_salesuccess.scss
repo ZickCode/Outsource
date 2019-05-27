@@ -1,0 +1,8 @@
+.bm-none{
+	border-bottom: none;
+}
+.sale-success{
+	& .s-shop-item a:after{
+		display:none;
+	}
+}

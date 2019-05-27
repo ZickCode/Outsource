@@ -1,0 +1,58 @@
+.ogistics-box{
+	& .s-shop-item a:after{
+		width:0;
+		height: 0;
+	}
+	& .s-msg-cont{
+		& h4{
+			margin-bottom: 10px;
+		}
+	}
+}
+.stepbox{
+	background-color: #fafafa;
+	& .van-steps{
+		background-color: #fafafa;
+	}
+	& .van-step--vertical{
+		font-size: 20px;
+		line-height: 40px;
+		padding: 20px 0;
+		& h3{
+			font-weight: normal;
+		}
+	}
+	.van-step--vertical.van-step--process .van-icon-checked{
+		top: 30px;
+		left: -25px;
+		width: 15px;
+		height: 15px;
+		border-radius:100%;
+		text-align: center;
+	}
+	.van-step--vertical .van-step__circle{
+		top: 34px;
+		width: 12px;
+		height: 12px;
+		left: -20px;
+		border-radius:100%;
+	}
+	.van-step--vertical:first-child::before{
+		background-color:#fafafa;
+		left:-15px;
+	}
+	.van-step--vertical .van-step__line{
+		left:-15px;
+	}
+}
+.steptit{
+	padding: 10px 20px;
+	border-bottom: 1Px solid #eee;
+	& h4{
+		color: #3f4447;
+		font-size: 24px;
+		font-weight: 500;
+		line-height: 44px;
+		margin: 0;
+	}
+}
