@@ -104,6 +104,29 @@
                 </a>
             </div>
         </div>
+        <div class="xz-panel">
+            <van-cell class="order-cell" title="车主服务"/>
+            <div class="user-serve">
+                <a class="serve-item" href="#/carOwnerCenter/index">
+                    <img src="../../assets/images/uccenter/uc-idx-ico17.png" alt> 违法处理
+                </a>
+                <a class="serve-item" href="#/user/collect">
+                    <img src="../../assets/images/uccenter/uc-idx-ico18.png" alt> 年检查询
+                </a>
+                <a class="serve-item" href="#/user/footprint">
+                    <img src="../../assets/images/uccenter/uc-idx-ico19.png" alt> 保险查询
+                </a>
+                <a class="serve-item" href="#/user/coupon">
+                    <img src="../../assets/images/uccenter/uc-idx-ico20.png" alt> 我的保养
+                </a>
+                <a class="serve-item" href="#/user/collect">
+                    <img src="../../assets/images/uccenter/uc-idx-ico21.png" alt> 车辆管理
+                </a>
+                <a class="serve-item" href="#/user/footprint">
+                    <img src="../../assets/images/uccenter/uc-idx-ico22.png" alt> 车辆年检
+                </a>
+            </div>
+        </div>
     </div>
 </template>
 <script>

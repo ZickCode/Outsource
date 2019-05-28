@@ -127,7 +127,14 @@ let router = new Router({
         {
             path: '*', redirect: '/error/404'
         },
-
+        {
+            path: '/carOwnerCenter',
+            component: () => import('@/views/other.vue'),
+            children: [
+                { path: 'index', component: () => import('@/views/carOwnerCenter/index.vue'), meta: { title: '车主中心' } },
+                { path: 'chooseArea', component: () => import('@/views/carOwnerCenter/chooseArea.vue'), name: 'chooseArea', meta: { title: '选择地区' } },
+            ]
+        }
     ]
 })
 let _loading = null;
