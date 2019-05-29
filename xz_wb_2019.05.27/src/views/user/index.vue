@@ -110,19 +110,19 @@
                 <a class="serve-item" href="#/carOwnerCenter/index">
                     <img src="../../assets/images/uccenter/uc-idx-ico17.png" alt> 违法处理
                 </a>
-                <a class="serve-item" href="#/user/collect">
+                <a class="serve-item" href="#/carOwnerCenter/vinQuery">
                     <img src="../../assets/images/uccenter/uc-idx-ico18.png" alt> 年检查询
                 </a>
-                <a class="serve-item" href="#/user/footprint">
+                <a class="serve-item" href="#/carOwnerCenter/oilPrice">
                     <img src="../../assets/images/uccenter/uc-idx-ico19.png" alt> 保险查询
                 </a>
-                <a class="serve-item" href="#/user/coupon">
+                <a class="serve-item" href="#/carOwnerCenter/chooseArea">
                     <img src="../../assets/images/uccenter/uc-idx-ico20.png" alt> 我的保养
                 </a>
-                <a class="serve-item" href="#/user/collect">
+                <a class="serve-item" href="#/carOwnerCenter/chooseCarType">
                     <img src="../../assets/images/uccenter/uc-idx-ico21.png" alt> 车辆管理
                 </a>
-                <a class="serve-item" href="#/user/footprint">
+                <a class="serve-item" href="#/carOwnerCenter/vinQuery">
                     <img src="../../assets/images/uccenter/uc-idx-ico22.png" alt> 车辆年检
                 </a>
             </div>
@@ -159,7 +159,7 @@ export default {
             _this.userData = _userData;
             _this.post(
                 {
-                    method: "api.module.member.member.data"
+                    method: "api.module.member.car.mycars"
                 },
                 function(data) {
                     if (200 !== data.code) {
