@@ -1,10 +1,10 @@
 <template>
   <div class="user-main">
-    <van-nav-bar @click-left="go_back" class="xz-nva-bar" left-arrow fixed title="自助选车"/>
+    <van-nav-bar class="xz-nva-bar" left-arrow fixed title="自助选车"/>
     <div class="judge">
       <div class="carinfo">
-        <img src="../../assets/images/common/icon3.png" alt>
-        <span>大众进口-CC</span>
+        <img :src="util.reImg(carinfo.thumb)" alt>
+        <span>{{carinfo.name.substring(3)}}</span>
       </div>
       <div class="carmbx" v-if="first">
         <div class="first" v-if="first" @click="goback('1')">
@@ -49,10 +49,19 @@ export default {
       first: "",
       second: "",
       three: "",
-      type:1
+      type:1,
+      carinfo:{
+        id:'1',
+        name:'',
+        thumb:''
+      }
     };
   },
-  created() {},
+  created() {
+    console.log(this.$route.query)
+    this.carinfo = this.$route.query.item
+    
+  },
   methods: {
     goback(val){
       console.log(val)

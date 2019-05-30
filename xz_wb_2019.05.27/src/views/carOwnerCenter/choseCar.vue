@@ -1,6 +1,6 @@
 <template>
   <div class="user-main">
-    <van-nav-bar class="xz-nva-bar" left-arrow fixed title="选择地区"/>
+    <van-nav-bar class="xz-nva-bar" left-arrow fixed title="我的车库"/>
     <div class="judge">
       <div class="scroller-hook">
         <div class="cities cities-hook">
@@ -8,14 +8,15 @@
             <div class="title" ref="tit">{{i.name}}</div>
             <ul>
               <li
-                v-for="(item,indexs) in i.cities"
+                v-for="(item,indexs) in i.list"
                 :key="indexs"
-                @click="choseCity(item.name)"
+                @click="choseCar(item)"
                 class="item city-click"
                 :data-name="item.name"
                 :data-id="item.code"
               >
-                <span class="name">{{item.name}}</span>
+                <img :src="util.reImg(item.thumb)" alt>
+                <span class="name">{{item.name.substring(3)}}</span>
               </li>
             </ul>
           </div>
@@ -41,35 +42,34 @@ import { NavBar, Tabbar, TabbarItem, Cell } from "vant";
 export default {
   data() {
     return {
-      cityData: cityData,
+      cityData: [],
       anchorMap: {}
     };
   },
   created() {
-    
     let _this = this;
     let _loading = _this.$xzLoading();
     _this.post(
       {
-        method: "api.module.admin.district.get",
-        id:100000
+        method: "api.module.member.car.brands"
       },
       function(data) {
-        console.log(data)
+        console.log(data);
         if (data.code == 200) {
+          _this.cityData = data.result;
         }
         _loading.clear();
       }
     );
   },
   methods: {
-    choseCity(val) {
+    choseCar(val) {
       this.$router.push({
-          name: 'oilPrice',
-          params: {
-            name: val
-          }
-        })
+        name: "chooseCarType",
+        query: {
+          item: val
+        }
+      });
     },
     touchIndex: function(e) {
       let index = e.target.getAttribute("data-anchor");
@@ -103,6 +103,12 @@ export default {
       margin: 0px 31px;
       border-bottom: 1px solid #e5e5e5;
       padding: 30px 0px;
+      img {
+        height: 70px;
+        width: 70px;
+        display: inline-block;
+        vertical-align: middle;margin-right: 30px;
+      }
       span {
         font-size: 28px;
         color: #666666;

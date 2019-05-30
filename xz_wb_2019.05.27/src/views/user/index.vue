@@ -107,19 +107,19 @@
         <div class="xz-panel">
             <van-cell class="order-cell" title="车主服务"/>
             <div class="user-serve">
-                <a class="serve-item" href="#/carOwnerCenter/index">
+                <a class="serve-item">
                     <img src="../../assets/images/uccenter/uc-idx-ico17.png" alt> 违法处理
                 </a>
-                <a class="serve-item" href="#/carOwnerCenter/vinQuery">
+                <a class="serve-item">
                     <img src="../../assets/images/uccenter/uc-idx-ico18.png" alt> 年检查询
                 </a>
-                <a class="serve-item" href="#/carOwnerCenter/oilPrice">
+                <a class="serve-item">
                     <img src="../../assets/images/uccenter/uc-idx-ico19.png" alt> 保险查询
                 </a>
-                <a class="serve-item" href="#/carOwnerCenter/chooseArea">
+                <a class="serve-item">
                     <img src="../../assets/images/uccenter/uc-idx-ico20.png" alt> 我的保养
                 </a>
-                <a class="serve-item" href="#/carOwnerCenter/chooseCarType">
+                <a class="serve-item" href="#/carOwnerCenter/myGarage">
                     <img src="../../assets/images/uccenter/uc-idx-ico21.png" alt> 车辆管理
                 </a>
                 <a class="serve-item" href="#/carOwnerCenter/vinQuery">

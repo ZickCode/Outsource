@@ -31,6 +31,7 @@ export default class extends wepy.app {
       'pages/myCase',
       'pages/intro',
       'pages/case',
+      'pages/outUrl',
     ],
     window: {
       backgroundTextStyle: 'light',

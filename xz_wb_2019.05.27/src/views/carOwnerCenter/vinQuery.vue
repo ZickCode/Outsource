@@ -1,6 +1,6 @@
 <template>
   <div class="user-main">
-    <van-nav-bar @click-left="go_back" class="xz-nva-bar" left-arrow fixed title="VIN码查询"/>
+    <van-nav-bar class="xz-nva-bar" left-arrow fixed title="VIN码查询"/>
     <div class="judge">
       <div class="vin-search">
         <input type="text" name id placeholder="输入车架号 获取保险车辆列表">

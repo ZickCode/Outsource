@@ -1,0 +1,31 @@
+<template>
+  <view style="padding-top:{{statusHeight}}px">
+    <web-view src="http://www.chongqingse.com/"></web-view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy';
+
+export default class user extends wepy.page {
+  config = {
+    navigationBarTitleText: '',
+    enablePullDownRefresh: false
+  };
+  components = {
+
+  };
+  data = {
+    tabbar: null,
+    statusHeight: null,
+  };
+  onLoad() {
+    this.statusHeight = this.$parent.globalData.statusHeight;
+  }
+  onShow() {
+    this.tabbar = this.$parent.editTabbar();
+  }
+  methods = {};
+}
+</script>
+<style lang="less" scoped>
+</style>
