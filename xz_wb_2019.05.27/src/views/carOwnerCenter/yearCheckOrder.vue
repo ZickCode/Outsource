@@ -1,6 +1,6 @@
 <template>
   <div class="user-main gray">
-    <van-nav-bar class="xz-nva-bar" left-arrow fixed title="车辆年检服务"/>
+    <van-nav-bar @click-left="go_back" class="xz-nva-bar" left-arrow fixed title="车辆年检服务"/>
     <div class="judge">
       <div class="yearCheck">
         <img src="../../assets/images/common/icon6.png" alt>

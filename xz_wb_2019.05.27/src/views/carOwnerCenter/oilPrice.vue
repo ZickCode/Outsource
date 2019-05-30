@@ -1,6 +1,6 @@
 <template>
   <div class="user-main">
-    <van-nav-bar class="xz-nva-bar" left-arrow fixed title="全国油价"/>
+    <van-nav-bar @click-left="go_back" class="xz-nva-bar" left-arrow fixed title="全国油价"/>
     <div class="judge">
       <div class="chose-city">
         <a href="#/carOwnerCenter/chooseArea">

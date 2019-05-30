@@ -1,22 +1,22 @@
 <template>
   <div class="user-main gray">
-    <van-nav-bar class="xz-nva-bar" left-arrow fixed title="我的车库"/>
+    <van-nav-bar @click-left="go_back" class="xz-nva-bar" left-arrow fixed title="我的车库"/>
     <div class="judge">
-      <div class="garage-box">
+      <div class="garage-box" v-for="(item, index) in carData">
         <div class="garage">
           <div class="img">
-            <img src="../../assets/images/common/icon3.png" alt>
+            <img :src="sourceUrl+item.info.brand.thumb" alt>
           </div>
           <div class="info">
             <h3>
-              保时捷 Cayenne
+              {{item.info.name.name}}
               <span>认证</span>
             </h3>
-            <p>2018款 3.0T 上牌时间：2019.01</p>
+            <p>-款 {{item.info.year.name}} 上牌时间：{{GetDate(item.info.name.create_time)}}</p>
           </div>
         </div>
         <div class="garage-btn">
-          <div class="set" @click="set">
+          <div class="set" @click="set(item.info.name.id)">
             <img src="../../assets/images/common/icon5.png" v-if="active">
             {{active?'已设为默认':'设为默认'}}
           </div>
@@ -24,19 +24,18 @@
         </div>
       </div>
     </div>
-    <a class="addCar" href="#/carOwnerCenter/choseCar">添加我的爱车</a>
+    <a class="addCar" href="#/carOwnerCenter/chooseCar">添加我的爱车</a>
   </div>
 </template>
 
 <script>
-import cityData from "../../assets/css/city.js";
 import { NavBar, Tabbar, TabbarItem, Cell, Dialog } from "vant";
 export default {
   data() {
     return {
-      cityData: [],
-      anchorMap: {},
-      active: false
+      active: false,
+      carData: [],
+      sourceUrl: sourceUrl,
     };
   },
   created() {
@@ -47,16 +46,23 @@ export default {
         method: "api.module.member.car.mycars"
       },
       function(data) {
-        console.log(data);
-        if (data.code == 200) {
+        if (200 !== data.code) {
+          _this.$toast({
+            message: data.msg,
+            position: "bottom"
+          });
+          return;
+        }
+        if (data.result != null) {
+          console.log(data.result)
+          _this.$set(_this, "carData", data.result);
         }
         _loading.clear();
       }
     );
   },
   methods: {
-    addCar(){
-      
+    addCar(){      
       this.$router.push({
         name: "choseCar"
       });
@@ -73,8 +79,35 @@ export default {
           // on cancel
         });
     },
-    set() {
-      this.active = !this.active;
+    set(id) {
+      let _this = this;
+      _this.active = !_this.active;
+      _this.post(
+        {
+          method: "api.module.member.car.setdefault",
+          id: id
+        },
+        function(data) {
+          if (200 !== data.code) {
+            _this.$toast({
+              message: data.msg,
+              position: "bottom"
+            });
+            return;
+          }
+          _loading.clear();
+        }
+      );
+    },
+    GetDate(time) {
+      let date = new Date(time*1000);
+      let Y = date.getFullYear() + "-",
+          M = (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + "-",
+          D = (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + " ",
+          h = (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()) + ":",
+          m = (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()) + ":",
+          s = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+      return Y + M + D;
     }
   },
   components: {

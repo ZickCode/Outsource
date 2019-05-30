@@ -3,21 +3,20 @@
     <van-nav-bar
       @click-left="go_back"
       class="xz-nva-bar"
-      fixed
       title="车主中心"
       right-text="管理车型"
       left-arrow
     />
     <van-swipe v-if="carData.length" indicator-color="white" class="car-swiper" @change="onChange">
       <van-swipe-item v-for="(item, index) in carData">
-        <div>
+        <div v-if="item.info && item.info.name">
           <img :src="sourceUrl+item.info.brand.thumb">
           <div>
             <div>
               <p>{{item.info.name.name}}</p>
-              <i>nodata</i>
+              <i>-</i>
             </div>
-            <div>nodata款 {{item.info.year.name}} 上牌时间：{{GetDate(item.info.name.create_time)}}</div>
+            <div>-款 {{item.info.year.name}} 上牌时间：{{GetDate(item.info.name.create_time)}}</div>
           </div>
         </div>
       </van-swipe-item>
@@ -146,9 +145,6 @@
             <img src="../../assets/images/carOwnerCenter/icon-arrow-down.png" alt="">
           </div>
           <van-field placeholder="车牌号"/>
-          <van-popup v-model="showPopup" position="bottom">
-            <van-picker :columns="columns" show-toolbar @change="onChange"/>
-          </van-popup>
         </div>
         <div class="user-info-item-box">
           <van-field placeholder="查询城市"/>
@@ -165,6 +161,9 @@
         </div>
       </div>
     </div>
+    <van-popup v-model="showPopup" position="bottom">
+      <van-picker :columns="columns" show-toolbar @change="onChange"/>
+    </van-popup>
   </div>
 </template>
 <script>
@@ -186,7 +185,7 @@ export default {
       carList: [1],
       carInfo: 1,
       showPopup: false,
-      columns: ["杭州", "宁波", "温州", "嘉兴", "湖州"],
+      columns: ["京", "津", "冀", "晋", "蒙", "辽", "吉", "黑", "沪", "苏", "浙", "皖", "闽", "赣", "鲁", "豫", "鄂", "湘", "粤", "桂", "琼", "渝", "川", "贵", "云", "藏", "陕", "甘", "新"],
       userData: {},
       carData: [],
       currentIndex: 0
@@ -205,13 +204,13 @@ export default {
     loadData() {
       let _this = this;
       let _userData = _this.userMessage.user;
+      let _loading = _this.$xzLoading();
       _this.userData = _userData;
       _this.post(
         {
           method: "api.module.member.car.mycars"
         },
         function(data) {
-          console.log(data.result);
           if (200 !== data.code) {
             _this.$toast({
               message: data.msg,
@@ -222,6 +221,7 @@ export default {
           if (data.result != null) {
             _this.$set(_this, "carData", data.result);
           }
+          _loading.clear();
         }
       );
     },
@@ -251,7 +251,10 @@ export default {
   }
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
+.user-main{
+  padding-top: 0;
+}
 .car-owner-center {
   .xz-nva-bar {
     background: #4d79d8;

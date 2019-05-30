@@ -1,6 +1,6 @@
 <template>
   <div class="user-main">
-    <van-nav-bar class="xz-nva-bar" left-arrow fixed title="选择地区"/>
+    <van-nav-bar @click-left="go_back" class="xz-nva-bar" left-arrow fixed title="选择地区"/>
     <div class="judge">
       <div class="scroller-hook">
         <div class="cities cities-hook">

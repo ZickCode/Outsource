@@ -107,7 +107,7 @@
         <div class="xz-panel">
             <van-cell class="order-cell" title="车主服务"/>
             <div class="user-serve">
-                <a class="serve-item">
+                <a class="serve-item" href="#/carOwnerCenter/index">
                     <img src="../../assets/images/uccenter/uc-idx-ico17.png" alt> 违法处理
                 </a>
                 <a class="serve-item">

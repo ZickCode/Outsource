@@ -136,7 +136,9 @@ let router = new Router({
                 { path: 'vinQuery', component: () => import('@/views/carOwnerCenter/vinQuery.vue'), name: 'vinQuery', meta: { title: 'VIN码查询' } },
                 { path: 'oilPrice', component: () => import('@/views/carOwnerCenter/oilPrice.vue'), name: 'oilPrice', meta: { title: '全国油价' } },
                 { path: 'myGarage', component: () => import('@/views/carOwnerCenter/myGarage.vue'), name: 'myGarage', meta: { title: '我的车库' } },
+                { path: 'chooseCar', component: () => import('@/views/carOwnerCenter/chooseCar.vue'), name: 'chooseCar', meta: { title: '自助选车' } },
                 { path: 'chooseCarType', component: () => import('@/views/carOwnerCenter/chooseCarType.vue'), name: 'chooseCarType', meta: { title: '自助选车' } },
+                { path: 'shopList', component: () => import('@/views/carOwnerCenter/shopList.vue'), name: 'shopList', meta: { title: '店铺' } },
             ]
         }
     ]

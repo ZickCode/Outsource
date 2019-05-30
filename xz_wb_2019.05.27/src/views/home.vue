@@ -6,6 +6,9 @@
         <van-tabbar class="xz-tabbar" v-model="active" :z-index="20">
             <van-tabbar-item to="/" icon="x xz-icon xz-icon-home">首页</van-tabbar-item>
             <van-tabbar-item to="cate" icon="x xz-icon xz-icon-cate">分类</van-tabbar-item>
+            <van-tabbar-item to="/carOwnerCenter/shopList" class="shop-box">
+                <img src="../assets/images/common/icon-tabbar.png" />
+            </van-tabbar-item>
             <van-tabbar-item to="cart" :info="Shoplen" icon="x xz-icon xz-icon-cart" v-if="Shoplen>0">购物车</van-tabbar-item>
             <van-tabbar-item to="cart"  icon="x xz-icon xz-icon-cart" v-else>购物车</van-tabbar-item>
             <van-tabbar-item to="user" icon="x xz-icon xz-icon-user">我的</van-tabbar-item>
@@ -86,3 +89,13 @@ export default {
     }
 };
 </script>
+<style lang="less" scoped>
+.shop-box{
+    width: 120px;
+    height: 107px;
+    img{
+        width: 100%;
+        transform: translate(0, -50px)
+    }
+}
+</style>

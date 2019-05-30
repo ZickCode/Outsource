@@ -1,6 +1,6 @@
 <template>
   <div class="user-main">
-    <van-nav-bar class="xz-nva-bar" left-arrow fixed title="我的车库"/>
+    <van-nav-bar @click-left="go_back" class="xz-nva-bar" left-arrow fixed title="我的车库"/>
     <div class="judge">
       <div class="scroller-hook">
         <div class="cities cities-hook">
@@ -10,7 +10,7 @@
               <li
                 v-for="(item,indexs) in i.list"
                 :key="indexs"
-                @click="choseCar(item)"
+                @click="choseCar(item.id)"
                 class="item city-click"
                 :data-name="item.name"
                 :data-id="item.code"
@@ -54,7 +54,6 @@ export default {
         method: "api.module.member.car.brands"
       },
       function(data) {
-        console.log(data);
         if (data.code == 200) {
           _this.cityData = data.result;
         }

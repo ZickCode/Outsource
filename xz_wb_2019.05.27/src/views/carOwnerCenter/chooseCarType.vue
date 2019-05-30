@@ -1,10 +1,10 @@
 <template>
   <div class="user-main">
-    <van-nav-bar class="xz-nva-bar" left-arrow fixed title="自助选车"/>
+    <van-nav-bar @click-left="go_back" class="xz-nva-bar" left-arrow fixed title="自助选车"/>
     <div class="judge">
       <div class="carinfo">
         <img :src="util.reImg(carinfo.thumb)" alt>
-        <span>{{carinfo.name.substring(3)}}</span>
+        <span>{{carinfo.name && carinfo.name.substring(3)}}</span>
       </div>
       <div class="carmbx" v-if="first">
         <div class="first" v-if="first" @click="goback('1')">
@@ -50,6 +50,7 @@ export default {
       second: "",
       three: "",
       type:1,
+      id: null,
       carinfo:{
         id:'1',
         name:'',
@@ -57,14 +58,13 @@ export default {
       }
     };
   },
-  created() {
-    console.log(this.$route.query)
-    this.carinfo = this.$route.query.item
-    
+  mounted() {
+    this.id = this.$route.query.item;
+    this.loadData(this.id);
   },
   methods: {
     goback(val){
-      console.log(val)
+      // console.log(val)
       if(val == 1){
         this.second =''
         this.three = ''
@@ -75,18 +75,34 @@ export default {
       }
     },
     pl(val){
-      console.log(val)
+      // console.log(val)
       this.first = val
       this.type = 2
     },
     nf(val){
-      console.log(val)
+      // console.log(val)
       this.second = val
       this.type = 3
     },
     cx(val){
-      console.log(val)
+      // console.log(val)
       this.three = val
+    },
+    loadData(id) {
+      let _loading = this.$xzLoading();
+      this.post(
+        {
+          method: "api.module.member.car.typeinfo",
+          id: id
+        },
+        (data) => {
+          if (data.code == 200) {
+            this.carinfo = data.result.brand;
+            console.log(data.result)
+          }
+          _loading.clear();
+        }
+      );
     }
   },
   components: {
