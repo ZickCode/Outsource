@@ -42,7 +42,8 @@ export default {
   data() {
     return {
       cityData: cityData,
-      anchorMap: {}
+      anchorMap: {},
+      item: null
     };
   },
   created() {

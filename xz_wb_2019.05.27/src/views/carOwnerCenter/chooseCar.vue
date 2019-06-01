@@ -10,7 +10,7 @@
               <li
                 v-for="(item,indexs) in i.list"
                 :key="indexs"
-                @click="choseCar(item.id)"
+                @click="choseCar(item)"
                 class="item city-click"
                 :data-name="item.name"
                 :data-id="item.code"
@@ -60,18 +60,20 @@ export default {
     );
   },
   methods: {
-    choseCar(val) {
+    choseCar(item) {
       let _loading = this.$xzLoading();
       this.post(
         {
-          method: "api.module.member.car.addcar"
+          method: "api.module.member.car.types",
+          pid: item.id
         },
-        function(data) {
+        (data) => {
           if (data.code == 200) {
             this.$router.push({
               name: "chooseCarType",
-              query: {
-                item: val
+              params: {
+                item: item,
+                id: data.result[0].id
               }
             });
           }

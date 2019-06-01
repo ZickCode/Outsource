@@ -8,8 +8,8 @@
       left-arrow
     />
     <div class="top-filter">
-        <div class="top-filter-item">
-            <span>盘龙区</span>            
+        <div class="top-filter-item" @click="SwitchArea">
+            <span>{{areaName}}</span>            
             <img src="../../assets/images/carOwnerCenter/icon-arrow-down.png" alt="">
         </div>
         <div class="top-filter-item">
@@ -36,26 +36,27 @@
                 </div>
             </div>
         </a>
-    </div>
+    </div>    
+    <van-popup v-model="showPopup" position="bottom">
+      <van-picker :columns="columnsList" show-toolbar @confirm="onConfirm" @cancel="onCancel" @change="onChange"/>
+    </van-popup>
   </div>
 </template>
 <script>
 import {
-  Swipe,
-  SwipeItem,
-  Cell,
-  Icon,
   Picker,
-  Field,
-  Popup,
-  Button
+  Popup
 } from "vant";
-import { mapActions, mapState } from "vuex";
 export default {
   data() {
     return {
       sourceUrl: sourceUrl,
-      shopList: []
+      shopList: [],
+      areaList: [],
+      areaName: '北京',
+      areaId: '',
+      columnsList: [],
+      showPopup: false
     };
   },
   created() {},
@@ -63,19 +64,27 @@ export default {
     this.loadData();
   },
   methods: {
+    onConfirm(value, index) {
+      this.areaId = this.areaList[index].id;
+      this.areaName = this.areaList[index].name;
+      this.loadData();
+      this.showPopup = false;
+    },
+    onCancel() {
+      this.showPopup = false;
+    },
     onChange(index) {
       this.currentIndex = index;
     },
-    ...mapActions("userMessage", ["getUser", "setUser"]),
-    ...mapActions("userMessage", ["updataWechatLogin", "updataWechatData"]),
     loadData() {
       let _this = this;
       let _loading = _this.$xzLoading();
       _this.post(
         {
           method: "api.module.goods.shop.lists",
-          limit: 10,
-          page: 1
+          limit: 30,
+          page: 1,
+          province_id: this.areaId
         },
         function(data) {
           if (200 !== data.code) {
@@ -87,7 +96,6 @@ export default {
           }
           if (data.result != null) {
               _this.$set(_this, 'shopList', data.result.lists)
-              console.log(data.result.lists)
           }
           _loading.clear();
         }
@@ -98,24 +106,51 @@ export default {
         name: 'shopDetail',
         params: {...item}
       })
+    },
+    SwitchArea() {
+      let _loading = this.$xzLoading();
+      this.post(
+        {
+          method: "api.module.admin.district.get",
+          id: 100000
+        },
+        (data) => {
+          if (200 !== data.code) {
+            this.$toast({
+              message: data.msg,
+              position: "bottom"
+            });
+            return;
+          }
+          if (data.result != null) {
+            let _arr = [],
+                _columnsList = [];
+            data.result.map((item)=>{
+              _arr.push({
+                id: item.id,
+                name: item.name
+              })
+              _columnsList.push(item.name)
+            })
+            this.areaList = _arr;
+            this.$set(this, 'columnsList', _columnsList);
+            this.showPopup = true;
+          }
+          _loading.clear();
+        }
+      );
     }
   },
   components: {
-    "van-swipe": Swipe,
-    "van-swipe-item": SwipeItem,
-    "van-cell": Cell,
-    "van-icon": Icon,
     "van-picker": Picker,
-    "van-field": Field,
-    "van-popup": Popup,
-    "van-button": Button
+    "van-popup": Popup
   },
   computed: {
-    ...mapState(["userMessage"])
+
   }
 };
 </script>
-<style lang="less" scoped>
+<style lang="less">
 .car-shop-list {
     .top-filter{
         display: flex;
@@ -200,5 +235,10 @@ export default {
             }
         }
     }
+}
+.van-picker__toolbar {
+    line-height: 80px !important;
+    height: 80px !important;
+    font-size: 44px;
 }
 </style>
