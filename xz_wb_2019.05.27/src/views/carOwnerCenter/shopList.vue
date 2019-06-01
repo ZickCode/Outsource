@@ -4,6 +4,8 @@
       class="xz-nva-bar"
       fixed
       title="店铺"
+      @click-left="go_back"
+      left-arrow
     />
     <div class="top-filter">
         <div class="top-filter-item">
@@ -17,7 +19,7 @@
         <div class="top-filter-item area">距离</div>
     </div>
     <div class="shop-list">
-        <div class="shop-item" v-for="(item, index) in shopList">
+        <a class="shop-item" v-for="(item, index) in shopList" @click="GoToDetail(item)">
             <img :src="sourceUrl+item.img_list[0]" alt="">
             <div class="info">
                 <div class="name-box">
@@ -33,7 +35,7 @@
                     {{item.province+item.city+item.county+item.address}}
                 </div>
             </div>
-        </div>
+        </a>
     </div>
   </div>
 </template>
@@ -68,9 +70,7 @@ export default {
     ...mapActions("userMessage", ["updataWechatLogin", "updataWechatData"]),
     loadData() {
       let _this = this;
-      let _userData = _this.userMessage.user;
       let _loading = _this.$xzLoading();
-      _this.userData = _userData;
       _this.post(
         {
           method: "api.module.goods.shop.lists",
@@ -93,6 +93,12 @@ export default {
         }
       );
     },
+    GoToDetail(item) {
+      this.$router.push({
+        name: 'shopDetail',
+        params: {...item}
+      })
+    }
   },
   components: {
     "van-swipe": Swipe,

@@ -37,8 +37,6 @@
 </template>
 
 <script>
-import cityData from "../../assets/css/city.js";
-import { NavBar, Tabbar, TabbarItem, Cell } from "vant";
 export default {
   data() {
     return {
@@ -63,27 +61,35 @@ export default {
   },
   methods: {
     choseCar(val) {
-      this.$router.push({
-        name: "chooseCarType",
-        query: {
-          item: val
+      let _loading = this.$xzLoading();
+      this.post(
+        {
+          method: "api.module.member.car.addcar"
+        },
+        function(data) {
+          if (data.code == 200) {
+            this.$router.push({
+              name: "chooseCarType",
+              query: {
+                item: val
+              }
+            });
+          }
+          _loading.clear();
         }
-      });
+      );
     },
     touchIndex: function(e) {
       let index = e.target.getAttribute("data-anchor");
       this.$refs.tit.forEach(item => {
         if (index == item.innerHTML) {
           document.documentElement.scrollTop = item.offsetTop - 40;
-        } else {
         }
       });
     }
   },
   components: {
-    vanTabbar: Tabbar,
-    vanTabbarItem: TabbarItem,
-    vanCell: Cell
+    
   },
   computed: {}
 };

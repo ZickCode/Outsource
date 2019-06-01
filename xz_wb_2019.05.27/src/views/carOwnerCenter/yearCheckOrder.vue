@@ -92,7 +92,6 @@ export default {
   },
   created() {},
   methods: {
-    check() {}
   },
   components: {
     vanTabbar: Tabbar,

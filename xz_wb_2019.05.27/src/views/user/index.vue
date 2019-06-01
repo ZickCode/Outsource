@@ -9,7 +9,7 @@
                     </span>
                     <div class="peronal-text">
                         <h4>{{userData.nickname}}</h4>
-                        <span>{{userData._group.name}}</span>
+                        <span v-if="userData._group">{{userData._group.name}}</span>
                     </div>
                 </div>
                 <div class="peronal-login" @click="go_login" v-else>
@@ -122,7 +122,7 @@
                 <a class="serve-item" href="#/carOwnerCenter/myGarage">
                     <img src="../../assets/images/uccenter/uc-idx-ico21.png" alt> 车辆管理
                 </a>
-                <a class="serve-item" href="#/carOwnerCenter/vinQuery">
+                <a class="serve-item" href="#/carOwnerCenter/yearCheckInfo">
                     <img src="../../assets/images/uccenter/uc-idx-ico22.png" alt> 车辆年检
                 </a>
             </div>
@@ -130,7 +130,7 @@
     </div>
 </template>
 <script>
-import { NavBar, Tabbar, TabbarItem, Cell } from "vant";
+import { Tabbar, TabbarItem, Cell } from "vant";
 import { mapActions, mapState } from "vuex";
 export default {
     data() {
@@ -177,9 +177,9 @@ export default {
                 }
             );
         },
-        async getAxios(params) {
-            let data = await this.api.post(params);
-        },
+        // async getAxios(params) {
+        //     let data = await this.api.post(params);
+        // },
         go_login() {
             if (this.websit.isWeix &&
                 !this.userMessage.isLogin

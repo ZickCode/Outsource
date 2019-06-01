@@ -138,7 +138,10 @@ let router = new Router({
                 { path: 'myGarage', component: () => import('@/views/carOwnerCenter/myGarage.vue'), name: 'myGarage', meta: { title: '我的车库' } },
                 { path: 'chooseCar', component: () => import('@/views/carOwnerCenter/chooseCar.vue'), name: 'chooseCar', meta: { title: '自助选车' } },
                 { path: 'chooseCarType', component: () => import('@/views/carOwnerCenter/chooseCarType.vue'), name: 'chooseCarType', meta: { title: '自助选车' } },
-                { path: 'shopList', component: () => import('@/views/carOwnerCenter/shopList.vue'), name: 'shopList', meta: { title: '店铺' } },
+                { path: 'shopList', component: () => import('@/views/carOwnerCenter/shopList.vue'), name: 'shopList', meta: { title: '店铺列表' } },
+                { path: 'shopDetail', component: () => import('@/views/carOwnerCenter/shopDetail.vue'), name: 'shopDetail', meta: { title: '店铺详情' } },
+                { path: 'yearCheckInfo', component: () => import('@/views/carOwnerCenter/yearCheckInfo.vue'), name: 'yearCheckInfo', meta: { title: '年检' } },
+                { path: 'yearCheckTime', component: () => import('@/views/carOwnerCenter/yearCheckTime.vue'), name: 'yearCheckTime', meta: { title: '年检' } },
             ]
         }
     ]
@@ -181,7 +184,7 @@ router.beforeEach((to, from, next) => {
     }
 });
 
-router.afterEach(route => {
+router.afterEach(() => {
     _loading.clear();
 });
 export default router;
