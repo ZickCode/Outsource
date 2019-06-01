@@ -109,6 +109,7 @@ import {
 export default {
   data() {
     return {
+      sourceUrl: sourceUrl,
       show: false,
       showcar: false,
       minDate: new Date(),
@@ -155,13 +156,11 @@ export default {
         if (this.forms.phone) {
           if (this.forms.dates) {
             this.post({
-                method: "api.module.member.subscribe.add",
+                method: "api.module.goods.inspect.add",
                 car_id: this.forms.car_id,
                 license_plate: this.forms.cartype+this.forms.carid,
                 phone: this.forms.phone,
                 reg_time: this.forms.dates,
-                type: 1,
-                address: '以撒的干哈啥价格的哈就'
             },
             (data) => {
                 this.$router.push({name: 'yearCheckTime'})
