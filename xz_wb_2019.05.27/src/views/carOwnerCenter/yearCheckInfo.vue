@@ -6,7 +6,7 @@
       <div class="carInfos">
         <div class="carInfos-title" v-if="carData.name && carData.year">
           <div class="carInfos-icon">
-            <img :src="sourceUrl+carData.brand.thumb" alt>
+            <img :src="util.reImg(carData.brand.thumb)" alt>
           </div>
           <div class="carInfos-info">
             <h3>{{carData.name.name}}</h3>
@@ -109,7 +109,6 @@ import {
 export default {
   data() {
     return {
-      sourceUrl: sourceUrl,
       show: false,
       showcar: false,
       minDate: new Date(),
@@ -163,7 +162,6 @@ export default {
                 reg_time: this.forms.dates,
             },
             (data) => {
-                this.$router.push({name: 'yearCheckTime'})
                 if (200 !== data.code) {
                     this.$toast({
                         message: data.msg,
@@ -172,8 +170,7 @@ export default {
                     return;
                 }
                 if (data.result != null) {
-                    let _data = data.result;
-                    this.userData = _data;
+                    this.$router.push({name: 'yearCheckTime', params: {id: this.forms.car_id, carData: this.carData}})
                 }
             });
           } else {

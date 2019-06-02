@@ -8,7 +8,7 @@
       left-arrow
     />
     <div class="info-box">
-        <img v-if="itemData.img_list" :src="sourceUrl+itemData.img_list[0]" />
+        <img v-if="itemData.img_list" :src="util.reImg(itemData.img_list[0])" />
         <div class="info">
             <div class="name">{{itemData.name}}</div>
             <div class="status-box">
@@ -41,7 +41,7 @@
         <div class="ui-item-title">门店照片</div>
         <div class="ui-item-content">
             <template v-for="item in itemData.img_list">
-                <img :src="sourceUrl+item" />
+                <img :src="util.reImg(item)" />
             </template>
         </div>
     </div>
@@ -66,7 +66,6 @@ import { mapActions, mapState } from "vuex";
 export default {
   data() {
     return {
-      sourceUrl: sourceUrl,
       itemData: null
     };
   },

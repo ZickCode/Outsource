@@ -131,7 +131,7 @@ let router = new Router({
             path: '/carOwnerCenter',
             component: () => import('@/views/other.vue'),
             children: [
-                { path: 'index', component: () => import('@/views/carOwnerCenter/index.vue'), meta: { title: '车主中心' } },
+                { path: 'index', component: () => import('@/views/carOwnerCenter/index.vue'), name: 'carOwnerCenter', meta: { title: '车主中心' } },
                 { path: 'chooseArea', component: () => import('@/views/carOwnerCenter/chooseArea.vue'), name: 'chooseArea', meta: { title: '选择地区' } },
                 { path: 'vinQuery', component: () => import('@/views/carOwnerCenter/vinQuery.vue'), name: 'vinQuery', meta: { title: 'VIN码查询' } },
                 { path: 'oilPrice', component: () => import('@/views/carOwnerCenter/oilPrice.vue'), name: 'oilPrice', meta: { title: '全国油价' } },
@@ -142,6 +142,7 @@ let router = new Router({
                 { path: 'shopDetail', component: () => import('@/views/carOwnerCenter/shopDetail.vue'), name: 'shopDetail', meta: { title: '店铺详情' } },
                 { path: 'yearCheckInfo', component: () => import('@/views/carOwnerCenter/yearCheckInfo.vue'), name: 'yearCheckInfo', meta: { title: '年检' } },
                 { path: 'yearCheckTime', component: () => import('@/views/carOwnerCenter/yearCheckTime.vue'), name: 'yearCheckTime', meta: { title: '年检' } },
+                { path: 'yearCheckOrder', component: () => import('@/views/carOwnerCenter/yearCheckOrder.vue'), name: 'yearCheckOrder', meta: { title: '年检订单' } },
             ]
         }
     ]

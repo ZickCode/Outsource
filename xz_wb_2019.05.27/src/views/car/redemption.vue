@@ -88,7 +88,7 @@
                 <div class="xz-tab" data-id="1" slot="title">加钱换购</div>
                 <div class="repurchase-bd">
                     <ul class="order-list">
-                        <li class="item" v-for="item in goods">
+                        <li class="item" v-for="(item, index) in goods" :key="index">
                             <div class="item-cont">
                                 <a class="order-pic">
                                     <img
@@ -165,7 +165,6 @@ export default {
     },
     data() {
         return {
-            sourceUrl: sourceUrl,
             hasChecked: false, // 是否已有选择的商品，用于判断是否可以下单
             ids: [], // 商品的skuid
             differPrice: 0,

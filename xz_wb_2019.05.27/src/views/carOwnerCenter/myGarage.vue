@@ -2,17 +2,17 @@
   <div class="user-main gray">
     <van-nav-bar @click-left="go_back" class="xz-nva-bar" left-arrow fixed title="我的车库"/>
     <div class="judge">
-      <div class="garage-box" v-for="(item, index) in carData">
+      <div class="garage-box" v-for="(item, index) in carData" :key="index" @click="GoCarCenter">
         <div class="garage">
           <div class="img">
-            <img :src="sourceUrl+item.info.brand.thumb" alt>
+            <img v-if="item.info.brand" :src="util.reImg(item.info.brand.thumb)" alt>
           </div>
-          <div class="info">
-            <h3>
+          <div class="info" v-if="item.info">
+            <h3 v-if="item.info.name">
               {{item.info.name.name}}
               <span>认证</span>
             </h3>
-            <p>-款 {{item.info.year.name}} 上牌时间：{{GetDate(item.info.name.create_time)}}</p>
+            <p v-if="item.info.year && item.info.name">-款 {{item.info.year.name}} 上牌时间：{{GetDate(item.info.name.create_time)}}</p>
           </div>
         </div>
         <div class="garage-btn">
@@ -34,8 +34,7 @@ export default {
   data() {
     return {
       active: false,
-      carData: [],
-      sourceUrl: sourceUrl,
+      carData: []
     };
   },
   created() {
@@ -54,7 +53,6 @@ export default {
           return;
         }
         if (data.result != null) {
-          console.log(data.result)
           _this.$set(_this, "carData", data.result);
         }
         _loading.clear();
@@ -108,6 +106,9 @@ export default {
           m = (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()) + ":",
           s = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
       return Y + M + D;
+    },
+    GoCarCenter() {
+      this.$router.push({name: 'carOwnerCenter'})
     }
   },
   components: {

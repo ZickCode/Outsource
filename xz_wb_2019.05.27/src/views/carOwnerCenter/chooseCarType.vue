@@ -111,21 +111,23 @@ export default {
     },
     cx(val){
       this.three = val.name;
-
+      this.AddCar(val.id);
     },
     AddCar(id) {      
       let _loading = this.$xzLoading();
       this.post(
         {
           method: "api.module.member.car.addcar",
-          id: id
+          type: id
         },
         (data) => {
-          if (data.code == 200) {
+          if (data.code != 200) {
             this.$toast({
               message: data.msg,
               position: "bottom"
             });
+          }else{
+            this.$router.push({name: 'myGarage'})
           }
           _loading.clear();
         }

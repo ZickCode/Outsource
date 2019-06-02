@@ -20,7 +20,7 @@
     </div>
     <div class="shop-list">
         <a class="shop-item" v-for="(item, index) in shopList" @click="GoToDetail(item)">
-            <img :src="sourceUrl+item.img_list[0]" alt="">
+            <img :src="util.reImg(item.img_list[0])" alt="">
             <div class="info">
                 <div class="name-box">
                     <div class="name">{{item.name}}</div>
@@ -50,7 +50,6 @@ import {
 export default {
   data() {
     return {
-      sourceUrl: sourceUrl,
       shopList: [],
       areaList: [],
       areaName: '北京',

@@ -8,9 +8,9 @@
       left-arrow
     />
     <van-swipe v-if="carData.length" indicator-color="white" class="car-swiper" @change="onChange">
-      <van-swipe-item v-for="(item, index) in carData">
+      <van-swipe-item v-for="(item, index) in carData" :key="index">
         <div v-if="item.info && item.info.name">
-          <img :src="sourceUrl+item.info.brand.thumb">
+          <img :src="util.reImg(item.info.brand.thumb)">
           <div>
             <div>
               <p>{{item.info.name.name}}</p>
@@ -181,7 +181,6 @@ import { mapActions, mapState } from "vuex";
 export default {
   data() {
     return {
-      sourceUrl: sourceUrl,
       carList: [1],
       carInfo: 1,
       showPopup: false,

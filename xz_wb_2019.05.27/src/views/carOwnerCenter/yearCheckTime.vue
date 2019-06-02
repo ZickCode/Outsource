@@ -3,14 +3,14 @@
     <van-nav-bar @click-left="go_back" class="xz-nva-bar" left-arrow fixed title="年检服务"/>
     <div class="judge">
       <!--车辆信息-->
-      <div class="carInfos">
+      <div class="carInfos" v-if="carData">
         <div class="carInfos-title">
           <div class="carInfos-icon">
-            <img src="../../assets/images/common/bmw.png" alt>
+            <img :src="util.reImg(carData.brand.thumb)" alt>
           </div>
           <div class="carInfos-info">
-            <h3>朗逸 一汽大众</h3>
-            <p>1.5T 2017年产</p>
+            <h3>{{carData.name.name}}</h3>
+            <p>{{carData.year.name}} {{GetDate(carData.name.create_time)}}年产</p>
           </div>
           <a class="carInfos-btn" href="#/carOwnerCenter/myGarage">
             <img src="../../assets/images/common/icon7-1.png" alt>换车
@@ -20,10 +20,10 @@
       <!--车辆信息-->
 
       <!--倒计时-->
-      <div class="carInfos-time">
+      <div class="carInfos-time" v-if="dataInfo">
         <div class="box">
           <div class="num">
-            <span>600</span>天
+            <span>{{dataInfo.days}}</span>天
           </div>
           <p>距下次年检开始还有</p>
           <a href>年检未开始</a>
@@ -31,13 +31,14 @@
       </div>
       <!--倒计时-->
 
-      <div class="carInfos-notice">
+      <div class="carInfos-notice" v-if="dataInfo">
         <p>您的爱车未到年检日期</p>
-        <p>年检日期为2021-03-01到2021-05-31</p>
+        <p>年检日期为{{dataInfo.start_date}}到{{dataInfo.end_date}}</p>
         <p>记得按时办理年检哦！</p>
       </div>
 
-      <div class="item-btn" @click="go_back">返回修改信息</div>
+      <div v-if="dataInfo && dataInfo.can == 0" class="item-btn" @click="go_back">返回修改信息</div>
+      <div v-if="dataInfo && dataInfo.can == 1" class="item-btn" @click="goHandle">立即办理</div>
       <div class="carInfos-tag">
         常见问题
         <van-icon name="question-o" color="#666666"/>
@@ -46,6 +47,9 @@
   </div>
 </template>
 <script>
+import {
+  Icon
+} from "vant";
 export default {
   data() {
     return {
@@ -59,30 +63,48 @@ export default {
         carid: "",
         phone: "",
         dates: ""
-      }
+      },
+      dataInfo: null,
+      carData: null
     };
   },
-  created() {
-    this.getData()
+  mounted() {
+    this.carData = this.$route.params.carData;
+    this.getData(this.$route.params.id);
   },
   methods: {
-    getData(){
+    getData(id){
       let _this = this;
       let _loading = _this.$xzLoading();
       _this.post(
         {
-          method: "api.module.goods.inspect.info_1559211281835"
+          method: "api.module.goods.inspect.info",
+          car_id: id
         },
-        function() {
-          // if (data.code == 200) {
-                   
-          // }
+        (data) => {
+          if (data.code == 200) {
+            this.dataInfo = data.result; 
+          }
           _loading.clear();
         }
       );
+    },    
+    GetDate(time) {
+      let date = new Date(time*1000);
+      let Y = date.getFullYear() + "-";
+          // M = (date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1) + "-",
+          // D = (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + " ",
+          // h = (date.getHours() < 10 ? "0" + date.getHours() : date.getHours()) + ":",
+          // m = (date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()) + ":",
+          // s = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+      return Y;
+    },
+    goHandle() {
+      this.$router.push({name: 'yearCheckOrder', params: {dataInfo: this.dataInfo}})
     }
   },
   components: {
+    "van-icon": Icon
   },
   computed: {}
 };

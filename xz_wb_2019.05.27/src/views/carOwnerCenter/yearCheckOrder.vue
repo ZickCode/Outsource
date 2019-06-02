@@ -9,14 +9,14 @@
       <div class="yearCheck-info">
         <h3>车辆所在地：云南省-昆明市-西山区</h3>
         <div class="name">
-          <input type="text" placeholder="姓名">
+          <input type="text" placeholder="姓名" v-model="dataInfo.address_name">
         </div>
         <div class="phone">
-          <input type="text" placeholder="手机号">
+          <input type="text" placeholder="手机号" v-model="dataInfo.address_phone">
         </div>
         <div class="address">
           取车地址:
-          <input type="text">
+          <input type="text" v-model="dataInfo.address_info">
         </div>
       </div>
 
@@ -26,7 +26,7 @@
         </div>
         <div class="right">
           <h3>年检代办</h3>
-          <p>车牌： 云A123LH</p>
+          <p>车牌： {{dataInfo.license_plate}}</p>
         </div>
         <div class="num">×1</div>
       </div>
@@ -35,7 +35,7 @@
         <van-collapse v-model="activeNames">
           <van-collapse-item title="请选择" name="1" value="上线年检代办">
             <div class="cell">
-              <div class="cell-name">上线年检代办 ￥198.00</div>
+              <div class="cell-name">上线年检代办 ￥{{dataInfo.money}}</div>
               <div class="cell-icon">
                 <div class="cell-icon-box">
                   <van-icon name="success" color="#fff"/>
@@ -57,9 +57,9 @@
         <div class="box">
           <div class="left">
             实付款：
-            <span>￥198.00</span>
+            <span>￥{{dataInfo.money}}</span>
           </div>
-          <div class="right">提交订单</div>
+          <div class="right" @click="Submit">提交订单</div>
         </div>
       </div>
     </div>
@@ -87,11 +87,41 @@ export default {
       list: ["a", "b", "c"],
       activeNames: ["1"],
       result: ["a", "b"],
-      terms: true
+      terms: true,
+      dataInfo: {}
     };
   },
-  created() {},
+  mounted() {
+    this.dataInfo = this.$route.params.dataInfo;
+  },
   methods: {
+    Submit() {
+      let _loading = this.$xzLoading();
+      this.post(
+        {
+          method: "api.module.member.subscribe.add",
+          car_id: this.dataInfo.car_id,
+          license_plate: this.dataInfo.license_plate,
+          address: this.dataInfo.address,
+          reg_time: this.dataInfo.reg_time,
+          type: this.dataInfo.type  ,
+          address_phone: this.dataInfo.address_phone,
+          address_name: this.dataInfo.address_name,
+          address_info: this.dataInfo.address_info,
+        },
+        (data) => {
+          if (data.code == 200) {
+            // this.dataInfo = data.result; 
+          }else{
+            this.$toast({
+              message: data.msg,
+              position: "bottom"
+            });
+          }
+          _loading.clear();
+        }
+      );
+    }
   },
   components: {
     vanTabbar: Tabbar,
