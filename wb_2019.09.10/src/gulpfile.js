@@ -29,7 +29,7 @@ gulp.task('sass-dev', function(){
 		.pipe(autofixer({
 			browsers: ['last 4 versions','Android >= 4.0']
 		}))
-		.pipe(postcss([px2rem({remUnit: 100})]))
+		// .pipe(postcss([px2rem({remUnit: 100})]))
 		.pipe(gulp.dest('app/css'));
 });
 
