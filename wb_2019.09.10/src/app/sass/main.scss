@@ -201,10 +201,86 @@ button,input,textarea{
             }
         }
     }
+    &.newslist{
+        .ui-right-content{
+            display: block;
+            .list-box{
+                padding: 10px 70px;
+                min-height: 400px;
+                .list-item{
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 8px 0;
+                    .name{
+                        width: 650px;
+                        display: flex;
+                        .icon-right{
+                            display: inline-block;
+                            width: 8px;
+                            height: 8px;
+                            background: url('../images/icon-right.png') no-repeat 0 0/100% 100%;
+                            margin-right: 3px;
+                            align-self: center;
+                            flex-shrink: 0;
+                        }
+                        p{
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                        }
+                    }
+                }
+            }
+            .page-box{
+                display: flex;
+                justify-content: center;
+                .item{
+                    display: block;
+                    padding: 8px 14px;
+                    border: 1px solid #e1e1e1;
+                    color: #333;
+                    margin-right: 5px;
+                    cursor: pointer;
+                    &.on{
+                        background: #1258ad;
+                        border-color: #1258ad;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    &.newsdetail{
+        .ui-right-content{
+            display: block;
+            padding: 20px 110px;
+        }
+        .title{
+            color: #333;
+            font-size: 28px;
+            text-align: center;
+        }
+        .time{
+            padding: 15px 0;
+            color: #999;
+            font-size: 14px;
+            text-align: center;
+        }
+        .text{
+            font-size: 14px;
+            line-height: 2;
+            color: #666;
+        }
+        .line{
+            border-top: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    }
 }
 
 .content{
-    width: 1085px;
+    width: 100%;
+    max-width: 1085px;
     margin: 0 auto;
     border: 1px solid #dedede;
     &.index{
@@ -212,13 +288,25 @@ button,input,textarea{
             display: flex;
             padding: 20px 0;
             .swiper-container{
-                width: 510px;
+                width: 450px;
                 height: 350px;
                 .swiper-pagination{
                     text-align: right;
                     padding-right: 10px;
                     .swiper-pagination-bullet{
                         border-radius: 0;
+                    }
+                }
+                .swiper-slide{
+                    position: relative;
+                    p{
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: rgba(0,0,0,.2);
+                        color: #fff;
+                        padding: 10px;
                     }
                 }
             }
@@ -241,7 +329,9 @@ button,input,textarea{
                 }
             }
             .news-list{
-                padding-top: 30px;
+                padding-top: 20px;
+                height: 280px;
+                overflow: hidden;
                 .news-list-item{
                     padding: 10px 0;
                     vertical-align: middle;
@@ -272,6 +362,11 @@ button,input,textarea{
                         color: #a19f9b;
                     }
                 }
+            }
+            .btn-more{
+                float: right;
+                margin-right: 40px;
+                color: #a19f9b;
             }
         }
         .link-box{

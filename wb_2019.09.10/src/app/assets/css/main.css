@@ -678,9 +678,80 @@ button, input, textarea {
         color: #0d0d0d;
         font-size: 18px;
         text-align: center; }
+  .container.newslist .ui-right-content {
+    display: block; }
+    .container.newslist .ui-right-content .list-box {
+      padding: 10px 70px;
+      min-height: 400px; }
+      .container.newslist .ui-right-content .list-box .list-item {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        padding: 8px 0; }
+        .container.newslist .ui-right-content .list-box .list-item .name {
+          width: 650px;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex; }
+          .container.newslist .ui-right-content .list-box .list-item .name .icon-right {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: url("../images/icon-right.png") no-repeat 0 0/100% 100%;
+            margin-right: 3px;
+            -ms-flex-item-align: center;
+                -ms-grid-row-align: center;
+                align-self: center;
+            -ms-flex-negative: 0;
+                flex-shrink: 0; }
+          .container.newslist .ui-right-content .list-box .list-item .name p {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden; }
+    .container.newslist .ui-right-content .page-box {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+      .container.newslist .ui-right-content .page-box .item {
+        display: block;
+        padding: 8px 14px;
+        border: 1px solid #e1e1e1;
+        color: #333;
+        margin-right: 5px;
+        cursor: pointer; }
+        .container.newslist .ui-right-content .page-box .item.on {
+          background: #1258ad;
+          border-color: #1258ad;
+          color: #fff; }
+  .container.newsdetail .ui-right-content {
+    display: block;
+    padding: 20px 110px; }
+  .container.newsdetail .title {
+    color: #333;
+    font-size: 28px;
+    text-align: center; }
+  .container.newsdetail .time {
+    padding: 15px 0;
+    color: #999;
+    font-size: 14px;
+    text-align: center; }
+  .container.newsdetail .text {
+    font-size: 14px;
+    line-height: 2;
+    color: #666; }
+  .container.newsdetail .line {
+    border-top: 1px solid #ddd;
+    margin-bottom: 10px; }
 
 .content {
-  width: 1085px;
+  width: 100%;
+  max-width: 1085px;
   margin: 0 auto;
   border: 1px solid #dedede; }
   .content.index .news-box {
@@ -689,13 +760,23 @@ button, input, textarea {
     display: flex;
     padding: 20px 0; }
     .content.index .news-box .swiper-container {
-      width: 510px;
+      width: 450px;
       height: 350px; }
       .content.index .news-box .swiper-container .swiper-pagination {
         text-align: right;
         padding-right: 10px; }
         .content.index .news-box .swiper-container .swiper-pagination .swiper-pagination-bullet {
           border-radius: 0; }
+      .content.index .news-box .swiper-container .swiper-slide {
+        position: relative; }
+        .content.index .news-box .swiper-container .swiper-slide p {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.2);
+          color: #fff;
+          padding: 10px; }
     .content.index .news-box .news-info {
       -webkit-box-flex: 1;
           -ms-flex: 1;
@@ -717,7 +798,9 @@ button, input, textarea {
             background: #fff;
             border-top: 2px solid #e81f2f; }
     .content.index .news-box .news-list {
-      padding-top: 30px; }
+      padding-top: 20px;
+      height: 280px;
+      overflow: hidden; }
       .content.index .news-box .news-list .news-list-item {
         padding: 10px 0;
         vertical-align: middle;
@@ -747,6 +830,10 @@ button, input, textarea {
         .content.index .news-box .news-list .news-list-item p.time {
           padding: 0 40px 0 30px;
           color: #a19f9b; }
+    .content.index .news-box .btn-more {
+      float: right;
+      margin-right: 40px;
+      color: #a19f9b; }
   .content.index .link-box {
     padding: 0 30px;
     display: -webkit-box;
