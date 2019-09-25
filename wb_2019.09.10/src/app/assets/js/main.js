@@ -1,7 +1,6 @@
 'use strict';
 
 $(function () {
-  //swiper
   var mySwiper = new Swiper('.swiper-container', {
     autoplay: true,
     loop: true,

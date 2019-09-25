@@ -518,6 +518,9 @@ input::-webkit-input-speech-button {
 button, input, textarea {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
+* {
+  font-family: 'SimSun'; }
+
 .clearfix:after {
   content: '';
   display: block;
@@ -571,9 +574,8 @@ button, input, textarea {
     text-align: center;
     padding: 12px 0;
     color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: 'SimHei'; }
+    font-size: 17px;
+    font-family: Microsoft YaHei; }
     .ui-top-nav-box .top-nav-item:hover {
       background: #ff3c0c; }
     .ui-top-nav-box .top-nav-item.on {
@@ -584,13 +586,15 @@ button, input, textarea {
 .ui-left-nav {
   position: relative;
   width: 132px;
-  height: 440px;
+  height: 485px;
   border: 1px solid #bbbaba;
   border-radius: 15px;
-  margin: 20px 0 10px 0;
+  margin: 15px 0 10px 0;
   overflow: hidden; }
+  .ui-left-nav.on {
+    color: #e81f2f; }
   .ui-left-nav .ui-left-title {
-    padding: 10px 0;
+    padding: 6px 0;
     color: #fff;
     font-size: 16px;
     font-weight: bold;
@@ -601,7 +605,7 @@ button, input, textarea {
     .ui-left-nav .ui-left-nav-box a {
       display: block;
       text-align: center;
-      padding: 4px 0 5px 0;
+      padding: 6px 0;
       border-bottom: 1px solid #c1c1c1;
       color: #000;
       cursor: pointer; }
@@ -623,7 +627,47 @@ button, input, textarea {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  padding: 20px 0 0 30px; }
+  padding: 55px 0 0 30px; }
+
+.ui-link-box {
+  padding: 10px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-top: 3px solid #e81f2f; }
+  .ui-link-box a {
+    color: #7c7575;
+    padding: 4px 20px 0 0;
+    font-size: 12px; }
+    .ui-link-box a:hover {
+      color: #333;
+      text-decoration: underline; }
+
+.ui-bottom-logo-box {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding: 10px 30px 10px 0; }
+  .ui-bottom-logo-box i.logo {
+    width: 239px;
+    height: 29px;
+    background: url("../images/bottom-logo.png") no-repeat 0 0/100% 100%; }
+  .ui-bottom-logo-box i.qrcode {
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    width: 132px;
+    height: 59px;
+    background: url("../images/bottom-qrcode.png") no-repeat 0 0/100% 100%; }
 
 .container {
   display: -webkit-box;
@@ -632,7 +676,8 @@ button, input, textarea {
   .container.leader .ui-right-content {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex; }
+    display: flex;
+    padding: 55px 30px 0; }
     .container.leader .ui-right-content .user-info img {
       width: 204px;
       height: 297px;
@@ -640,7 +685,8 @@ button, input, textarea {
     .container.leader .ui-right-content .user-info p {
       color: #0d0d0d;
       font-size: 18px;
-      text-align: center; }
+      text-align: center;
+      font-family: Microsoft YaHei; }
     .container.leader .ui-right-content .user-text {
       -webkit-box-flex: 1;
           -ms-flex: 1;
@@ -669,16 +715,22 @@ button, input, textarea {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap; }
-    .container.ui-user-list .ui-right-content .user-info {
-      margin-right: 20px; }
-      .container.ui-user-list .ui-right-content .user-info img {
-        width: 204px;
-        height: 297px;
-        margin-bottom: 30px; }
-      .container.ui-user-list .ui-right-content .user-info p {
-        color: #0d0d0d;
-        font-size: 18px;
-        text-align: center; }
+    .container.ui-user-list .ui-right-content .user-info img {
+      width: 204px;
+      height: 296px;
+      margin-bottom: 10px; }
+    .container.ui-user-list .ui-right-content .user-info p {
+      color: #0d0d0d;
+      text-align: center;
+      font-size: 18px; }
+    .container.ui-user-list .ui-right-content .user-info.small {
+      width: 33.33%;
+      text-align: center; }
+      .container.ui-user-list .ui-right-content .user-info.small img {
+        width: 127px;
+        height: 184px; }
+      .container.ui-user-list .ui-right-content .user-info.small p {
+        font-size: 12px; }
   .container.newslist .ui-right-content {
     display: block; }
     .container.newslist .ui-right-content .list-box {
@@ -749,10 +801,16 @@ button, input, textarea {
   .container.newsdetail .line {
     border-top: 1px solid #ddd;
     margin-bottom: 10px; }
+  .container.about .ui-right-content p {
+    text-indent: 2em;
+    padding: 20px 110px 0;
+    line-height: 26px;
+    font-size: 15px;
+    color: #000; }
 
 .content {
   width: 100%;
-  max-width: 1085px;
+  max-width: 1080px;
   margin: 0 auto;
   border: 1px solid #dedede; }
   .content.index .news-box {
@@ -834,20 +892,6 @@ button, input, textarea {
       float: right;
       margin-right: 40px;
       color: #a19f9b; }
-  .content.index .link-box {
-    padding: 0 30px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    border-top: 3px solid #e81f2f; }
-    .content.index .link-box a {
-      color: #7c7575;
-      padding: 4px 20px 4px 0; }
-      .content.index .link-box a:hover {
-        color: #333;
-        text-decoration: underline; }
 
 /**
  * Swiper 4.5.0
