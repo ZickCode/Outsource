@@ -175,7 +175,7 @@ textarea {
   }
   .ui-login-box {
     display: flex;
-    padding-bottom: 10px;
+    padding-bottom: 3px;
     p {
       padding: 0 15px;
       a {
@@ -185,7 +185,7 @@ textarea {
           color: #333;
         }
       }
-      &:last-child{
+      &:last-child {
         padding-left: 22px;
       }
     }
@@ -200,14 +200,13 @@ textarea {
 .ui-top-nav-box {
   display: flex;
   background: #e81f2f;
-  padding: 0 0 0 2px;
   .top-nav-item {
-    flex: 1;
+    width: 135px;
     text-align: center;
     padding: 15px 0;
     color: #fff;
-    font-size: 14px;
-    font-family: Microsoft YaHei;
+    font-size: 17px;
+    font-family: "Microsoft YaHei";
     &:hover {
       background: #ff3c0c;
     }
@@ -226,6 +225,7 @@ textarea {
   border-radius: 15px;
   margin: 15px 0 10px 0;
   overflow: hidden;
+  flex-shrink: 0;
   &.on {
     color: #e81f2f;
   }
@@ -236,6 +236,7 @@ textarea {
     font-weight: bold;
     text-align: center;
     background: #e81f2f;
+    font-family: "Microsoft YaHei";
   }
   .ui-left-nav-box {
     padding: 0 9px;
@@ -246,6 +247,7 @@ textarea {
       border-bottom: 1px solid #c1c1c1;
       color: #000;
       cursor: pointer;
+      font-family: "Microsoft YaHei";
       &.on {
         color: #e81f2f;
       }
@@ -292,7 +294,7 @@ textarea {
   i.logo {
     width: 239px;
     height: 29px;
-    background: url("../images/bottom-logo.png") no-repeat 0 0/100% 100%;
+    background: url("../images/bottom-logo.jpg") no-repeat 0 0/100% 100%;
   }
   i.qrcode {
     position: absolute;
@@ -340,7 +342,7 @@ textarea {
   &.leader {
     .ui-right-content {
       display: flex;
-      padding: 55px 30px 0;
+      padding: 55px 30px 0 37px;
       .user-info {
         img {
           width: 204px;
@@ -349,9 +351,9 @@ textarea {
         }
         p {
           color: #0d0d0d;
-          font-size: 18px;
+          font-size: 17px;
           text-align: center;
-          font-family: Microsoft YaHei;
+          font-family: "SumHei";
         }
       }
       .user-text {
@@ -375,6 +377,7 @@ textarea {
   }
   &.group {
     .ui-right-content {
+      padding: 52px 0 0 33px;
       p {
         text-align: center;
         font-size: 18px;
@@ -383,15 +386,20 @@ textarea {
         font-weight: bold;
       }
       img {
-        width: 878px;
+        width: 884px;
       }
     }
   }
   &.ui-user-list {
+    &.smalll {
+      .ui-right-content {
+        padding-left: 61px;
+      }
+    }
     .ui-right-content {
       display: flex;
       flex-wrap: wrap;
-      padding-right: 134px;
+      padding-left: 37px;
       .user-info {
         img {
           width: 204px;
@@ -401,11 +409,14 @@ textarea {
         p {
           color: #0d0d0d;
           text-align: center;
-          font-size: 12px;
+          font-size: 17px;
+          font-family: "Microsoft YaHei";
+          white-space: nowrap;
         }
         &.small {
-          width: 33.33%;
+          width: 147px;
           text-align: center;
+          margin-right: 34px;
           img {
             width: 127px;
             height: 184px;
@@ -416,6 +427,9 @@ textarea {
             line-height: 1;
           }
         }
+        &.third {
+          margin-right: 136px;
+        }
       }
     }
   }
@@ -423,7 +437,7 @@ textarea {
     .ui-right-content {
       display: block;
       .list-box {
-        padding: 10px 70px;
+        padding: 10px 35px 10px 7px;
         min-height: 400px;
         .list-item {
           display: flex;
@@ -498,10 +512,11 @@ textarea {
     .ui-right-content {
       > p {
         text-indent: 2em;
-        padding: 0 90px 20px;
+        padding: 0 95px 20px 74px;
         line-height: 26px;
         font-size: 15px;
         color: #000;
+        letter-spacing: -1px;
       }
       .news-box {
         padding-left: 40px;
@@ -524,6 +539,30 @@ textarea {
         height: 229px;
         background: url("../images/user/bg-about-member.png") no-repeat 0 0/100% 100%;
       }
+    }
+  }
+  &.news {
+    .news-box .news-list .news-list-item div {
+      width: 403px !important;
+      font-weight: normal !important;
+    }
+    .news-box .news-list .news-list-item p.time {
+      padding-right: 0 !important;
+    }
+    .news-box .news-list {
+      height: auto !important;
+    }
+    .news-box .news-list .news-list-item {
+      line-height: 1 !important;
+      padding: 11.1px 0 !important;
+    }
+    .news-box .swiper-container .swiper-slide p {
+      padding-right: 170px !important;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #000000 !important;
+      font-size: 12px !important;
     }
   }
 }
@@ -557,9 +596,16 @@ textarea {
             color: #fff;
             padding: 10px;
           }
-          img{
+          img {
             width: 100%;
           }
+        }
+        .swiper-pagination-bullet {
+          width: 4px;
+          height: 4px;
+        }
+        .swiper-pagination-bullet-active {
+          background-color: #e81f2f;
         }
       }
       .news-info {
@@ -608,7 +654,11 @@ textarea {
             }
           }
           div {
-            flex: 1;
+            width: 392px;
+            font-weight: bold;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
           }
           p.time {
             padding: 0 40px 0 30px;
