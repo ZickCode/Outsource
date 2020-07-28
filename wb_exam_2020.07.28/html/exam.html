@@ -39,6 +39,11 @@
             <div class="question-item">
                 <div class="title">第1题</div>
                 <div class="text">单选：听辨完整乐曲</div>
+                <!-- 播放题干 -->
+                <a class="btn-player j-question-player"></a>
+                <!-- 题干音频 -->
+                <audio style="display: none;" src="http://mp32.9ku.com/upload/128/2016/12/14/856600.mp3"></audio>
+                <!-- 选项 -->
                 <div class="mui-input-row mui-radio mui-left">
                     <label>A.测试答案</label>
                     <input type="radio" name="gender" id="" value="" />
@@ -102,6 +107,10 @@
             <div class="question-item">
                 <div class="title">第4题</div>
                 <div class="text">简答题：听辨完整乐曲</div>
+                <!-- 播放题干 -->
+                <a class="btn-player j-question-player"></a>
+                <!-- 题干音频 -->
+                <audio style="display: none;" src="http://mp32.9ku.com/upload/128/2016/12/14/856600.mp3"></audio>
                 <textarea class="question-textarea"></textarea>
             </div>
         </div>
@@ -121,7 +130,15 @@
         $.ready(function() {
             mui.previewImage();
         });
-        
+        mui('body').on('tap', '.j-question-player', function(){
+            if(this.className.indexOf('stop') == -1){
+                this.className += ' stop';
+                this.parentNode.querySelector('audio').play();
+            }else{
+                this.className = this.className.replace('stop', '');
+                this.parentNode.querySelector('audio').pause();
+            }
+        });
     })(mui, document);
 </script>
 </html>

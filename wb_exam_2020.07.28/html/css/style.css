@@ -325,3 +325,5 @@ border-bottom: 1px solid #eee;}
 .btn-box{padding: 1rem .3rem;background: #f5f5f5;}
 .btn-box .btn-submit{display: block;background: #0c9b93;color: #fff;font-size: .68rem;text-align: center;border-radius: 1rem;height: 2rem;line-height: 2rem;}
 .musice-player{width: 100%;}
+.btn-player{display: block;background: url('../images/icon-player.png') no-repeat 0 0/100% 100%;width: 1.5rem;height: 1.5rem;margin-bottom: .3rem;cursor: pointer;}
+.btn-player.stop{background-image: url('../images/icon-stop.png');}
