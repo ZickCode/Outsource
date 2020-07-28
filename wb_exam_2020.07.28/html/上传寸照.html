@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>上传寸照</title>
+	<link rel="stylesheet" href="css/mui.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/hotcss.js"></script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"></a>
+	    <h1 class="mui-title">上传寸照</h1>
+	</header>
+	<div class="wrap hub-bg">
+			<div class="showpic">
+				<div class="uppic">
+					<div class="mypic"><img src="images/my.png"></div>
+					<p>我的照片</p>
+				</div>
+				<div class="example"><img src="images/example.png"><p>示例照片</p></div>
+			</div>
+			<div class="pic-msg">
+				<p class="title">关于寸照</p>
+				<ul>
+					<li>照片要求内容照片要求内容照片要求内容照片要求内容；</li>
+					<li>照片要求内容照片要求内容照片要求内容照片要求内容；</li>
+					<li>照片要求内容照片要求内容照片要求内容照片要求内容；</li>
+					<li>照片要求内容照片要求内容照片要求内容照片要求内容；</li>
+					<li>请严格按照要求上传寸照，以便用于考试使用。；</li>
+					<li>照片上传后我们将在3-5个工作日内审核，审核不通过的寸 照将不会改变当前寸照图片。<span>审核不通过的寸
+照将不会改变当前寸照图片。</span></li>
+				</ul>
+				<div class="login-items"><button class="login-btn">提交</button></div>
+			</div>
+	</div>
+	<!--图片裁剪-->
+		<div class="clipbg displaynone">
+			<div id="clipArea"></div>
+			<div class="loading displaynone">正在载入图片...</div>
+			<div class="footer">
+			<dl>
+				<dd style="background: #fe1041; color: #ffffff;border: none;">打开相册<input type="file" id="file" accept="image/*" ></dd>
+      	<dd id="clipBtn">完成裁剪</dd>
+			</dl>
+			<div class="back">取消</div>
+			</div>
+		</div>
+	<script src="js/mui.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/camera.js/hammer.min.js" ></script>
+	<script type="text/javascript" src="js/camera.js/lrz.all.bundle.js" ></script>
+	<script type="text/javascript" src="js/camera.js/iscroll-zoom-min.js" ></script>
+	<script type="text/javascript" src="js/camera.js/PhotoClip.js" ></script>
+	<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			$(".pass").click(function(){
+				$(this).toggleClass("passon");
+				var inputs = $(this).prev(".input").children("input")
+				var input = $(this).prev(".input").children("input").attr("type")
+				if(input=="text"){
+					inputs.attr("type","password")
+				}if(input=="password"){
+					inputs.attr("type","text")
+				}
+			})
+			
+			$(".mypic").click(function(){
+				$(".clipbg").fadeIn()
+			})
+				var clipArea = new  PhotoClip("#clipArea", {
+						size: [320, 450],//裁剪框大小
+						outputSize:[0,0],//打开图片大小，[0,0]表示原图大小
+						maxZoom: 1,//缩放最大比例,这个属性会影响一定性能，对低配手机可能会造成影响
+						file: "#file",
+						ok: "#clipBtn",
+						loadStart: function() { //图片开始加载的回调函数。this 指向当前 PhotoClip 的实例对象，并将正在加载的 file 对象作为参数传入。（如果是使用非 file 的方式加载图片，则该参数为图片的 url）
+							$(".loading").removeClass("displaynone");
+		
+						},
+						loadComplete: function() {//图片加载完成的回调函数。this 指向当前 PhotoClip 的实例对象，并将图片的 <img> 对象作为参数传入。
+							$(".loading").addClass("displaynone");
+							
+						},
+						done: function(dataURL) { //裁剪完成的回调函数。this 指向当前 PhotoClip 的实例对象，会将裁剪出的图像数据DataURL作为参数传入。			
+							$(".mypic img").attr("src",dataURL)
+							console.log(dataURL);//dataURL裁剪后图片地址base64格式提交给后台处理
+							$(".clipbg").fadeOut()
+							mui.toast('照片上传成功')
+						}
+					});
+					$(".back").click(function(){
+						$(".clipbg").fadeOut()
+					})
+	</script>
+</body>
+</html>

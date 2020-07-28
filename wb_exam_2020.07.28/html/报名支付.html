@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>报名支付</title>
+	<link rel="stylesheet" href="css/mui.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="css/mui.picker.css" rel="stylesheet" />
+	<link href="css/mui.poppicker.css" rel="stylesheet" />
+	<script src="js/hotcss2.js"></script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"></a>
+	    <h1 class="mui-title">报名支付3/3</h1>
+	</header>
+	<div class="wrap hub-bg">
+			<div class="exam-title"><div class="hub-title">确认考试信息</div></div>
+			<form class="mui-input-group" id="input_example">
+				<ul class="mui-table-view show-list">
+				    <li class="mui-table-view-cell">
+					        <label>考生姓名</label>
+							<div class="mui-input-clear">林兴茹</div>
+				    </li>
+				    <li class="mui-table-view-cell">
+					        <label>身份证号</label>
+							<div class="mui-input-clear">430121312313</div>
+				    </li>
+				    <li class="mui-table-view-cell">
+					        <label>报考科目</label>
+							<div class="mui-input-clear">钢琴六级</div>
+				    </li>
+				    <li class="mui-table-view-cell">
+					        <label>越级报考</label>
+							<div class="mui-input-clear">否</div>
+				    </li>
+				</ul>
+			</form>
+			<div class="pay">
+				<ul>
+					<li>考试费用：<span>300元</span></li>
+					<li><a href="#" class="zfb">支付宝支付</a></li>
+					<li><a href="#" class="wx">微信支付</a></li>
+				</ul>
+			</div>
+			<div class="exam-title"><div class="hub-title">考试费用说明</div></div>
+			<div class="pay-caption">
+				<p>1.报名费200元；</p>
+				<p>2.证书费20元； </p>
+				<p>3.打印照片费80元；</p>
+				<p class="tip">注：如考级未通过证书费和打印照片费用可在某某某处申请退回。</p>
+			</div>
+	</div>
+	<script src="js/mui.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/mui.picker.js"></script>
+	<script src="js/mui.poppicker.js"></script>
+	<script>
+			
+			$(".pass").click(function(){
+				$(this).toggleClass("passon");
+				var inputs = $(this).prev(".input").children("input")
+				var input = $(this).prev(".input").children("input").attr("type")
+				if(input=="text"){
+					inputs.attr("type","password")
+				}if(input=="password"){
+					inputs.attr("type","text")
+				}
+			})
+			$(".list-add").click(function(){
+				var list = '<li class="mui-table-view-cell list-added"><a class="mui-navigate-right"><label>准考证号</label><input type="text" class="mui-input-clear" placeholder="请输入"></a></li>'
+				$(".rg-list").append(list)
+			});
+			$(".list-del").click(function(){
+				$(".rg-list li.list-added:last-child").remove()
+			})
+	</script>
+</body>
+</html>

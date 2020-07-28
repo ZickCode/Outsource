@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>艺考账号注册</title>
+	<link rel="stylesheet" href="css/mui.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="css/mui.picker.css" rel="stylesheet" />
+	<link href="css/mui.poppicker.css" rel="stylesheet" />
+	<script src="js/hotcss2.js"></script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"></a>
+	    <h1 class="mui-title">艺考账号注册1/3</h1>
+	</header>
+	<div class="wrap">
+			<form class="mui-input-group" id="input_example">
+				<ul class="mui-table-view rg-list">
+				    <li class="mui-table-view-cell">
+				    	<a class="mui-navigate-right">
+					        <label>考生姓名</label>
+					    	<input type="text" class="mui-input-clear" placeholder="请输入">
+					    </a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				    	<a class="mui-navigate-right" id='showUserPicker'>
+					        <label>证件类型</label>
+					        <input type="text" class="mui-input-clear" readonly="readonly" id="userResult" placeholder="请选择">
+					    </a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				    	<a class="mui-navigate-right">
+					        <label>证件号码</label>
+					        <input type="text" class="mui-input-clear" placeholder="请输入">
+					    </a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				    	<a class="mui-navigate-right">
+					        <label>准考证号</label>
+					        <input type="text" class="mui-input-clear" placeholder="请输入">
+					    </a>
+				    </li>
+				</ul>
+			</form>
+			<div class="list-tool">
+				<div class="list-add"><span>添加一列</span></div>
+				<div class="list-del"><span>删除一列</span></div>
+			</div>
+			<p class="tip">注：有多个准考证号时，请添加输入，以便于绑定您更多的专业信息</p>
+			<div class="login-items"><a href="注册填写2.html" class="login-btn">下一步</a></div>
+	</div>
+	<script src="js/mui.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/mui.picker.js"></script>
+	<script src="js/mui.poppicker.js"></script>
+	<script>
+			(function($, doc) {
+				$.init();
+				$.ready(function() {
+					/**
+					 * 获取对象属性的值
+					 * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+					 * @param {Object} obj 对象
+					 * @param {String} param 属性名
+					 */
+					var _getParam = function(obj, param) {
+						return obj[param] || '';
+					};
+					//普通示例
+					var userPicker = new $.PopPicker();
+					userPicker.setData([{
+						value: 'ywj',
+						text: '身份证'
+					}, {
+						value: 'aaa',
+						text: '残疾证'
+					}, {
+						value: 'lj',
+						text: '军官证'
+					}]);
+					var showUserPickerButton = doc.getElementById('showUserPicker');
+					var userResult = doc.getElementById('userResult');
+					showUserPickerButton.addEventListener('tap', function(event) {
+						userPicker.show(function(items) {
+							userResult.value = JSON.stringify(items[0].text);
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					//-----------------------------------------
+				});
+			})(mui, document);
+			$(".pass").click(function(){
+				$(this).toggleClass("passon");
+				var inputs = $(this).prev(".input").children("input")
+				var input = $(this).prev(".input").children("input").attr("type")
+				if(input=="text"){
+					inputs.attr("type","password")
+				}if(input=="password"){
+					inputs.attr("type","text")
+				}
+			})
+			$(".list-add").click(function(){
+				var list = '<li class="mui-table-view-cell list-added"><a class="mui-navigate-right"><label>准考证号</label><input type="text" class="mui-input-clear" placeholder="请输入"></a></li>'
+				$(".rg-list").append(list)
+			});
+			$(".list-del").click(function(){
+				$(".rg-list li.list-added:last-child").remove()
+			})
+	</script>
+</body>
+</html>

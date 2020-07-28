@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>中国音乐家协会音乐素养三级笔试卷</title>
+	<link rel="stylesheet" href="css/mui.css">
+	<link rel="stylesheet" href="css/mui.imageviewer.css">
+	<link rel="stylesheet" href="css/style.css">
+    <script src="js/hotcss2.js"></script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"></a>
+	    <h1 class="mui-title">中国音乐家协会音乐素养三级笔试卷</h1>
+	</header>
+	<div class="wrap hub-bg exam-bg">
+        <!-- 考生信息 -->
+        <div class="userinfo">
+            <div class="item">
+                考生姓名：<span>某某某</span>
+            </div>
+            <div class="item">
+                准考证号：<span>1234567890</span>
+            </div>
+            <div class="item">
+                考上专业：<span>音乐</span>
+            </div>
+            <div class="item">
+                考生等级：<span>1级</span>
+            </div>
+        </div>
+        <!-- 倒计时 -->
+        <div class="cutdown">
+            本次答题将在 <span>00:10:35</span> 后自动提交
+        </div>
+        <!-- 考题 -->
+        <div class="question-box">
+            <!-- 单选 -->
+            <div class="question-item">
+                <div class="title">第1题</div>
+                <div class="text">单选：听辨完整乐曲</div>
+                <div class="mui-input-row mui-radio mui-left">
+                    <label>A.测试答案</label>
+                    <input type="radio" name="gender" id="" value="" />
+                </div>
+                <div class="mui-input-row mui-radio mui-left">
+                    <label>B.测试答案</label>
+                    <input type="radio" name="gender" id="" value="" />
+                </div>
+                <div class="mui-input-row mui-radio mui-left">
+                    <label>C.测试答案</label>
+                    <input type="radio" name="gender" id="" value="" />
+                </div>
+            </div>
+            <!-- 多选 -->
+            <div class="question-item">
+                <div class="title">第2题</div>
+                <div class="text">多选：听辨完整乐曲</div>
+                <audio class="musice-player" controls="controls" src="http://mp32.9ku.com/upload/128/2016/12/14/856600.mp3"></audio>
+                <div class="mui-input-row mui-checkbox mui-left">
+                    <label>A.测试答案</label>
+                    <input type="checkbox" name="jn" class="mui-checkbox"/>
+                </div>
+                <div class="mui-input-row mui-checkbox mui-left">
+                    <label>B.测试答案</label>
+                    <input type="checkbox" name="jn" class="mui-checkbox"/>
+                </div>
+                <div class="mui-input-row mui-checkbox mui-left">
+                    <label>C.测试答案</label>
+                    <input type="checkbox" name="jn" class="mui-checkbox"/>
+                </div>
+            </div>
+            <!-- 题干/答案图片 -->
+            <div class="question-item">
+                <div class="title">第3题</div>
+                <div class="text">题干/答案图片：听辨完整乐曲</div>
+                <div class="img-box">
+                    <!-- 同一组图片的data-preview-group设置为一样的数字 -->
+                    <img class="question-img" src="http://fakeimg.pl/100x100" data-preview-src="http://fakeimg.pl/100x100" data-preview-group="1">
+                    <img class="question-img" src="http://fakeimg.pl/100x100" data-preview-src="http://fakeimg.pl/100x100" data-preview-group="1">
+                </div>
+                <div class="mui-input-row mui-radio mui-left">
+                    <label class="question-text">
+                        A.<img class="question-img" src="http://fakeimg.pl/100x100" data-preview-src="http://fakeimg.pl/100x100" data-preview-group="2">
+                    </label>
+                    <input type="radio" name="gender" id="" value="" />
+                </div>
+                <div class="mui-input-row mui-radio mui-left">
+                    <label class="question-text">
+                        B.<img class="question-img" src="http://fakeimg.pl/100x100" data-preview-src="http://fakeimg.pl/100x100" data-preview-group="2">
+                    </label>
+                    <input type="radio" name="gender" id="" value="" />
+                </div>
+                <div class="mui-input-row mui-radio mui-left">
+                    <label class="question-text">
+                        C.<img class="question-img" src="http://fakeimg.pl/100x100" data-preview-src="http://fakeimg.pl/100x100" data-preview-group="2">
+                    </label>
+                    <input type="radio" name="gender" id="" value="" />
+                </div>
+            </div>
+            <!-- 多选 -->
+            <div class="question-item">
+                <div class="title">第4题</div>
+                <div class="text">简答题：听辨完整乐曲</div>
+                <textarea class="question-textarea"></textarea>
+            </div>
+        </div>
+        <!-- 提交按钮 -->
+        <div class="btn-box">
+            <a class="btn-submit">提交</a>
+        </div>
+	</div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/mui.js"></script>
+<script src="js/mui.zoom.js"></script>
+<script src="js/mui.previewimage.js"></script>
+<script>
+    (function($, doc) {
+        $.init();
+        $.ready(function() {
+            mui.previewImage();
+        });
+        
+    })(mui, document);
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>这是一个最最普通的演示</title>
+	<link rel="stylesheet" href="css/mui.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/hotcss.js"></script>
+	<style>
+		body{padding:2.5rem 1rem;}
+		a{font-size: 1rem;}
+		ul li{height: 1.5rem;}
+	</style>
+</head>
+<body>
+	<ul>
+		<li><a href="设置密码.html">设置密码</a></li>
+		<li><a href="手机登录.html">手机登录</a></li>
+		<li><a href="注册填写.html">注册填写</a></li>
+		<li><a href="注册填写2.html">注册填写2</a></li>
+	</ul>
+	<script src="js/mui.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			$(".pass").click(function(){
+				$(this).toggleClass("passon");
+				var inputs = $(this).prev(".input").children("input")
+				var input = $(this).prev(".input").children("input").attr("type")
+				if(input=="text"){
+					inputs.attr("type","password")
+				}if(input=="password"){
+					inputs.attr("type","text")
+				}
+			})
+	</script>
+</body>
+</html>

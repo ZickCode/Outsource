@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>考试详情</title>
+	<link rel="stylesheet" href="css/mui.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="css/mui.picker.css" rel="stylesheet" />
+	<link href="css/mui.poppicker.css" rel="stylesheet" />
+	<script src="js/hotcss2.js"></script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"></a>
+	    <h1 class="mui-title">考试详情</h1>
+	</header>
+	<div class="wrap hub-bg">
+			<form class="mui-input-group" id="input_example">
+				<ul class="mui-table-view show-list">
+				    <li class="mui-table-view-cell">
+					        <label>考试名称</label>
+							<div class="mui-input-clear">中文考试</div>
+				    </li>
+				    <li class="mui-table-view-cell">
+					        <label>考点名称</label>
+							<div class="mui-input-clear">南坪小龙坎</div>
+				    </li>
+				    <li class="mui-table-view-cell">
+					        <label>考点名称</label>
+							<div class="mui-input-clear"><span>暂未安排</span></div>
+				    </li>
+				    <li class="mui-table-view-cell">
+					        <label>考试编号</label>
+							<div class="mui-input-clear">203203023</div>
+				    </li>
+				    <li class="mui-table-view-cell">
+					        <label>考试专业</label>
+							<div class="mui-input-clear">语文</div>
+				    </li>
+				    <li class="mui-table-view-cell">
+					        <label>考室名称</label>
+							<div class="mui-input-clear">22考室</div>
+				    </li>
+				    <li class="mui-table-view-cell">
+					        <label>考室名称</label>
+							<div class="mui-input-clear"><span>暂未安排</span></div>
+				    </li>
+				    <li class="mui-table-view-cell">
+					        <label>考试日期</label>
+							<div class="mui-input-clear">2012-12-12</div>
+				    </li>
+				    <li class="mui-table-view-cell">
+					        <label>考试日期</label>
+							<div class="mui-input-clear"><span>暂未安排</span></div>
+				    </li>
+				    <li class="mui-table-view-cell">
+					        <label>专业等级</label>
+							<div class="mui-input-clear">A级</div>
+				    </li>
+				</ul>
+			</form>
+			<div class="demand"><a href="准考证消息.html">查看准考证消息</a></div>
+			<p class="tip">考场等未安排完毕，暂不能查看准考证哦，请耐心等待...</p>
+	</div>
+	<script src="js/mui.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/mui.picker.js"></script>
+	<script src="js/mui.poppicker.js"></script>
+	<script>
+			
+			$(".pass").click(function(){
+				$(this).toggleClass("passon");
+				var inputs = $(this).prev(".input").children("input")
+				var input = $(this).prev(".input").children("input").attr("type")
+				if(input=="text"){
+					inputs.attr("type","password")
+				}if(input=="password"){
+					inputs.attr("type","text")
+				}
+			})
+			$(".list-add").click(function(){
+				var list = '<li class="mui-table-view-cell list-added"><a class="mui-navigate-right"><label>准考证号</label><input type="text" class="mui-input-clear" placeholder="请输入"></a></li>'
+				$(".rg-list").append(list)
+			});
+			$(".list-del").click(function(){
+				$(".rg-list li.list-added:last-child").remove()
+			})
+	</script>
+</body>
+</html>

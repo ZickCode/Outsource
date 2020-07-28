@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>修改密码</title>
+	<link rel="stylesheet" href="css/mui.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/hotcss.js"></script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"></a>
+	    <h1 class="mui-title">修改密码</h1>
+	</header>
+	<div class="wrap">
+			<ul class="login-item" style="padding: 0 1.375rem">
+							<li>
+								<div class="name">密码</div>
+								<div class="input item-display"><input type="password" placeholder="请输入6-16位数字／字母"></div>
+								<div class="pass"></div>
+							</li>
+							<li>
+								<div class="name">密码</div>
+								<div class="input item-display"><input type="password" placeholder="请再次输入密码"></div>
+								<div class="pass"></div>
+							</li>
+						</ul>
+			<div class="login-items"><button class="login-btn">登录</button></div>
+	</div>
+	<script src="js/mui.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			$(".pass").click(function(){
+				$(this).toggleClass("passon");
+				var inputs = $(this).prev(".input").children("input")
+				var input = $(this).prev(".input").children("input").attr("type")
+				if(input=="text"){
+					inputs.attr("type","password")
+				}if(input=="password"){
+					inputs.attr("type","text")
+				}
+			})
+	</script>
+</body>
+</html>

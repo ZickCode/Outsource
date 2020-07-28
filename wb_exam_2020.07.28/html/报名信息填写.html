@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>报名信息填写</title>
+	<link rel="stylesheet" href="css/mui.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="css/mui.picker.css" rel="stylesheet" />
+	<link href="css/mui.poppicker.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="css/mui.picker.min.css" />
+	<script src="js/hotcss2.js"></script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"></a>
+	    <h1 class="mui-title">报名信息填写1/3</h1>
+	</header>
+	<div class="wrap">
+			<form class="mui-input-group" id="input_example">
+				<ul class="mui-table-view rg-list">
+					<li class="mui-table-view-cell list-pic">
+				    	<a href="上传寸照.html" class="mui-navigate-right" >
+					        <label>考生寸照<i>＊</i></label>
+					        <div class="pic"><img src="images/pic.png"></div>
+					    </a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				    	<a class="mui-navigate-right">
+					        <label>考生姓名<i>＊</i></label>
+					        <input type="text" class="mui-input-clear"  placeholder="请输入" >
+					    </a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				    	<a class="mui-navigate-right" id='showUserPicker'>
+					        <label>考生性别<i>＊</i></label>
+					        <input type="text" class="mui-input-clear" readonly="readonly" id="userResult" placeholder="请选择" >
+					    </a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				    	<a class="mui-navigate-right" >
+					        <label>出生年月<i>＊</i></label>
+					        <input type="text" data-options='{"type":"date"}'  readonly="readonly" id="result" class="mui-input-clear pkdate" placeholder="请选择" >
+					    </a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				    	<a class="mui-navigate-right" id="voca">
+					        <label>证件类型</label>
+					        <input type="text" class="mui-input-clear" readonly="readonly" placeholder="请选择" id="uservoca">
+					    </a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				    	<a class="mui-navigate-right">
+					        <label>证件号码</label>
+					        <input type="text" class="mui-input-clear" placeholder="请输入">
+					    </a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				    	<a class="mui-navigate-right" id="ethnic">
+					        <label>考生民族</label>
+					        <input type="text" class="mui-input-clear" placeholder="请选择" id="userethnic">
+					    </a>
+				    </li>
+				</ul>
+			</form>
+			<div class="login-items"><button class="login-btn">下一步</button></div>
+			<div class="tip">注：带*为必选项</div>
+	</div>
+	<script src="js/mui.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/mui.picker.js"></script>
+	<script src="js/mui.poppicker.js"></script>
+	<script src="js/mui.picker.min.js"></script>
+	<script>
+			(function($, doc) {
+				$.init();
+				$.ready(function() {
+					/**
+					 * 获取对象属性的值
+					 * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+					 * @param {Object} obj 对象
+					 * @param {String} param 属性名
+					 */
+					var _getParam = function(obj, param) {
+						return obj[param] || '';
+					};
+					//考生性别
+					var userPicker = new $.PopPicker();
+					userPicker.setData([{
+						value: 'boy',
+						text: '男'
+					}, {
+						value: 'girl',
+						text: '女'
+					}]);
+					var showUserPickerButton = doc.getElementById('showUserPicker');
+					var userResult = doc.getElementById('userResult');
+					showUserPickerButton.addEventListener('tap', function(event) {
+						userPicker.show(function(items) {
+							userResult.value = JSON.stringify(items[0].text);
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					//-----------------------------------------
+					//籍贯
+					var ethnicPicker = new $.PopPicker();
+					ethnicPicker.setData([{
+						value: 'ywj',
+						text: '汉族'
+					}, {
+						value: 'aaa',
+						text: '羌族'
+					}, {
+						value: 'lj',
+						text: '藏族'
+					}]);
+					var showEthnic = doc.getElementById('ethnic');
+					var userEthnic = doc.getElementById('userethnic');
+					showEthnic.addEventListener('tap', function(event) {
+						ethnicPicker.show(function(items) {
+							userEthnic.value = JSON.stringify(items[0].text);
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					//-----------------------------------------
+					//专业
+					var vocaPicker = new $.PopPicker();
+					vocaPicker.setData([{
+						value: 'ywj',
+						text: '工程开发'
+					}, {
+						value: 'aaa',
+						text: '钢筋水泥土'
+					}, {
+						value: 'lj',
+						text: '通讯技术'
+					}]);
+					var showVoca = doc.getElementById('voca');
+					var userVoca = doc.getElementById('uservoca');
+					showVoca.addEventListener('tap', function(event) {
+						vocaPicker.show(function(items) {
+							userVoca.value = JSON.stringify(items[0].text);
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					//-----------------------------------------
+					//专业等级
+					var rankPicker = new $.PopPicker();
+					rankPicker.setData([{
+						value: 'a',
+						text: 'A级'
+					}, {
+						value: 'b',
+						text: 'B级'
+					}, {
+						value: 'c',
+						text: 'C级'
+					}]);
+					var showRank = doc.getElementById('rank');
+					var userRank = doc.getElementById('userrank');
+					showRank.addEventListener('tap', function(event) {
+						rankPicker.show(function(items) {
+							userRank.value = JSON.stringify(items[0].text);
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					//-----------------------------------------
+				});
+				
+			})(mui, document);
+			
+			
+			$(".pkdate").click(function() {
+				var dtpicker = new mui.DtPicker({
+					type: "date", //设置日历初始视图模式
+					beginDate: new Date(1900, 01, 01), //设置开始日期 
+					endDate: new Date(y, m - 1 + '', d), //设置结束日期 
+				})
+				dtpicker.show(function(e) {
+					var this_times = e.y.text + '-' + e.m.text + '-' + e.d.text;
+					console.log(this_times)
+					$(".pkdate").val(this_times);
+				})
+			});
+			var y = CurentTime(1),
+				m = CurentTime(2),
+				d = CurentTime(3);
+
+			function stringIstime(stringTime) {
+				var timestamp2 = Date.parse(new Date(stringTime));
+				timestamp2 = timestamp2 / 1000;
+				return timestamp2;
+			}
+
+			function CurentTime(type) {
+				var time = '';
+				var now = new Date();
+				var year = now.getFullYear(); //年
+				var month = now.getMonth() + 1; //月
+				var day = now.getDate(); //日
+				var hh = now.getHours(); //时
+				var mm = now.getMinutes(); //分
+				var ss = now.getSeconds(); //秒
+				switch(type) {
+					case 1:
+						time = year;
+						break;
+					case 2:
+						time = month;
+						break;
+					case 3:
+						time = day;
+						break;
+				}
+				/*if (time < 10)
+				{
+				    time = '0' + time;
+				}*/
+				time = time + '';
+				return(time);
+			}
+
+			//格式化时间戳
+			function formatDate(dates) {
+				da = new Date(dates);
+				var year = da.getFullYear() + '-';
+				var month = da.getMonth() + 1 + '-';
+				var date1 = da.getDate();
+				if(da.getMonth() + 1 < 10) {
+					month = '0' + month;
+				}
+				if(da.getDate() + 1 < 10) {
+					date1 = '0' + date1;
+				}
+				return year + month + date1;
+			}
+			
+			
+			$(".pass").click(function(){
+				$(this).toggleClass("passon");
+				var inputs = $(this).prev(".input").children("input")
+				var input = $(this).prev(".input").children("input").attr("type")
+				if(input=="text"){
+					inputs.attr("type","password")
+				}if(input=="password"){
+					inputs.attr("type","text")
+				}
+			})
+			$(".list-add").click(function(){
+				var list = '<li class="mui-table-view-cell list-added"><a class="mui-navigate-right"><label>准考证号</label><input type="text" class="mui-input-clear" placeholder="请输入"></a></li>'
+				$(".rg-list").append(list)
+			});
+			$(".list-del").click(function(){
+				$(".rg-list li.list-added:last-child").remove()
+			})
+	</script>
+</body>
+</html>
