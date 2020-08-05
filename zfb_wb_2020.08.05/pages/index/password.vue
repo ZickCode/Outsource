@@ -15,7 +15,7 @@
 		</view>
 		<block v-if="!payType">
 			<view class="title">
-				输入支付密码，已完成支付
+				输入支付密码，以完成支付
 			</view>
 			<validcode ref="pwd" :maxlength="6" :isPwd="true" @finish="getPwd"></validcode>
 		</block>
@@ -42,9 +42,6 @@
 				payType:false,
 			};
 		},
-		onLoad(option) {
-			console.log(option)
-		},
 		methods: {
 			back(){
 				uni.navigateBack({
@@ -63,7 +60,11 @@
 						_this.payType = true
 					},1500)
 				}
-			},
+			}
+		},
+		onLoad(option) {
+			this.account = option.account;
+			this.payType = option.payType ? option.payType : this.payType;
 		}
 	};
 </script>

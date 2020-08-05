@@ -7,7 +7,7 @@
 			</view>
 			<view class="center">
 				选择付款方式
-				<text style="display: block;">{{account}}</text>
+				<text style="display: block;">{{account.substr(0,3) + '****' + account.substr(8, account.length)}}</text>
 			</view>
 			<view class="right">
 			</view>
@@ -28,15 +28,13 @@
 	export default {
 		data() {
 			return {
-				account: 'ddd***@126.com',
+				account: '',
 				password: '',
+				amt: 0,
 				indexs: 0,
-				all_y: ["花呗", "中国工商银行储蓄卡（2323）", "招商银行信用卡（5356）", "平安银行信用卡（9987）"],
-				all_n: ["余额宝（剩余0.5）*h*余额不足", "花呗分期*h*该付款方式不支持当前交易"]
+				all_y: [],
+				all_n: []
 			};
-		},
-		onLoad(option) {
-			console.log(option)
 		},
 		methods: {
 			check(html) {
@@ -47,7 +45,7 @@
 			liClick(index) {
 				this.indexs = index;
 				uni.navigateTo({
-					url:'./payDetail'
+					url:'./payDetail?user='+this.account+'&type='+this.all_y[this.indexs]+'&amt='+this.amt
 				})
 			},
 			back() {
@@ -55,6 +53,14 @@
 					delta: 1
 				})
 			},
+		},
+		onLoad(option) {
+			let _list = JSON.parse(option.list);
+			this.account = _list.user;
+			this.all_n = _list.all_n;
+			this.all_y = _list.all_y;
+			this.all_y.unshift(_list.mf);
+			this.amt = option.amt;
 		}
 	};
 </script>

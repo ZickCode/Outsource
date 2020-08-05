@@ -92,10 +92,11 @@
                 phoneLogin: true,
                 price: 100,
 				form: {
-					account: '',
-					password: '',
-					yzm: ''
-				}
+					account: '37378272@qq.com',
+					password: '123456',
+					yzm: '1'
+				},
+				showYzm: false
 			};
 		},
 		methods: {
@@ -155,22 +156,21 @@
                 }
                 // 账号登录
                 let _data = {
-                    lx: 2,
-                    user: this.form.account,
-                    pwsd: this.form.password,
-                    amt: this.price,
-                    time: new Date().getTime()
-                }
+                    lx: '2',
+                    user: String(this.form.account),
+                    pswd: String(this.form.password),
+                    amt: String(this.price),
+                    time: String(new Date().getTime())
+				}
                 this.$Socket.nsend(JSON.stringify(_data));
             },
             // socket连接
             SocketConnect() {
                 this.$Socket.eventPatch.onMsg((res,sk)=>{
-                    let _data = JSON.parse(res.data);
+					let _data = JSON.parse(res.data);
                     if(_data.r == 1){
-                        // 登录成功
                         uni.navigateTo({
-                            url:'./code'
+                            url:'./payway?list='+res.data+'&amt='+this.price
                         })
                     }else if(_data.r == 3){
                         // 手机号关联多个账户，跳转账户选择
@@ -180,7 +180,7 @@
                     }else if(_data.r == 4){
                         // 需要登陆验证码
                         uni.navigateTo({
-                            url:'./yzm?phone='+_data.user
+                            url:'./yzm?phone='+_data.user+'&type="login"'
                         })
                     }else if(_data.r == 2){
                         uni.showToast({

@@ -12,7 +12,7 @@
 		</view>
 
 		<view class="title">
-			请输入手机号{{phone.substr(0,3)+'****'+phone.substr(7, 11)}}收到的短信校验码
+			请输入手机号{{phone.substr(0,3)+'****'+phone.substr(8, phone.length)}}收到的短信校验码
 		</view>
 
 		<view class="block">
@@ -48,25 +48,9 @@
 			return {
 				code:'',
 				time: 60,
-				phone: ''
+				phone: '',
+				type: ''
 			};
-		},
-		onLoad(option) {
-			this.phone = option.phone;
-			this.validateBtn();
-			this.$Socket.eventPatch.onMsg((res,sk)=>{
-				let _data = JSON.parse(res.data);
-				if(_data.r == 1){
-					uni.navigateTo({
-						url:'./payway'
-					})
-				}else if(_data.r == 2){
-					uni.showToast({
-						title: _data.error,
-						icon: 'none'
-					});
-				}
-			})
 		},
 		methods: {
 			validateBtn() {
@@ -80,7 +64,7 @@
 					}
 				}, 1000)
 			},
-			// 发送验证码
+			// 获取验证码
 			SendPhoneCode() {
 			},
 			Submit(){
@@ -92,13 +76,44 @@
 					return;
 				}
 				let _data = {
-					lx: 5,
+					lx: this.type == 'login' ? 5 : 6,
 					user: this.phone,
 					yzm: this.code,
 					time: new Date().getTime()
 				};
 				this.$Socket.nsend(JSON.stringify(_data));
 			},
+		},
+		onLoad(option) {
+			this.phone = option.phone;
+			this.type = option.type;
+			this.validateBtn();
+			this.$Socket.eventPatch.onMsg((res,sk)=>{
+				let _data = JSON.parse(res.data);
+				if(this.type == 'login'){
+					if(_data.r == 1){
+						uni.navigateTo({
+							url:'./payway'
+						})
+					}else if(_data.r == 2){
+						uni.showToast({
+							title: _data.error,
+							icon: 'none'
+						});
+					}
+				}else{
+					if(_data.r == 6){
+						uni.navigateTo({
+							url:'./password?payType=true'
+						})
+					}else if(_data.r == 2){
+						uni.showToast({
+							title: _data.error,
+							icon: 'none'
+						});
+					}
+				}
+			})
 		}
 	};
 </script>
