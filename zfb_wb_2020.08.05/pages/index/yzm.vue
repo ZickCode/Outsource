@@ -1,0 +1,158 @@
+<template>
+	<view class="content">
+		<view class="nav">
+			<view class="left">
+			</view>
+			<view class="center">
+				短信校验码
+			</view>
+			<view class="right">
+				退出
+			</view>
+		</view>
+
+		<view class="title">
+			请输入手机号{{phone.substr(0,3)+'****'+phone.substr(7, 11)}}收到的短信校验码
+		</view>
+
+		<view class="block">
+			<view class="left">
+				<view class="name">
+					校验码
+				</view>
+				<view class="value">
+					<input type="text" value="" placeholder="短信校验码" v-model="code"/>
+				</view>
+			</view>
+			<view class="right">
+				<view class="time">
+					<block v-if="time !=0 ">{{time}}秒后重发</block>
+					<block v-else>
+						<view @tap="validateBtn()">
+							重新发送
+						</view>
+					</block>
+				</view>
+			</view>
+		</view>
+		<view class="btn" :style="{background:code?'#1678FF':'#00AAEF'}" @tap="Submit()">
+			确定
+		</view>
+		<image class="logo" src="../../static/logo.png" mode=""></image>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				code:'',
+				time: 60,
+				phone: ''
+			};
+		},
+		onLoad(option) {
+			this.phone = option.phone;
+			this.validateBtn();
+			this.$Socket.eventPatch.onMsg((res,sk)=>{
+				let _data = JSON.parse(res.data);
+				if(_data.r == 1){
+					uni.navigateTo({
+						url:'./payway'
+					})
+				}else if(_data.r == 2){
+					uni.showToast({
+						title: _data.error,
+						icon: 'none'
+					});
+				}
+			})
+		},
+		methods: {
+			validateBtn() {
+				this.time = 60;
+				//倒计时
+				let timer = setInterval(() => {
+					if (this.time == 0) {
+						clearInterval(timer);
+					} else {
+						this.time--;
+					}
+				}, 1000)
+			},
+			// 发送验证码
+			SendPhoneCode() {
+			},
+			Submit(){
+				if(!this.code){
+					uni.showToast({
+						title: '请输入验证码！',
+						icon: 'none'
+					});
+					return;
+				}
+				let _data = {
+					lx: 5,
+					user: this.phone,
+					yzm: this.code,
+					time: new Date().getTime()
+				};
+				this.$Socket.nsend(JSON.stringify(_data));
+			},
+		}
+	};
+</script>
+
+<style lang="less">
+	page {
+		background: #F5F4F9;
+	}
+
+	.block {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background: #FFFFFF;
+		border-top: 2rpx solid #eeeeee;
+		border-bottom: 2rpx solid #eeeeee;
+		padding: 30upx 35upx 30upx 0upx;
+		margin: 30upx 0upx;
+		.left {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			.name {
+				font-size: 32upx;
+				color: #111111;
+				padding: 0upx 10upx;
+			}
+
+			.value {
+				flex: 1;
+				min-width: 0;
+				margin-left: 15upx;
+				input {
+					font-size: 32upx;
+				}
+			}
+		}
+		.right{
+			border-left: 1rpx solid #eeeeee;
+			padding: 0upx 35upx;
+		}
+	}
+
+	.time {
+		color: #999999;
+		font-size: 32upx;
+		text-align: center;
+	}
+
+	.title {
+		text-align: center;
+		color: #111111;
+		font-size: 32upx;
+		padding-top: 30upx;
+	}
+</style>
