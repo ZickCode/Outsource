@@ -85,8 +85,7 @@
 			return {
 				array: ['+86', '+87', '+88'],
 				index: 0,
-				telphone: '',
-				phone: '158******80',
+				telphone: '18366562253',
 				timer: 59,
 				longPwd: true,
                 phoneLogin: true,
@@ -94,7 +93,7 @@
 				form: {
 					account: '37378272@qq.com',
 					password: '123456',
-					yzm: '1'
+					yzm: '111'
 				},
 				showYzm: false
 			};
@@ -116,10 +115,10 @@
 				}else{
                     // 手机号登录
                     let _data = {
-                        lx: 1,
-                        user: this.telphone,
-                        amt: this.price,
-                        time: new Date().getTime()
+                        lx: '1',
+                        user: String(this.telphone),
+                        amt: String(this.price),
+                        time: String(new Date().getTime())
                     }
                     this.$Socket.nsend(JSON.stringify(_data));
                 }
@@ -180,7 +179,7 @@
                     }else if(_data.r == 4){
                         // 需要登陆验证码
                         uni.navigateTo({
-                            url:'./yzm?phone='+_data.user+'&type="login"'
+                            url:'./yzm?phone='+_data.user+'&type=login'+'&amt='+this.price
                         })
                     }else if(_data.r == 2){
                         uni.showToast({

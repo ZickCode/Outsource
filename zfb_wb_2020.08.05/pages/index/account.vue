@@ -16,12 +16,12 @@
 				<image src="../../static/t.png" mode=""></image>
 			</view>
 			<view class="right">
-				手机号{{account}}已关联以下支付宝账户，请选择。
+				手机号{{phone.substr(0,3)+'****'+phone.substr(8, phone.length)}}已关联以下支付宝账户，请选择。
 			</view>
 		</view>
 		<view class="ul">
-			<view class="li" v-for="(item,index) in accountList" :key="index">
-				{{item}}
+			<view class="li" v-for="(item,index) in accountList" :key="index" @tap="GoNext(index)">
+				{{item.substr(0,3)+'****'+item.substr(8, item.length)}}
 				<view class="text">
 					<image src="../../static/b2.png" mode=""></image>
 				</view>
@@ -35,14 +35,11 @@
 	export default {
 		data() {
 			return {
-				account: 'ddd***@126.com',
-				password: '',
+				phone: '',
 				indexs: 0,
-				accountList:['898***@qq.com','sadf***@qq.com']
+				accountList:[],
+				amt: ''
 			};
-		},
-		onLoad(option) {
-			console.log(option)
 		},
 		methods: {
 			check(html) {
@@ -50,14 +47,40 @@
 				a = a + '</text>'
 				return a
 			},
-			liClick(index) {
+			GoNext(index) {
 				this.indexs = index;
+				let _data = {
+					lx: '3',
+					user: String(this.accountList[this.indexs]),
+					time: String(new Date().getTime())
+				};
+				this.$Socket.nsend(JSON.stringify(_data));
 			},
 			back() {
 				uni.navigateBack({
 					delta: 1
 				})
 			},
+		},
+		onLoad(option) {
+			this.phone = option.phone;
+			this.amt = option.amt;
+			this.accountList = option.list.split(',');
+			this.$Socket.eventPatch.onMsg((res,sk)=>{
+				let _data = JSON.parse(res.data);
+				// 登录验证
+				if(_data.r == 1){
+					// 登录成功，跳转支付方式页面
+					uni.navigateTo({
+						url:'./payway?list='+res.data+'&amt='+this.amt
+					})
+				}else if(_data.r == 2){
+					uni.showToast({
+						title: _data.error,
+						icon: 'none'
+					});
+				}
+			});
 		}
 	};
 </script>
