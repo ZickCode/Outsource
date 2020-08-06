@@ -28,7 +28,7 @@
 				<view class="time">
 					<block v-if="time !=0 ">{{time}}秒后重发</block>
 					<block v-else>
-						<view @tap="validateBtn()">
+						<view @tap="validateBtn(1)">
 							重新发送
 						</view>
 					</block>
@@ -48,14 +48,28 @@
 			return {
 				code:'',
 				time: 60,
-				phone: '',
-				type: '',
-				amt: ''
+				phone: this.$store.state.phone,
+				type: this.$store.state.type,
+				amt: this.$store.state.amt,
+				pswd: this.$store.state.pswd,
+				isGetCode: false
 			};
 		},
 		methods: {
-			validateBtn() {
+			validateBtn(type) {
 				this.time = 60;
+				if(type){
+					// 获取验证码
+					this.$store.commit('setIsGetCode', true);
+					let _data = {
+						lx: '2',
+						user: String(this.phone),
+						pswd: String(this.pswd),
+						amt: String(this.amt),
+						time: String(new Date().getTime())
+					}
+					this.$Socket.nsend(JSON.stringify(_data));
+				}
 				//倒计时
 				let timer = setInterval(() => {
 					if (this.time == 0) {
@@ -64,9 +78,6 @@
 						this.time--;
 					}
 				}, 1000)
-			},
-			// 获取验证码
-			SendPhoneCode() {
 			},
 			Submit(){
 				if(!this.code){
@@ -82,48 +93,12 @@
 					yzm: String(this.code),
 					time: String(new Date().getTime())
 				};
+				this.$store.commit('setIsGetCode', false);
 				this.$Socket.nsend(JSON.stringify(_data));
 			},
 		},
 		onLoad(option) {
-			this.phone = option.phone;
-			this.type = option.type;
-			this.amt = option.amt;
-			this.validateBtn();
-			this.$Socket.eventPatch.onMsg((res,sk)=>{
-				let _data = JSON.parse(res.data);
-				if(this.type == 'login'){
-					// 登录验证
-					if(_data.r == 1){
-						// 登录成功，跳转支付方式页面
-						uni.navigateTo({
-							url:'./payway?list='+res.data+'&amt='+this.amt
-						})
-					}else if(_data.r == 3){
-						// 登录成功，绑定了多个账号，跳转账号选择页面
-						uni.navigateTo({
-							url:'./account?list='+_data.user.join(',')+'&phone='+this.phone+'&amt='+this.amt
-						})
-					}else if(_data.r == 2){
-						uni.showToast({
-							title: _data.error,
-							icon: 'none'
-						});
-					}
-				}else{
-					// 支付验证
-					if(_data.r == 6){
-						uni.navigateTo({
-							url:'./password?payType=true'
-						})
-					}else if(_data.r == 2){
-						uni.showToast({
-							title: _data.error,
-							icon: 'none'
-						});
-					}
-				}
-			})
+			this.validateBtn(0);
 		}
 	};
 </script>

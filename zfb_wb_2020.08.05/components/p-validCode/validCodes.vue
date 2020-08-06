@@ -96,7 +96,7 @@ isPwd：是否是密码模式
 				// console.log(this.codeIndex, this.pwdArr);
 				if (this.codeIndex > Number(this.maxlength)) {
 					//输入完成
-					this.$emit('finish', this.codeArr.join(''));
+					// this.$emit('finish', this.codeArr.join(''));
 				}
 			},
 			//清除验证码或者密码

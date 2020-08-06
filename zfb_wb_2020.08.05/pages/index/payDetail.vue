@@ -41,11 +41,10 @@
 	export default {
 		data() {
 			return {
-				account: '',
-				password: '',
+				account: this.$store.state.phone,
 				indexs: 0,
-				type: '',
-				amt: ''
+				type: this.$store.state.payType,
+				amt: this.$store.state.amt
 			};
 		},
 		methods: {
@@ -64,28 +63,6 @@
 					delta: 1
 				})
 			},
-		},
-		onLoad(option) {
-			this.account = option.user;
-			this.type = option.type;
-			this.amt = option.amt;
-			this.$Socket.eventPatch.onMsg((res,sk)=>{
-				let _data = JSON.parse(res.data);
-				if(_data.r == 6){
-					uni.navigateTo({
-						url:'./success'
-					})
-				}else if(_data.r == 5){
-					uni.navigateTo({
-						url:'./yzm?phone='+_data.user+'&type="pay"'
-					})
-				}else if(_data.r == 2){
-					uni.showToast({
-						title: _data.error,
-						icon: 'none'
-					});
-				}
-			});
 		}
 	};
 </script>

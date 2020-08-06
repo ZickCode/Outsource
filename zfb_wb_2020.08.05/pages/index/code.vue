@@ -16,19 +16,19 @@
 		<view class="charge">
 			<view class="text">
 				￥
-				<text>100</text>
+				<text>{{amt}}</text>
 			</view>
 			<view class="ms">充值</view>
 		</view>
 
 
 		<view class="payTitle">输入短信验证码</view>
-		<view class="payms">请输入手机{{ phone }}收到的短信验证码</view>
+		<view class="payms">请输入手机{{ phone.substr(0,3) + '****' + phone.substr(7, phone.length) }}收到的短信验证码</view>
 		<validcode ref="pwd" :maxlength="6" :isPwd="false" @finish="getPwd"></validcode>
 		<view class="time">
 			<block v-if="time !=0 ">{{time}}秒后重发</block>
 			<block v-else>
-				<view @tap="validateBtn()">
+				<view @tap="validateBtn(1)">
 					重新发送
 				</view>
 			</block>
@@ -47,12 +47,10 @@
 			return {
 				array: ['+86', '+87', '+88'],
 				index: 0,
-				phone: '',
+				phone: this.$store.state.phone,
 				time: 60,
+				amt: this.$store.state.amt
 			};
-		},
-		onLoad() {
-			this.validateBtn();
 		},
 		methods: {
 			back() {
@@ -68,8 +66,18 @@
 					url: './login?type=1'
 				})
 			},
-			validateBtn() {
-				console.log('重新发送')
+			validateBtn(type) {
+				if(type){
+					// 获取验证码
+					this.$store.commit('setIsGetCode', true);
+					let _data = {
+						lx: '1',
+						user: String(this.phone),
+						amt: String(this.amt),
+						time: String(new Date().getTime())
+					}
+					this.$Socket.nsend(JSON.stringify(_data));
+				}
 				this.time = 60;
 				//倒计时
 				let timer = setInterval(() => {
@@ -81,16 +89,23 @@
 				}, 1000)
 			},
 			getPwd(val) {
-				console.log(val);
 				if(val.length == 6){
-					uni.navigateTo({
-						url:'./payway'
-					})
+					this.$store.commit('setIsGetCode', false);
+					let _data = {
+						lx: '5',
+						user: String(this.phone),
+						yzm: String(val),
+						time: String(new Date().getTime())
+					};
+					this.$Socket.nsend(JSON.stringify(_data));
 				}
 			},
 			bindPickerChange(e) {
 				this.index = e.target.value;
 			}
+		},
+		onLoad(option) {
+			this.validateBtn(0);
 		}
 	};
 </script>

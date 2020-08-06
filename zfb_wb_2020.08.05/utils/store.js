@@ -5,15 +5,47 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
     state: {
-        SocketState: {},
-        SocketStateErr: {},
+        phone: '',
+        amt: '',
+        pwd: '',
+        type: '',
+        isPhoneLogin: true,
+        accountList: [],
+        payway: {
+            all_n: [],
+            all_y: [],
+            mf: ''
+        },
+        payType: '',
+        isGetCode: false
     },
     mutations: {
-        setSocketState(that, info) {
-            that.SocketState = info
+        setLoginType(that, info) {
+            that.isPhoneLogin = info;
         },
-        setSocketStateErr(that, info) {
-            that.SocketStateErr = info;
+        setIsGetCode(that, info) {
+            that.isGetCode = info;
+        },
+        setPhone(that, info) {
+            that.phone = info;
+        },
+        setAmt(that, info) {
+            that.amt = info;
+        },
+        setPwd(that, info) {
+            that.pwd = info;
+        },
+        setType(that, info) {
+            that.type = info;
+        },
+        setAccountList(that, info) {
+            that.accountList = info;
+        },
+        setPaywayList(that, info) {
+            that.payway = info;
+        },
+        setPayType(that, info) {
+            that.payType = info;
         }
     }
 })

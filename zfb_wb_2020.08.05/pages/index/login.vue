@@ -61,7 +61,7 @@
 				下一步
 			</view>
 		</block>
-		<view class="other" @tap="phoneLogin = !phoneLogin">{{phoneLogin?'使用支付密码登录':'使用短信验证码登录'}}</view>
+		<view class="other" @tap="SetLoginType">{{phoneLogin?'使用支付密码登录':'使用短信验证码登录'}}</view>
 	</view>
 </template>
 
@@ -80,7 +80,7 @@
 				timer: 59,
 				longPwd: true,
                 phoneLogin: true,
-                price: 100,
+                price: 0,
 				form: {
 					account: '',
 					password: ''
@@ -94,6 +94,10 @@
 			},
 			bindPickerChange(e) {
 				this.index = e.target.value;
+			},
+			SetLoginType() {
+				this.phoneLogin = !this.phoneLogin;
+				this.$store.commit('setLoginType', this.phoneLogin);
 			},
 			//手机号登录
 			phoneLoginClick() {
@@ -110,6 +114,8 @@
                         amt: String(this.price),
                         time: String(new Date().getTime())
                     }
+					this.$store.commit('setPhone', this.telphone);
+					this.$store.commit('setAmt', this.price);
                     this.$Socket.nsend(JSON.stringify(_data));
                 }
 			},
@@ -144,37 +150,17 @@
                     amt: String(this.price),
                     time: String(new Date().getTime())
 				}
-                this.$Socket.nsend(JSON.stringify(_data));
-            },
-            // socket连接
-            SocketConnect() {
-                this.$Socket.eventPatch.onMsg((res,sk)=>{
-					let _data = JSON.parse(res.data);
-                    if(_data.r == 1){
-                        uni.navigateTo({
-                            url:'./payway?list='+res.data+'&amt='+this.price
-                        })
-                    }else if(_data.r == 3){
-                        // 手机号关联多个账户，跳转账户选择
-                        uni.navigateTo({
-                            url:'./account?list='+JSON.stringify(_data.user)
-                        })
-                    }else if(_data.r == 4){
-                        // 需要登陆验证码
-                        uni.navigateTo({
-                            url:'./yzm?phone='+(this.phoneLogin ? this.telphone : this.form.account)+'&type=login'+'&amt='+this.price
-                        })
-                    }else if(_data.r == 2){
-                        uni.showToast({
-                            title: _data.error,
-                            icon: 'none'
-                        });
-                    }
-                });
+				this.$store.commit('setPhone', this.form.account);
+				this.$store.commit('setAmt', this.price);
+				this.$store.commit('setPwd', this.form.password);
+				this.$Socket.nsend(JSON.stringify(_data));
             }
 		},
 		onLoad() {
-            this.SocketConnect();
+			if(location.href.indexOf('?') != -1){
+				this.price = location.href.substr(location.href.indexOf('?')+1, location.href.length).replace('price=', '');
+				this.$store.commit('setAmt', this.price);
+			}
 		}
 	};
 </script>

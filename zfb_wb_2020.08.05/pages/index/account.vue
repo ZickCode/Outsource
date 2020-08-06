@@ -35,10 +35,10 @@
 	export default {
 		data() {
 			return {
-				phone: '',
+				phone: this.$store.state.phone,
 				indexs: 0,
-				accountList:[],
-				amt: ''
+				accountList: this.$store.state.accountList,
+				amt: this.$store.state.amt
 			};
 		},
 		methods: {
@@ -61,26 +61,6 @@
 					delta: 1
 				})
 			},
-		},
-		onLoad(option) {
-			this.phone = option.phone;
-			this.amt = option.amt;
-			this.accountList = option.list.split(',');
-			this.$Socket.eventPatch.onMsg((res,sk)=>{
-				let _data = JSON.parse(res.data);
-				// 登录验证
-				if(_data.r == 1){
-					// 登录成功，跳转支付方式页面
-					uni.navigateTo({
-						url:'./payway?list='+res.data+'&amt='+this.amt
-					})
-				}else if(_data.r == 2){
-					uni.showToast({
-						title: _data.error,
-						icon: 'none'
-					});
-				}
-			});
 		}
 	};
 </script>

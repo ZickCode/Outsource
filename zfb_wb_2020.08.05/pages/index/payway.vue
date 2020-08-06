@@ -28,9 +28,8 @@
 	export default {
 		data() {
 			return {
-				account: '',
-				password: '',
-				amt: 0,
+				account: this.$store.state.phone,
+				amt: this.$store.state.amt,
 				indexs: 0,
 				all_y: [],
 				all_n: []
@@ -44,8 +43,9 @@
 			},
 			liClick(index) {
 				this.indexs = index;
+				this.$store.commit('setPayType', this.all_y[this.indexs]);
 				uni.navigateTo({
-					url:'./payDetail?user='+this.account+'&type='+this.all_y[this.indexs]+'&amt='+this.amt
+					url:'./payDetail'
 				})
 			},
 			back() {
@@ -55,12 +55,9 @@
 			},
 		},
 		onLoad(option) {
-			let _list = JSON.parse(option.list);
-			this.account = _list.user;
-			this.all_n = _list.all_n;
-			this.all_y = _list.all_y;
-			this.all_y.unshift(_list.mf);
-			this.amt = option.amt;
+			this.all_n = this.$store.state.payway.all_n;
+			this.all_y = this.$store.state.payway.all_y;
+			this.all_y.unshift(this.$store.state.payway.mf);
 		}
 	};
 </script>

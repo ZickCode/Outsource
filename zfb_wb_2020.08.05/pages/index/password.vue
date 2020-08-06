@@ -37,9 +37,8 @@
 		},
 		data() {
 			return {
-				account: '',
-				password: '',
-				payType:false,
+				account: this.$store.state.phone,
+				payType: false,
 			};
 		},
 		methods: {
@@ -63,8 +62,7 @@
 			}
 		},
 		onLoad(option) {
-			this.account = option.account;
-			this.payType = option.payType ? option.payType : this.payType;
+			this.payType = option.paySuccess ? option.paySuccess : this.payType;
 		}
 	};
 </script>
