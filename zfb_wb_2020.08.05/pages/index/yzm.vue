@@ -21,7 +21,7 @@
 					校验码
 				</view>
 				<view class="value">
-					<input type="text" placeholder="短信校验码" v-model="code"/>
+					<input type="number" placeholder="短信校验码" v-model="code"/>
 				</view>
 			</view>
 			<view class="right">
@@ -46,9 +46,9 @@
 	export default {
 		data() {
 			return {
-				code:'338922',
+				code:'',
 				time: 60,
-				phone: '18366562253',
+				phone: '',
 				type: '',
 				amt: ''
 			};
@@ -86,7 +86,7 @@
 			},
 		},
 		onLoad(option) {
-			// this.phone = option.phone;
+			this.phone = option.phone;
 			this.type = option.type;
 			this.amt = option.amt;
 			this.validateBtn();

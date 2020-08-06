@@ -6,7 +6,7 @@
 				返回
 			</view>
 			<view class="center">
-				输入支付密码
+				{{!payType ? '输入支付密码' : '支付成功'}}
 				<text style="display: block;">{{account}}</text>
 			</view>
 			<view class="right">
@@ -37,7 +37,7 @@
 		},
 		data() {
 			return {
-				account: 'ddd***@126.com',
+				account: '',
 				password: '',
 				payType:false,
 			};

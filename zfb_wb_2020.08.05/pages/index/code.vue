@@ -47,7 +47,7 @@
 			return {
 				array: ['+86', '+87', '+88'],
 				index: 0,
-				phone: '158******80',
+				phone: '',
 				time: 60,
 			};
 		},

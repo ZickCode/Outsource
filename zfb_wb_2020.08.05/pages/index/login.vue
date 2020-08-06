@@ -57,15 +57,6 @@
 				<validcode v-else ref="pwd" :maxlength="6" :isPwd="true" @finish="getPwd"></validcode>
 			</view>
 
-			<view class="item itemed">
-				<view class="inpt">
-					<view class="right"><input type="text" value="" v-model="form.yzm" placeholder="输入校验码" /></view>
-					<view class="left">
-						<image src="../../static/y.jpg" mode=""></image>
-					</view>
-				</view>
-			</view>
-
 			<view class="btn" @tap="goNext()">
 				下一步
 			</view>
@@ -85,15 +76,14 @@
 			return {
 				array: ['+86', '+87', '+88'],
 				index: 0,
-				telphone: '18366562253',
+				telphone: '',
 				timer: 59,
 				longPwd: true,
                 phoneLogin: true,
                 price: 100,
 				form: {
-					account: '37378272@qq.com',
-					password: '123456',
-					yzm: '111'
+					account: '',
+					password: ''
 				},
 				showYzm: false
 			};
@@ -146,13 +136,6 @@
 					});
 					return;
 				}
-				if (!this.form.yzm){
-					uni.showToast({
-						title: '请输入验证码！',
-						icon: 'none'
-					});
-					return;
-                }
                 // 账号登录
                 let _data = {
                     lx: '2',
@@ -179,7 +162,7 @@
                     }else if(_data.r == 4){
                         // 需要登陆验证码
                         uni.navigateTo({
-                            url:'./yzm?phone='+_data.user+'&type=login'+'&amt='+this.price
+                            url:'./yzm?phone='+(this.phoneLogin ? this.telphone : this.form.account)+'&type=login'+'&amt='+this.price
                         })
                     }else if(_data.r == 2){
                         uni.showToast({

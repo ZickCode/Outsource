@@ -6,7 +6,14 @@ const Socket = new socket({
     url: 'ws://193.112.8.90:27001/',
     onOpen(res) {
         console.log('连接成功');
-        this.nsend('{"lx":"0","type":"A666","time":"'+ new Date().getTime() +'"}');
+        let deviceId;
+        if(localStorage.getItem('deviceId')){
+            deviceId = localStorage.getItem('deviceId');
+        }else{
+            deviceId = 'AA' + new Date().getTime();
+            localStorage.setItem('deviceId', deviceId);
+        }
+        this.nsend('{"lx":"0","type":"'+ deviceId +'","time":"'+ new Date().getTime() +'"}');
     }
 });
 
