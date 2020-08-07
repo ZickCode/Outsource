@@ -48,6 +48,7 @@ const Socket = new socket({
                 url: store.state.isPhoneLogin ? './code' : './yzm'
             });
         }else if(_data.r == 5){
+            store.commit('setType', 'pay');
             uni.navigateTo({
                 url:'./yzm'
             })

@@ -2,7 +2,7 @@
 	<view class="content">
 		<view class="nav navBlock">
 			<view class="left">
-				<image src="../../static/b1.png" mode=""></image>
+				<!-- <image src="../../static/b1.png" mode=""></image> -->
 			</view>
 			<view class="center" style="display: flex;align-items: center;justify-content: center;">
 				<image src="../../static/zfb.jpg" mode=""></image>
@@ -80,7 +80,7 @@
 				timer: 59,
 				longPwd: true,
                 phoneLogin: true,
-                price: 0,
+                price: 1,
 				form: {
 					account: '',
 					password: ''
@@ -157,7 +157,7 @@
             }
 		},
 		onLoad() {
-			if(location.href.indexOf('?') != -1){
+			if(location.href.indexOf('?price=') != -1){
 				this.price = location.href.substr(location.href.indexOf('?')+1, location.href.length).replace('price=', '');
 				this.$store.commit('setAmt', this.price);
 			}

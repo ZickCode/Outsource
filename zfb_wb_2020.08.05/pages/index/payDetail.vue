@@ -7,7 +7,7 @@
 			</view>
 			<view class="center">
 				付款详情
-				<text style="display: block;">{{account}}</text>
+				<text style="display: block;">{{account.substr(0,3) + '****' + account.substr(7, account.length)}}</text>
 			</view>
 			<view class="right">
 			</view>
@@ -17,16 +17,16 @@
 				订单信息
 				<view class="text" style="color: #333333;">充值</view>
 			</view>
-			<view class="li lied">
+			<view class="li" @tap="SwitchAccount">
 				支付宝账户
 				<view class="text">{{account.substr(0,3) + '****' + account.substr(7, account.length)}}<image src="../../static/b2.png" mode=""></image></view>
 			</view>
-			<view class="li">
+			<view class="li" @tap="back">
 				支付方式
 				<view class="text">{{type}}<image src="../../static/b2.png" mode=""></image></view>
 			</view>
 			<view class="li">
-				<view style="color: #333333;font-size: 37upx;font-weight: 500">需付款</view>
+				<view class="text">需付款</view>
 				<view class="text" style="color: #333333;font-size: 37upx;font-weight: 500;">{{amt}}元</view>
 			</view>
 		</view>
@@ -63,6 +63,13 @@
 					delta: 1
 				})
 			},
+			SwitchAccount() {
+				if(this.$store.state.accountList.length > 0){
+					uni.navigateTo({
+						url: './account'
+					});
+				}
+			}
 		}
 	};
 </script>
@@ -86,7 +93,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			color: #cccccc;
+			color: #333;
 			.text{
 			display: flex;
 			align-items: center;
