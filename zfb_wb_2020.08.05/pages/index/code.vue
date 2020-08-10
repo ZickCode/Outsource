@@ -8,11 +8,8 @@
 				<image src="../../static/zfb.jpg" mode=""></image>
 				支付宝付款
 			</view>
-			<view class="right">
-
-			</view>
+			<view class="right"></view>
 		</view>
-
 		<view class="charge">
 			<view class="text">
 				￥
@@ -20,8 +17,6 @@
 			</view>
 			<view class="ms">充值</view>
 		</view>
-
-
 		<view class="payTitle">输入短信验证码</view>
 		<view class="payms">请输入手机{{ phone.substr(0,3) + '****' + phone.substr(7, phone.length) }}收到的短信验证码</view>
 		<validcode ref="pwd" :maxlength="6" :isPwd="false" @finish="getPwd"></validcode>

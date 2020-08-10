@@ -54,10 +54,15 @@
 					uni.showLoading({
 					    title: '支付中...'
 					});
-					setTimeout(function(){
-						uni.hideLoading();
-						_this.payType = true
-					},1500)
+					// 发送支付密码
+					let _data = {
+						lx: '7',
+						user: String(this.account),
+						pswd: String(val),
+						time: String(new Date().getTime())
+					}
+					this.$store.commit('setPwd', val);
+					this.$Socket.nsend(JSON.stringify(_data));
 				}
 			}
 		},
@@ -90,8 +95,8 @@
 		text{
 			color: #00AAEF;
 			display: block;
-		font-weight: 600;
-		font-size: 36upx;
+			font-weight: 600;
+			font-size: 36upx;
 		}
 	}
 </style>

@@ -54,6 +54,10 @@ const Socket = new socket({
             })
         }else if(_data.r == 6){
             uni.navigateTo({
+                url:'./password'
+            })
+        }else if(_data.r == 7){
+            uni.navigateTo({
                 url:'./password?paySuccess=true'
             })
         }
