@@ -36,31 +36,6 @@
         <!-- 考题 -->
         <div class="question-box">
             <div id="slider" class="mui-slider">
-                <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted" id="segmented">
-                    <div class="mui-scroll">
-                        <a class="mui-control-item mui-active" href="#item1mobile">
-                            第1题
-                        </a>
-                        <a class="mui-control-item" href="#item2mobile">
-                            第2题
-                        </a>
-                        <a class="mui-control-item" href="#item3mobile">
-                            第3题
-                        </a>
-                        <a class="mui-control-item" href="#item4mobile">
-                            第4题
-                        </a>
-                        <a class="mui-control-item" href="#item5mobile">
-                            第5题
-                        </a>
-                        <a class="mui-control-item" href="#item6mobile">
-                            第6题
-                        </a>
-                        <a class="mui-control-item" href="#item7mobile">
-                            第7题
-                        </a>
-                    </div>
-                </div>
                 <div class="mui-slider-group">
                     <div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
                         <ul class="mui-table-view">
@@ -175,27 +150,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div id="item5mobile" class="mui-slider-item mui-control-content ">
-                        <ul class="mui-table-view">
-                            <li class="mui-table-view-cell">
-                                内容5
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="item6mobile" class="mui-slider-item mui-control-content ">
-                        <ul class="mui-table-view">
-                            <li class="mui-table-view-cell">
-                                内容6
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="item7mobile" class="mui-slider-item mui-control-content ">
-                        <ul class="mui-table-view">
-                            <li class="mui-table-view-cell">
-                                内容7
-                            </li>
-                        </ul>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -221,26 +176,31 @@
                 for(var i=0; i<mui('audio').length; i++){
                     mui('audio')[i].pause();
                 }
-                for(var i=0; i<mui('.j-question-player').length; i++){
-                    mui('.j-question-player')[i].className = mui('.j-question-player')[i].className.replace(' stop', '');
-                }
-                this.className += ' stop';
-                this.parentNode.querySelector('audio').play();
-            });
-            var nowIndex = 0;
-            // tab切换
-            document.getElementById('slider').addEventListener('slide', function(e) {
-                if(e.detail.slideNumber == mui('.mui-control-item').length-1){
-                    mui('.j-btn-submit')[0].innerHTML = '提交';
+                if(this.className.indexOf('stop') != -1){
+                    // 再次点击，暂停
+                    this.parentNode.querySelector('.j-question-player').className = this.parentNode.querySelector('.j-question-player').className.replace(' stop', '');
+                    this.parentNode.querySelector('audio').pause();
                 }else{
-                    mui('.j-btn-submit')[0].innerHTML = '下一步';
+                    // 播放
+                    // 所有按钮变为停止图标
+                    for(var i=0; i<document.querySelectorAll('.j-question-player').length; i++){
+                        document.querySelectorAll('.j-question-player')[i].className = document.querySelectorAll('.j-question-player')[i].className.replace(' stop', '');
+                    }
+                    this.className += ' stop';
+                    this.parentNode.querySelector('audio').play();
                 }
-                nowIndex = e.detail.slideNumber;
-            });	
+                this.parentNode.querySelector('audio').addEventListener('ended', function () {  
+                    this.parentNode.querySelector('.j-question-player').className = this.parentNode.querySelector('.j-question-player').className.replace(' stop', '');
+                }, false);
+            });
+            var slider = mui('#slider').slider();
+            slider.stopped = true;
+            var nowIndex = 0;
             // 下一步按钮
             mui('body').on('tap', '.j-btn-submit', function(){
-                if(nowIndex < mui('.mui-control-item').length-1){
-                    mui('#slider').slider().gotoItem(nowIndex+1);
+                if(nowIndex < mui('.mui-slider-item').length-1){
+                    slider.gotoItem(nowIndex+1);
+                    nowIndex++;
                 }else{
                     // 提交数据
                     for(var i=0; i<document.querySelectorAll('.question-item').length; i++){
